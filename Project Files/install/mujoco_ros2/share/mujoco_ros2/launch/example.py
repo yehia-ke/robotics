@@ -5,7 +5,7 @@ from ament_index_python.packages import get_package_share_directory
 
 def generate_launch_description():
 
-    directory = get_package_share_directory('mujoco_ros2')                                          # Gets relative path of mujoco_ros2 package    
+    directory = get_package_share_directory('mujoco_ros2') # Gets relative path of mujoco_ros2 package
     
     xmlScenePath =  os.path.join(directory, 'model', 'ufactory_lite6', 'scene.xml')
     

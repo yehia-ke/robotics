@@ -1,0 +1,237 @@
+[0.000000] (-) TimerEvent: {}
+[0.000260] (mujoco_ros2) JobQueued: {'identifier': 'mujoco_ros2', 'dependencies': OrderedDict()}
+[0.000849] (mujoco_ros2) JobStarted: {'identifier': 'mujoco_ros2'}
+[0.017489] (mujoco_ros2) JobProgress: {'identifier': 'mujoco_ros2', 'progress': 'cmake'}
+[0.018620] (mujoco_ros2) Command: {'cmd': ['/usr/bin/cmake', '/home/ahmed/Desktop/Robotics Repo/Project Files/src', '-DCMAKE_INSTALL_PREFIX=/home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2'], 'cwd': '/home/ahmed/Desktop/Robotics Repo/Project Files/build/mujoco_ros2', 'env': OrderedDict({'TERM_SESSION_ID': '552b2a1a-e4f7-4a06-adec-efcdb3c050b2', 'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'XDG_ACTIVATION_TOKEN': 'd6898d75-f15f-42ed-9731-d7ee229ce2b7', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'SNAP_INSTANCE_KEY': '', 'USER': 'ahmed', 'SNAP_COMMON': '/var/snap/pycharm-community/common', 'XDG_SESSION_TYPE': 'wayland', 'SNAP_UID': '1000', 'CLUTTER_DISABLE_MIPMAPPED_TEXT': '1', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib:/home/ahmed/Desktop/Robotics/mujoco-3.13.0/lib:', 'HOME': '/home/ahmed', 'SNAP_LIBRARY_PATH': '/var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32', 'OLDPWD': '/home/ahmed/Desktop/Robotics Repo/Project Files', 'DESKTOP_SESSION': 'ubuntu', 'SNAP_USER_DATA': '/home/ahmed/snap/pycharm-community/676', 'TERMINAL_EMULATOR': 'JetBrains-JediTerm', 'GIO_LAUNCHED_DESKTOP_FILE': '/var/lib/snapd/desktop/applications/pycharm-community_pycharm-community.desktop', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'MANAGERPID': '2388', 'SYSTEMD_EXEC_PID': '2654', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'SNAP_REVISION': '676', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '3389', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/ahmed/Desktop/Robotics Repo/Project Files/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'ahmed', 'SNAP_CONTEXT': 'v6953VKKNPUbEwL7WcFVJDUWylVpzK-faB5Pg9QNNqo1eXlzjR7Z', 'JOURNAL_STREAM': '10:18379', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@wayland.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'SNAP_VERSION': '2026.2.3', 'USERNAME': 'ahmed', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'SNAP_INSTANCE_NAME': 'pycharm-community', 'PATH': '/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/ahmed:@/tmp/.ICE-unix/2616,unix/ahmed:/tmp/.ICE-unix/2616', 'INVOCATION_ID': 'de62dd619d4d4057adfff00523cb048e', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_SETUP_DISPLAY': ':1', 'SNAP_DATA': '/var/snap/pycharm-community/676', 'XDG_RUNTIME_DIR': '/run/user/1000', 'MUJOCO_PY_MUJOCO_PATH': '/home/ahmed/Desktop/Robotics/mujoco-3.13.0', 'DISPLAY': ':0', 'DESKTOP_STARTUP_ID': 'd6898d75-f15f-42ed-9731-d7ee229ce2b7', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.3D7XW3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'FIG_TERM': '1', 'SNAP_USER_COMMON': '/home/ahmed/snap/pycharm-community/common', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'SNAP_ARCH': 'amd64', 'AMENT_PREFIX_PATH': '/home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2:/opt/ros/jazzy', 'SNAP_COOKIE': 'v6953VKKNPUbEwL7WcFVJDUWylVpzK-faB5Pg9QNNqo1eXlzjR7Z', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'SNAP_REEXEC': '', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'SNAP_NAME': 'pycharm-community', 'GJS_DEBUG_OUTPUT': 'stderr', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/ahmed/Desktop/Robotics Repo/Project Files/build/mujoco_ros2', 'PROCESS_LAUNCHED_BY_CW': '1', 'INTELLIJ_TERMINAL_COMMAND_BLOCKS_REWORKED': '1', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'SNAP_REAL_HOME': '/home/ahmed', 'PICO_SDK_PATH': '/home/ahmed/pico/pico-sdk', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'SNAP_EUID': '1000', 'PYTHONPATH': '/opt/ros/jazzy/opt/gz_math_vendor/lib/python:/opt/ros/jazzy/lib/python3.12/site-packages', 'SNAP': '/snap/pycharm-community/676', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'PROCESS_LAUNCHED_BY_Q': '1', 'CMAKE_PREFIX_PATH': '/home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[0.099529] (-) TimerEvent: {}
+[0.139818] (mujoco_ros2) StdoutLine: {'line': b'-- The C compiler identification is GNU 13.3.0\n'}
+[0.199692] (-) TimerEvent: {}
+[0.248323] (mujoco_ros2) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 13.3.0\n'}
+[0.281506] (mujoco_ros2) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.299844] (-) TimerEvent: {}
+[0.400200] (-) TimerEvent: {}
+[0.464818] (mujoco_ros2) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.488241] (mujoco_ros2) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.488850] (mujoco_ros2) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.489807] (mujoco_ros2) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.500330] (-) TimerEvent: {}
+[0.509341] (mujoco_ros2) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.600448] (-) TimerEvent: {}
+[0.700806] (-) TimerEvent: {}
+[0.736036] (mujoco_ros2) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.753003] (mujoco_ros2) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.753817] (mujoco_ros2) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.754999] (mujoco_ros2) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.761225] (mujoco_ros2) StdoutLine: {'line': b'-- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)\n'}
+[0.800931] (-) TimerEvent: {}
+[0.901311] (-) TimerEvent: {}
+[1.001731] (-) TimerEvent: {}
+[1.070591] (mujoco_ros2) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter \n'}
+[1.101858] (-) TimerEvent: {}
+[1.202261] (-) TimerEvent: {}
+[1.302796] (-) TimerEvent: {}
+[1.326073] (mujoco_ros2) StdoutLine: {'line': b'-- Found rclcpp: 28.1.22 (/opt/ros/jazzy/share/rclcpp/cmake)\n'}
+[1.402971] (-) TimerEvent: {}
+[1.429709] (mujoco_ros2) StdoutLine: {'line': b'-- Found rosidl_generator_c: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)\n'}
+[1.464560] (mujoco_ros2) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)\n'}
+[1.503040] (-) TimerEvent: {}
+[1.506187] (mujoco_ros2) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[1.553389] (mujoco_ros2) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[1.603162] (-) TimerEvent: {}
+[1.703523] (-) TimerEvent: {}
+[1.756087] (mujoco_ros2) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 7.3.3 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)\n'}
+[1.763146] (mujoco_ros2) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 8.4.4 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)\n'}
+[1.803639] (-) TimerEvent: {}
+[1.903992] (-) TimerEvent: {}
+[1.952655] (mujoco_ros2) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.13")  \n'}
+[2.003588] (mujoco_ros2) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") \n'}
+[2.004069] (-) TimerEvent: {}
+[2.062758] (mujoco_ros2) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[2.104201] (-) TimerEvent: {}
+[2.204591] (-) TimerEvent: {}
+[2.273890] (mujoco_ros2) StdoutLine: {'line': b'-- Found sensor_msgs: 5.3.8 (/opt/ros/jazzy/share/sensor_msgs/cmake)\n'}
+[2.304725] (-) TimerEvent: {}
+[2.405070] (-) TimerEvent: {}
+[2.505501] (-) TimerEvent: {}
+[2.605963] (-) TimerEvent: {}
+[2.635804] (mujoco_ros2) StdoutLine: {'line': b'-- Configuring done (2.6s)\n'}
+[2.665631] (mujoco_ros2) StdoutLine: {'line': b'-- Generating done (0.0s)\n'}
+[2.674729] (mujoco_ros2) StdoutLine: {'line': b'-- Build files have been written to: /home/ahmed/Desktop/Robotics Repo/Project Files/build/mujoco_ros2\n'}
+[2.695030] (mujoco_ros2) CommandEnded: {'returncode': 0}
+[2.696266] (mujoco_ros2) JobProgress: {'identifier': 'mujoco_ros2', 'progress': 'build'}
+[2.698086] (mujoco_ros2) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/ahmed/Desktop/Robotics Repo/Project Files/build/mujoco_ros2', '--', '-j16', '-l16'], 'cwd': '/home/ahmed/Desktop/Robotics Repo/Project Files/build/mujoco_ros2', 'env': OrderedDict({'TERM_SESSION_ID': '552b2a1a-e4f7-4a06-adec-efcdb3c050b2', 'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'XDG_ACTIVATION_TOKEN': 'd6898d75-f15f-42ed-9731-d7ee229ce2b7', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'SNAP_INSTANCE_KEY': '', 'USER': 'ahmed', 'SNAP_COMMON': '/var/snap/pycharm-community/common', 'XDG_SESSION_TYPE': 'wayland', 'SNAP_UID': '1000', 'CLUTTER_DISABLE_MIPMAPPED_TEXT': '1', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib:/home/ahmed/Desktop/Robotics/mujoco-3.13.0/lib:', 'HOME': '/home/ahmed', 'SNAP_LIBRARY_PATH': '/var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32', 'OLDPWD': '/home/ahmed/Desktop/Robotics Repo/Project Files', 'DESKTOP_SESSION': 'ubuntu', 'SNAP_USER_DATA': '/home/ahmed/snap/pycharm-community/676', 'TERMINAL_EMULATOR': 'JetBrains-JediTerm', 'GIO_LAUNCHED_DESKTOP_FILE': '/var/lib/snapd/desktop/applications/pycharm-community_pycharm-community.desktop', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'MANAGERPID': '2388', 'SYSTEMD_EXEC_PID': '2654', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'SNAP_REVISION': '676', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '3389', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/ahmed/Desktop/Robotics Repo/Project Files/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'ahmed', 'SNAP_CONTEXT': 'v6953VKKNPUbEwL7WcFVJDUWylVpzK-faB5Pg9QNNqo1eXlzjR7Z', 'JOURNAL_STREAM': '10:18379', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@wayland.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'SNAP_VERSION': '2026.2.3', 'USERNAME': 'ahmed', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'SNAP_INSTANCE_NAME': 'pycharm-community', 'PATH': '/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/ahmed:@/tmp/.ICE-unix/2616,unix/ahmed:/tmp/.ICE-unix/2616', 'INVOCATION_ID': 'de62dd619d4d4057adfff00523cb048e', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_SETUP_DISPLAY': ':1', 'SNAP_DATA': '/var/snap/pycharm-community/676', 'XDG_RUNTIME_DIR': '/run/user/1000', 'MUJOCO_PY_MUJOCO_PATH': '/home/ahmed/Desktop/Robotics/mujoco-3.13.0', 'DISPLAY': ':0', 'DESKTOP_STARTUP_ID': 'd6898d75-f15f-42ed-9731-d7ee229ce2b7', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.3D7XW3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'FIG_TERM': '1', 'SNAP_USER_COMMON': '/home/ahmed/snap/pycharm-community/common', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'SNAP_ARCH': 'amd64', 'AMENT_PREFIX_PATH': '/home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2:/opt/ros/jazzy', 'SNAP_COOKIE': 'v6953VKKNPUbEwL7WcFVJDUWylVpzK-faB5Pg9QNNqo1eXlzjR7Z', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'SNAP_REEXEC': '', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'SNAP_NAME': 'pycharm-community', 'GJS_DEBUG_OUTPUT': 'stderr', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/ahmed/Desktop/Robotics Repo/Project Files/build/mujoco_ros2', 'PROCESS_LAUNCHED_BY_CW': '1', 'INTELLIJ_TERMINAL_COMMAND_BLOCKS_REWORKED': '1', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'SNAP_REAL_HOME': '/home/ahmed', 'PICO_SDK_PATH': '/home/ahmed/pico/pico-sdk', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'SNAP_EUID': '1000', 'PYTHONPATH': '/opt/ros/jazzy/opt/gz_math_vendor/lib/python:/opt/ros/jazzy/lib/python3.12/site-packages', 'SNAP': '/snap/pycharm-community/676', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'PROCESS_LAUNCHED_BY_Q': '1', 'CMAKE_PREFIX_PATH': '/home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[2.706008] (-) TimerEvent: {}
+[2.806336] (-) TimerEvent: {}
+[2.816468] (mujoco_ros2) StdoutLine: {'line': b'[ 33%] \x1b[32mBuilding CXX object CMakeFiles/mujoco_node.dir/src/nodes/mujoco_node.cpp.o\x1b[0m\n'}
+[2.819764] (mujoco_ros2) StdoutLine: {'line': b'[ 66%] \x1b[32mBuilding CXX object CMakeFiles/mujoco_node.dir/src/mujoco_ros.cpp.o\x1b[0m\n'}
+[2.906491] (-) TimerEvent: {}
+[3.006867] (-) TimerEvent: {}
+[3.107313] (-) TimerEvent: {}
+[3.207745] (-) TimerEvent: {}
+[3.308200] (-) TimerEvent: {}
+[3.408642] (-) TimerEvent: {}
+[3.509139] (-) TimerEvent: {}
+[3.609636] (-) TimerEvent: {}
+[3.710212] (-) TimerEvent: {}
+[3.810673] (-) TimerEvent: {}
+[3.911182] (-) TimerEvent: {}
+[4.011617] (-) TimerEvent: {}
+[4.111975] (-) TimerEvent: {}
+[4.212275] (-) TimerEvent: {}
+[4.312615] (-) TimerEvent: {}
+[4.413035] (-) TimerEvent: {}
+[4.513390] (-) TimerEvent: {}
+[4.613672] (-) TimerEvent: {}
+[4.714068] (-) TimerEvent: {}
+[4.814389] (-) TimerEvent: {}
+[4.914694] (-) TimerEvent: {}
+[5.014986] (-) TimerEvent: {}
+[5.115348] (-) TimerEvent: {}
+[5.215847] (-) TimerEvent: {}
+[5.316344] (-) TimerEvent: {}
+[5.416765] (-) TimerEvent: {}
+[5.517156] (-) TimerEvent: {}
+[5.617554] (-) TimerEvent: {}
+[5.717965] (-) TimerEvent: {}
+[5.818328] (-) TimerEvent: {}
+[5.918710] (-) TimerEvent: {}
+[6.019014] (-) TimerEvent: {}
+[6.119298] (-) TimerEvent: {}
+[6.219595] (-) TimerEvent: {}
+[6.319974] (-) TimerEvent: {}
+[6.420382] (-) TimerEvent: {}
+[6.520740] (-) TimerEvent: {}
+[6.621043] (-) TimerEvent: {}
+[6.721406] (-) TimerEvent: {}
+[6.821745] (-) TimerEvent: {}
+[6.922117] (-) TimerEvent: {}
+[7.022573] (-) TimerEvent: {}
+[7.122907] (-) TimerEvent: {}
+[7.223212] (-) TimerEvent: {}
+[7.323532] (-) TimerEvent: {}
+[7.423907] (-) TimerEvent: {}
+[7.524339] (-) TimerEvent: {}
+[7.624703] (-) TimerEvent: {}
+[7.725040] (-) TimerEvent: {}
+[7.825389] (-) TimerEvent: {}
+[7.925682] (-) TimerEvent: {}
+[8.025966] (-) TimerEvent: {}
+[8.126233] (-) TimerEvent: {}
+[8.226536] (-) TimerEvent: {}
+[8.326905] (-) TimerEvent: {}
+[8.427290] (-) TimerEvent: {}
+[8.527604] (-) TimerEvent: {}
+[8.627847] (-) TimerEvent: {}
+[8.728134] (-) TimerEvent: {}
+[8.828387] (-) TimerEvent: {}
+[8.928721] (-) TimerEvent: {}
+[9.028972] (-) TimerEvent: {}
+[9.129259] (-) TimerEvent: {}
+[9.229555] (-) TimerEvent: {}
+[9.329862] (-) TimerEvent: {}
+[9.430213] (-) TimerEvent: {}
+[9.530497] (-) TimerEvent: {}
+[9.630793] (-) TimerEvent: {}
+[9.731108] (-) TimerEvent: {}
+[9.831433] (-) TimerEvent: {}
+[9.931692] (-) TimerEvent: {}
+[10.031974] (-) TimerEvent: {}
+[10.132232] (-) TimerEvent: {}
+[10.232521] (-) TimerEvent: {}
+[10.332850] (-) TimerEvent: {}
+[10.433543] (-) TimerEvent: {}
+[10.533817] (-) TimerEvent: {}
+[10.634099] (-) TimerEvent: {}
+[10.734431] (-) TimerEvent: {}
+[10.834718] (-) TimerEvent: {}
+[10.935030] (-) TimerEvent: {}
+[11.035332] (-) TimerEvent: {}
+[11.135643] (-) TimerEvent: {}
+[11.235971] (-) TimerEvent: {}
+[11.336615] (-) TimerEvent: {}
+[11.436963] (-) TimerEvent: {}
+[11.537261] (-) TimerEvent: {}
+[11.637543] (-) TimerEvent: {}
+[11.737910] (-) TimerEvent: {}
+[11.838200] (-) TimerEvent: {}
+[11.938461] (-) TimerEvent: {}
+[12.038804] (-) TimerEvent: {}
+[12.139126] (-) TimerEvent: {}
+[12.239424] (-) TimerEvent: {}
+[12.283163] (mujoco_ros2) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable mujoco_node\x1b[0m\n'}
+[12.339563] (-) TimerEvent: {}
+[12.439884] (-) TimerEvent: {}
+[12.540184] (-) TimerEvent: {}
+[12.637531] (mujoco_ros2) StdoutLine: {'line': b'[100%] Built target mujoco_node\n'}
+[12.640241] (-) TimerEvent: {}
+[12.649290] (mujoco_ros2) CommandEnded: {'returncode': 0}
+[12.650014] (mujoco_ros2) JobProgress: {'identifier': 'mujoco_ros2', 'progress': 'install'}
+[12.659495] (mujoco_ros2) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/ahmed/Desktop/Robotics Repo/Project Files/build/mujoco_ros2'], 'cwd': '/home/ahmed/Desktop/Robotics Repo/Project Files/build/mujoco_ros2', 'env': OrderedDict({'TERM_SESSION_ID': '552b2a1a-e4f7-4a06-adec-efcdb3c050b2', 'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'XDG_ACTIVATION_TOKEN': 'd6898d75-f15f-42ed-9731-d7ee229ce2b7', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'SNAP_INSTANCE_KEY': '', 'USER': 'ahmed', 'SNAP_COMMON': '/var/snap/pycharm-community/common', 'XDG_SESSION_TYPE': 'wayland', 'SNAP_UID': '1000', 'CLUTTER_DISABLE_MIPMAPPED_TEXT': '1', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib:/home/ahmed/Desktop/Robotics/mujoco-3.13.0/lib:', 'HOME': '/home/ahmed', 'SNAP_LIBRARY_PATH': '/var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32', 'OLDPWD': '/home/ahmed/Desktop/Robotics Repo/Project Files', 'DESKTOP_SESSION': 'ubuntu', 'SNAP_USER_DATA': '/home/ahmed/snap/pycharm-community/676', 'TERMINAL_EMULATOR': 'JetBrains-JediTerm', 'GIO_LAUNCHED_DESKTOP_FILE': '/var/lib/snapd/desktop/applications/pycharm-community_pycharm-community.desktop', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'MANAGERPID': '2388', 'SYSTEMD_EXEC_PID': '2654', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'SNAP_REVISION': '676', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '3389', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/ahmed/Desktop/Robotics Repo/Project Files/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'ahmed', 'SNAP_CONTEXT': 'v6953VKKNPUbEwL7WcFVJDUWylVpzK-faB5Pg9QNNqo1eXlzjR7Z', 'JOURNAL_STREAM': '10:18379', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@wayland.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'SNAP_VERSION': '2026.2.3', 'USERNAME': 'ahmed', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'SNAP_INSTANCE_NAME': 'pycharm-community', 'PATH': '/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/ahmed:@/tmp/.ICE-unix/2616,unix/ahmed:/tmp/.ICE-unix/2616', 'INVOCATION_ID': 'de62dd619d4d4057adfff00523cb048e', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_SETUP_DISPLAY': ':1', 'SNAP_DATA': '/var/snap/pycharm-community/676', 'XDG_RUNTIME_DIR': '/run/user/1000', 'MUJOCO_PY_MUJOCO_PATH': '/home/ahmed/Desktop/Robotics/mujoco-3.13.0', 'DISPLAY': ':0', 'DESKTOP_STARTUP_ID': 'd6898d75-f15f-42ed-9731-d7ee229ce2b7', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.3D7XW3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'FIG_TERM': '1', 'SNAP_USER_COMMON': '/home/ahmed/snap/pycharm-community/common', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'SNAP_ARCH': 'amd64', 'AMENT_PREFIX_PATH': '/home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2:/opt/ros/jazzy', 'SNAP_COOKIE': 'v6953VKKNPUbEwL7WcFVJDUWylVpzK-faB5Pg9QNNqo1eXlzjR7Z', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'SNAP_REEXEC': '', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'SNAP_NAME': 'pycharm-community', 'GJS_DEBUG_OUTPUT': 'stderr', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/ahmed/Desktop/Robotics Repo/Project Files/build/mujoco_ros2', 'PROCESS_LAUNCHED_BY_CW': '1', 'INTELLIJ_TERMINAL_COMMAND_BLOCKS_REWORKED': '1', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'SNAP_REAL_HOME': '/home/ahmed', 'PICO_SDK_PATH': '/home/ahmed/pico/pico-sdk', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'SNAP_EUID': '1000', 'PYTHONPATH': '/opt/ros/jazzy/opt/gz_math_vendor/lib/python:/opt/ros/jazzy/lib/python3.12/site-packages', 'SNAP': '/snap/pycharm-community/676', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'PROCESS_LAUNCHED_BY_Q': '1', 'CMAKE_PREFIX_PATH': '/home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[12.667466] (mujoco_ros2) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[12.667728] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/lib/mujoco_ros2/mujoco_node\n'}
+[12.672843] (mujoco_ros2) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/lib/mujoco_ros2/mujoco_node" to ""\n'}
+[12.673080] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/launch\n'}
+[12.673243] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/launch/example.py\n'}
+[12.673396] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/model\n'}
+[12.673534] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/two_link_planar.xml\n'}
+[12.673709] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/scene.xml\n'}
+[12.673843] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6\n'}
+[12.673936] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/scene.xml\n'}
+[12.674038] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/lite6_gripper_wide_open.png\n'}
+[12.674174] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/README.md\n'}
+[12.674307] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/lite6_gripper_narrow_closed.png\n'}
+[12.674491] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/lite6_gripper_wide_closed.png\n'}
+[12.674785] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/lite6.png\n'}
+[12.675898] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/lite6_gripper_narrow.xml\n'}
+[12.676033] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/CHANGELOG.md\n'}
+[12.676166] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/lite6_gripper_wide.xml\n'}
+[12.676304] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets\n'}
+[12.676388] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/visual\n'}
+[12.676479] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/visual/link5.stl\n'}
+[12.677110] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/visual/link6.stl\n'}
+[12.677426] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/visual/link2.stl\n'}
+[12.677708] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/visual/gripper_lite_left_finger_narrow.stl\n'}
+[12.677876] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/visual/link3.stl\n'}
+[12.678471] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/visual/link4.stl\n'}
+[12.679179] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/visual/link_base.stl\n'}
+[12.679535] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/visual/vacuum_gripper_lite.stl\n'}
+[12.679868] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/visual/gripper_lite_right_finger_narrow.stl\n'}
+[12.680043] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/visual/gripper_lite_right_finger_wide.stl\n'}
+[12.680225] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/visual/gripper_lite_left_finger_wide.stl\n'}
+[12.680392] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/visual/link1.stl\n'}
+[12.680650] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/visual/gripper_lite_body.stl\n'}
+[12.680962] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/collision\n'}
+[12.681070] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/collision/gripper_lite_left_finger_wide_base.stl\n'}
+[12.681228] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/collision/link5.stl\n'}
+[12.681601] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/collision/link6.stl\n'}
+[12.681752] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/collision/link2.stl\n'}
+[12.681935] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/collision/gripper_lite_right_finger_wide_tip.stl\n'}
+[12.682094] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/collision/link3.stl\n'}
+[12.682258] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/collision/link4.stl\n'}
+[12.682662] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/collision/link_base.stl\n'}
+[12.682849] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/collision/gripper_lite_right_finger_wide_base.stl\n'}
+[12.683016] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/collision/vacuum_gripper_lite.stl\n'}
+[12.683173] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/collision/gripper_lite_left_finger_wide_tip.stl\n'}
+[12.683320] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/collision/link1.stl\n'}
+[12.683489] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/collision/gripper_lite_body.stl\n'}
+[12.683678] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/lite6.xml\n'}
+[12.683817] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/lite6_gripper_narrow_open.png\n'}
+[12.684102] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/LICENSE\n'}
+[12.684381] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/ament_index/resource_index/package_run_dependencies/mujoco_ros2\n'}
+[12.684586] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/ament_index/resource_index/parent_prefix_path/mujoco_ros2\n'}
+[12.684789] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/environment/ament_prefix_path.sh\n'}
+[12.684960] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/environment/ament_prefix_path.dsv\n'}
+[12.685156] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/environment/path.sh\n'}
+[12.685318] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/environment/path.dsv\n'}
+[12.685599] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/local_setup.bash\n'}
+[12.685876] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/local_setup.sh\n'}
+[12.686133] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/local_setup.zsh\n'}
+[12.686304] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/local_setup.dsv\n'}
+[12.686456] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/package.dsv\n'}
+[12.686655] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/ament_index/resource_index/packages/mujoco_ros2\n'}
+[12.686844] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/cmake/mujoco_ros2Config.cmake\n'}
+[12.686999] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/cmake/mujoco_ros2Config-version.cmake\n'}
+[12.687160] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/package.xml\n'}
+[12.689056] (mujoco_ros2) CommandEnded: {'returncode': 0}
+[12.700769] (mujoco_ros2) JobEnded: {'identifier': 'mujoco_ros2', 'rc': 0}
+[12.701525] (-) EventReactorShutdown: {}

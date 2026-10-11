@@ -1,0 +1,41 @@
+[0.020s] Invoking command in '/home/ahmed/Desktop/Robotics Repo/Project Files/build/mujoco_ros2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/ahmed/Desktop/Robotics Repo/Project Files/src -DCMAKE_INSTALL_PREFIX=/home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2
+[0.246s] -- The C compiler identification is GNU 13.3.0
+[0.433s] -- The CXX compiler identification is GNU 13.3.0
+[0.475s] -- Detecting C compiler ABI info
+[0.654s] -- Detecting C compiler ABI info - done
+[0.677s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.679s] -- Detecting C compile features
+[0.680s] -- Detecting C compile features - done
+[0.701s] -- Detecting CXX compiler ABI info
+[0.916s] -- Detecting CXX compiler ABI info - done
+[0.929s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.930s] -- Detecting CXX compile features
+[0.930s] -- Detecting CXX compile features - done
+[0.941s] -- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[1.275s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[1.544s] -- Found rclcpp: 28.1.22 (/opt/ros/jazzy/share/rclcpp/cmake)
+[1.652s] -- Found rosidl_generator_c: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[1.689s] -- Found rosidl_generator_cpp: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[1.732s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.781s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.993s] -- Found rmw_implementation_cmake: 7.3.3 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[2.000s] -- Found rmw_fastrtps_cpp: 8.4.4 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+[2.204s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.13")  
+[2.252s] -- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") 
+[2.312s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[2.534s] -- Found sensor_msgs: 5.3.8 (/opt/ros/jazzy/share/sensor_msgs/cmake)
+[2.900s] -- Configuring done (2.9s)
+[2.919s] -- Generating done (0.0s)
+[2.925s] -- Build files have been written to: /home/ahmed/Desktop/Robotics Repo/Project Files/build/mujoco_ros2
+[2.940s] Invoked command in '/home/ahmed/Desktop/Robotics Repo/Project Files/build/mujoco_ros2' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/ahmed/Desktop/Robotics Repo/Project Files/src -DCMAKE_INSTALL_PREFIX=/home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2
+[2.943s] Invoking command in '/home/ahmed/Desktop/Robotics Repo/Project Files/build/mujoco_ros2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/ahmed/Desktop/Robotics Repo/Project Files/build/mujoco_ros2 -- -j16 -l16
+[3.055s] [ 33%] [32mBuilding CXX object CMakeFiles/mujoco_node.dir/src/nodes/mujoco_node.cpp.o[0m
+[3.062s] [ 66%] [32mBuilding CXX object CMakeFiles/mujoco_node.dir/src/mujoco_ros.cpp.o[0m
+[13.118s] [100%] [32m[1mLinking CXX executable mujoco_node[0m
+[13.163s] /usr/bin/ld:/home/ahmed/Desktop/Robotics Repo/Project Files/mujoco-3.13.0/lib/libmujoco.so: file format not recognized; treating as linker script
+[13.163s] /usr/bin/ld:/home/ahmed/Desktop/Robotics Repo/Project Files/mujoco-3.13.0/lib/libmujoco.so:0: syntax error
+[13.164s] collect2: error: ld returned 1 exit status
+[13.166s] gmake[2]: *** [CMakeFiles/mujoco_node.dir/build.make:203: mujoco_node] Error 1
+[13.167s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/mujoco_node.dir/all] Error 2
+[13.167s] gmake: *** [Makefile:146: all] Error 2
+[13.170s] Invoked command in '/home/ahmed/Desktop/Robotics Repo/Project Files/build/mujoco_ros2' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/ahmed/Desktop/Robotics Repo/Project Files/build/mujoco_ros2 -- -j16 -l16
