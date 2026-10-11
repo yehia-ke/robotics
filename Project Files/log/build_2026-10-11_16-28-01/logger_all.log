@@ -1,0 +1,953 @@
+[0.247s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--packages-select', 'mujoco_ros2']
+[0.247s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=16, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=['mujoco_ros2'], packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x7126363a43b0>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7126363858e0>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7126363858e0>>)
+[0.339s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.340s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.340s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.340s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.340s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.340s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.340s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/ahmed/Desktop/Robotics Repo/Project Files'
+[0.340s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.341s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.341s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.341s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.341s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.341s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.341s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.341s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.341s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.401s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.401s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.401s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.401s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.401s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.402s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.402s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.402s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.402s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.403s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.403s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.403s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.403s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.403s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.404s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0) by extensions ['ignore', 'ignore_ament_install']
+[0.404s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0) by extension 'ignore'
+[0.404s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0) by extension 'ignore_ament_install'
+[0.404s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0) by extensions ['colcon_pkg']
+[0.404s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0) by extension 'colcon_pkg'
+[0.404s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0) by extensions ['colcon_meta']
+[0.404s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0) by extension 'colcon_meta'
+[0.405s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0) by extensions ['ros']
+[0.405s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0) by extension 'ros'
+[0.405s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0) by extensions ['cmake', 'python']
+[0.405s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0) by extension 'cmake'
+[0.405s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0) by extension 'python'
+[0.405s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0) by extensions ['python_setup_py']
+[0.405s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0) by extension 'python_setup_py'
+[0.406s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/bin) by extensions ['ignore', 'ignore_ament_install']
+[0.406s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/bin) by extension 'ignore'
+[0.406s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/bin) by extension 'ignore_ament_install'
+[0.406s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/bin) by extensions ['colcon_pkg']
+[0.406s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/bin) by extension 'colcon_pkg'
+[0.406s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/bin) by extensions ['colcon_meta']
+[0.406s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/bin) by extension 'colcon_meta'
+[0.406s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/bin) by extensions ['ros']
+[0.406s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/bin) by extension 'ros'
+[0.407s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/bin) by extensions ['cmake', 'python']
+[0.407s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/bin) by extension 'cmake'
+[0.407s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/bin) by extension 'python'
+[0.407s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/bin) by extensions ['python_setup_py']
+[0.407s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/bin) by extension 'python_setup_py'
+[0.407s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/bin/assets) by extensions ['ignore', 'ignore_ament_install']
+[0.407s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/bin/assets) by extension 'ignore'
+[0.408s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/bin/assets) by extension 'ignore_ament_install'
+[0.408s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/bin/assets) by extensions ['colcon_pkg']
+[0.408s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/bin/assets) by extension 'colcon_pkg'
+[0.408s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/bin/assets) by extensions ['colcon_meta']
+[0.408s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/bin/assets) by extension 'colcon_meta'
+[0.408s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/bin/assets) by extensions ['ros']
+[0.408s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/bin/assets) by extension 'ros'
+[0.408s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/bin/assets) by extensions ['cmake', 'python']
+[0.408s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/bin/assets) by extension 'cmake'
+[0.409s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/bin/assets) by extension 'python'
+[0.409s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/bin/assets) by extensions ['python_setup_py']
+[0.409s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/bin/assets) by extension 'python_setup_py'
+[0.409s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/bin/mujoco_plugin) by extensions ['ignore', 'ignore_ament_install']
+[0.409s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/bin/mujoco_plugin) by extension 'ignore'
+[0.409s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/bin/mujoco_plugin) by extension 'ignore_ament_install'
+[0.410s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/bin/mujoco_plugin) by extensions ['colcon_pkg']
+[0.410s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/bin/mujoco_plugin) by extension 'colcon_pkg'
+[0.410s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/bin/mujoco_plugin) by extensions ['colcon_meta']
+[0.410s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/bin/mujoco_plugin) by extension 'colcon_meta'
+[0.410s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/bin/mujoco_plugin) by extensions ['ros']
+[0.410s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/bin/mujoco_plugin) by extension 'ros'
+[0.410s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/bin/mujoco_plugin) by extensions ['cmake', 'python']
+[0.410s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/bin/mujoco_plugin) by extension 'cmake'
+[0.410s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/bin/mujoco_plugin) by extension 'python'
+[0.411s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/bin/mujoco_plugin) by extensions ['python_setup_py']
+[0.411s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/bin/mujoco_plugin) by extension 'python_setup_py'
+[0.411s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include) by extensions ['ignore', 'ignore_ament_install']
+[0.411s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include) by extension 'ignore'
+[0.412s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include) by extension 'ignore_ament_install'
+[0.412s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include) by extensions ['colcon_pkg']
+[0.412s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include) by extension 'colcon_pkg'
+[0.412s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include) by extensions ['colcon_meta']
+[0.412s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include) by extension 'colcon_meta'
+[0.412s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include) by extensions ['ros']
+[0.412s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include) by extension 'ros'
+[0.412s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include) by extensions ['cmake', 'python']
+[0.412s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include) by extension 'cmake'
+[0.413s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include) by extension 'python'
+[0.413s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include) by extensions ['python_setup_py']
+[0.413s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include) by extension 'python_setup_py'
+[0.413s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/SDL2) by extensions ['ignore', 'ignore_ament_install']
+[0.413s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/SDL2) by extension 'ignore'
+[0.413s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/SDL2) by extension 'ignore_ament_install'
+[0.414s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/SDL2) by extensions ['colcon_pkg']
+[0.414s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/SDL2) by extension 'colcon_pkg'
+[0.414s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/SDL2) by extensions ['colcon_meta']
+[0.414s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/SDL2) by extension 'colcon_meta'
+[0.414s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/SDL2) by extensions ['ros']
+[0.414s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/SDL2) by extension 'ros'
+[0.414s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/SDL2) by extensions ['cmake', 'python']
+[0.414s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/SDL2) by extension 'cmake'
+[0.414s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/SDL2) by extension 'python'
+[0.414s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/SDL2) by extensions ['python_setup_py']
+[0.414s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/SDL2) by extension 'python_setup_py'
+[0.415s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/math) by extensions ['ignore', 'ignore_ament_install']
+[0.415s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/math) by extension 'ignore'
+[0.415s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/math) by extension 'ignore_ament_install'
+[0.415s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/math) by extensions ['colcon_pkg']
+[0.415s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/math) by extension 'colcon_pkg'
+[0.415s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/math) by extensions ['colcon_meta']
+[0.415s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/math) by extension 'colcon_meta'
+[0.416s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/math) by extensions ['ros']
+[0.416s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/math) by extension 'ros'
+[0.416s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/math) by extensions ['cmake', 'python']
+[0.416s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/math) by extension 'cmake'
+[0.416s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/math) by extension 'python'
+[0.416s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/math) by extensions ['python_setup_py']
+[0.416s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/math) by extension 'python_setup_py'
+[0.416s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/misc) by extensions ['ignore', 'ignore_ament_install']
+[0.417s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/misc) by extension 'ignore'
+[0.417s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/misc) by extension 'ignore_ament_install'
+[0.417s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/misc) by extensions ['colcon_pkg']
+[0.417s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/misc) by extension 'colcon_pkg'
+[0.417s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/misc) by extensions ['colcon_meta']
+[0.417s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/misc) by extension 'colcon_meta'
+[0.417s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/misc) by extensions ['ros']
+[0.418s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/misc) by extension 'ros'
+[0.418s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/misc) by extensions ['cmake', 'python']
+[0.418s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/misc) by extension 'cmake'
+[0.418s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/misc) by extension 'python'
+[0.418s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/misc) by extensions ['python_setup_py']
+[0.418s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/misc) by extension 'python_setup_py'
+[0.419s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/misc/cpp) by extensions ['ignore', 'ignore_ament_install']
+[0.419s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/misc/cpp) by extension 'ignore'
+[0.419s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/misc/cpp) by extension 'ignore_ament_install'
+[0.420s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/misc/cpp) by extensions ['colcon_pkg']
+[0.420s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/misc/cpp) by extension 'colcon_pkg'
+[0.420s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/misc/cpp) by extensions ['colcon_meta']
+[0.420s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/misc/cpp) by extension 'colcon_meta'
+[0.420s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/misc/cpp) by extensions ['ros']
+[0.420s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/misc/cpp) by extension 'ros'
+[0.420s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/misc/cpp) by extensions ['cmake', 'python']
+[0.420s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/misc/cpp) by extension 'cmake'
+[0.420s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/misc/cpp) by extension 'python'
+[0.420s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/misc/cpp) by extensions ['python_setup_py']
+[0.421s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/misc/cpp) by extension 'python_setup_py'
+[0.421s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco) by extensions ['ignore', 'ignore_ament_install']
+[0.421s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco) by extension 'ignore'
+[0.421s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco) by extension 'ignore_ament_install'
+[0.421s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco) by extensions ['colcon_pkg']
+[0.421s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco) by extension 'colcon_pkg'
+[0.422s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco) by extensions ['colcon_meta']
+[0.422s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco) by extension 'colcon_meta'
+[0.422s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco) by extensions ['ros']
+[0.422s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco) by extension 'ros'
+[0.422s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco) by extensions ['cmake', 'python']
+[0.422s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco) by extension 'cmake'
+[0.422s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco) by extension 'python'
+[0.422s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco) by extensions ['python_setup_py']
+[0.422s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco) by extension 'python_setup_py'
+[0.423s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental) by extensions ['ignore', 'ignore_ament_install']
+[0.423s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental) by extension 'ignore'
+[0.423s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental) by extension 'ignore_ament_install'
+[0.423s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental) by extensions ['colcon_pkg']
+[0.423s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental) by extension 'colcon_pkg'
+[0.423s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental) by extensions ['colcon_meta']
+[0.423s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental) by extension 'colcon_meta'
+[0.423s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental) by extensions ['ros']
+[0.423s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental) by extension 'ros'
+[0.423s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental) by extensions ['cmake', 'python']
+[0.423s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental) by extension 'cmake'
+[0.423s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental) by extension 'python'
+[0.423s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental) by extensions ['python_setup_py']
+[0.423s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental) by extension 'python_setup_py'
+[0.424s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/filament) by extensions ['ignore', 'ignore_ament_install']
+[0.424s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/filament) by extension 'ignore'
+[0.424s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/filament) by extension 'ignore_ament_install'
+[0.424s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/filament) by extensions ['colcon_pkg']
+[0.424s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/filament) by extension 'colcon_pkg'
+[0.424s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/filament) by extensions ['colcon_meta']
+[0.424s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/filament) by extension 'colcon_meta'
+[0.424s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/filament) by extensions ['ros']
+[0.424s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/filament) by extension 'ros'
+[0.424s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/filament) by extensions ['cmake', 'python']
+[0.424s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/filament) by extension 'cmake'
+[0.424s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/filament) by extension 'python'
+[0.424s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/filament) by extensions ['python_setup_py']
+[0.424s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/filament) by extension 'python_setup_py'
+[0.425s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/filament/compat) by extensions ['ignore', 'ignore_ament_install']
+[0.425s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/filament/compat) by extension 'ignore'
+[0.425s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/filament/compat) by extension 'ignore_ament_install'
+[0.425s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/filament/compat) by extensions ['colcon_pkg']
+[0.425s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/filament/compat) by extension 'colcon_pkg'
+[0.425s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/filament/compat) by extensions ['colcon_meta']
+[0.425s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/filament/compat) by extension 'colcon_meta'
+[0.425s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/filament/compat) by extensions ['ros']
+[0.425s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/filament/compat) by extension 'ros'
+[0.425s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/filament/compat) by extensions ['cmake', 'python']
+[0.425s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/filament/compat) by extension 'cmake'
+[0.425s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/filament/compat) by extension 'python'
+[0.425s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/filament/compat) by extensions ['python_setup_py']
+[0.425s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/filament/compat) by extension 'python_setup_py'
+[0.426s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio) by extensions ['ignore', 'ignore_ament_install']
+[0.426s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio) by extension 'ignore'
+[0.426s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio) by extension 'ignore_ament_install'
+[0.426s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio) by extensions ['colcon_pkg']
+[0.426s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio) by extension 'colcon_pkg'
+[0.426s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio) by extensions ['colcon_meta']
+[0.426s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio) by extension 'colcon_meta'
+[0.426s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio) by extensions ['ros']
+[0.426s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio) by extension 'ros'
+[0.426s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio) by extensions ['cmake', 'python']
+[0.426s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio) by extension 'cmake'
+[0.426s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio) by extension 'python'
+[0.426s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio) by extensions ['python_setup_py']
+[0.426s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio) by extension 'python_setup_py'
+[0.427s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio/hal) by extensions ['ignore', 'ignore_ament_install']
+[0.427s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio/hal) by extension 'ignore'
+[0.427s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio/hal) by extension 'ignore_ament_install'
+[0.427s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio/hal) by extensions ['colcon_pkg']
+[0.427s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio/hal) by extension 'colcon_pkg'
+[0.427s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio/hal) by extensions ['colcon_meta']
+[0.427s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio/hal) by extension 'colcon_meta'
+[0.427s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio/hal) by extensions ['ros']
+[0.427s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio/hal) by extension 'ros'
+[0.427s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio/hal) by extensions ['cmake', 'python']
+[0.427s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio/hal) by extension 'cmake'
+[0.427s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio/hal) by extension 'python'
+[0.428s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio/hal) by extensions ['python_setup_py']
+[0.428s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio/hal) by extension 'python_setup_py'
+[0.428s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio/io) by extensions ['ignore', 'ignore_ament_install']
+[0.428s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio/io) by extension 'ignore'
+[0.428s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio/io) by extension 'ignore_ament_install'
+[0.428s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio/io) by extensions ['colcon_pkg']
+[0.428s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio/io) by extension 'colcon_pkg'
+[0.428s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio/io) by extensions ['colcon_meta']
+[0.428s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio/io) by extension 'colcon_meta'
+[0.428s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio/io) by extensions ['ros']
+[0.428s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio/io) by extension 'ros'
+[0.428s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio/io) by extensions ['cmake', 'python']
+[0.428s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio/io) by extension 'cmake'
+[0.428s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio/io) by extension 'python'
+[0.428s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio/io) by extensions ['python_setup_py']
+[0.429s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio/io) by extension 'python_setup_py'
+[0.429s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio/sim) by extensions ['ignore', 'ignore_ament_install']
+[0.429s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio/sim) by extension 'ignore'
+[0.429s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio/sim) by extension 'ignore_ament_install'
+[0.429s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio/sim) by extensions ['colcon_pkg']
+[0.429s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio/sim) by extension 'colcon_pkg'
+[0.429s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio/sim) by extensions ['colcon_meta']
+[0.429s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio/sim) by extension 'colcon_meta'
+[0.429s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio/sim) by extensions ['ros']
+[0.429s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio/sim) by extension 'ros'
+[0.429s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio/sim) by extensions ['cmake', 'python']
+[0.429s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio/sim) by extension 'cmake'
+[0.429s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio/sim) by extension 'python'
+[0.429s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio/sim) by extensions ['python_setup_py']
+[0.429s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio/sim) by extension 'python_setup_py'
+[0.430s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio/ux) by extensions ['ignore', 'ignore_ament_install']
+[0.430s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio/ux) by extension 'ignore'
+[0.430s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio/ux) by extension 'ignore_ament_install'
+[0.430s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio/ux) by extensions ['colcon_pkg']
+[0.430s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio/ux) by extension 'colcon_pkg'
+[0.430s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio/ux) by extensions ['colcon_meta']
+[0.430s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio/ux) by extension 'colcon_meta'
+[0.430s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio/ux) by extensions ['ros']
+[0.430s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio/ux) by extension 'ros'
+[0.430s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio/ux) by extensions ['cmake', 'python']
+[0.430s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio/ux) by extension 'cmake'
+[0.430s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio/ux) by extension 'python'
+[0.430s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio/ux) by extensions ['python_setup_py']
+[0.431s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/studio/ux) by extension 'python_setup_py'
+[0.431s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/usd) by extensions ['ignore', 'ignore_ament_install']
+[0.431s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/usd) by extension 'ignore'
+[0.431s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/usd) by extension 'ignore_ament_install'
+[0.431s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/usd) by extensions ['colcon_pkg']
+[0.431s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/usd) by extension 'colcon_pkg'
+[0.431s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/usd) by extensions ['colcon_meta']
+[0.431s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/usd) by extension 'colcon_meta'
+[0.431s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/usd) by extensions ['ros']
+[0.431s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/usd) by extension 'ros'
+[0.431s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/usd) by extensions ['cmake', 'python']
+[0.431s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/usd) by extension 'cmake'
+[0.431s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/usd) by extension 'python'
+[0.431s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/usd) by extensions ['python_setup_py']
+[0.431s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/usd) by extension 'python_setup_py'
+[0.432s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/usd/mjcPhysics) by extensions ['ignore', 'ignore_ament_install']
+[0.432s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/usd/mjcPhysics) by extension 'ignore'
+[0.432s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/usd/mjcPhysics) by extension 'ignore_ament_install'
+[0.432s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/usd/mjcPhysics) by extensions ['colcon_pkg']
+[0.432s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/usd/mjcPhysics) by extension 'colcon_pkg'
+[0.432s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/usd/mjcPhysics) by extensions ['colcon_meta']
+[0.432s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/usd/mjcPhysics) by extension 'colcon_meta'
+[0.432s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/usd/mjcPhysics) by extensions ['ros']
+[0.432s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/usd/mjcPhysics) by extension 'ros'
+[0.432s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/usd/mjcPhysics) by extensions ['cmake', 'python']
+[0.432s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/usd/mjcPhysics) by extension 'cmake'
+[0.432s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/usd/mjcPhysics) by extension 'python'
+[0.432s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/usd/mjcPhysics) by extensions ['python_setup_py']
+[0.432s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/usd/mjcPhysics) by extension 'python_setup_py'
+[0.433s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/usd/plugins) by extensions ['ignore', 'ignore_ament_install']
+[0.433s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/usd/plugins) by extension 'ignore'
+[0.433s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/usd/plugins) by extension 'ignore_ament_install'
+[0.433s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/usd/plugins) by extensions ['colcon_pkg']
+[0.433s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/usd/plugins) by extension 'colcon_pkg'
+[0.433s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/usd/plugins) by extensions ['colcon_meta']
+[0.433s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/usd/plugins) by extension 'colcon_meta'
+[0.433s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/usd/plugins) by extensions ['ros']
+[0.433s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/usd/plugins) by extension 'ros'
+[0.433s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/usd/plugins) by extensions ['cmake', 'python']
+[0.433s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/usd/plugins) by extension 'cmake'
+[0.433s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/usd/plugins) by extension 'python'
+[0.433s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/usd/plugins) by extensions ['python_setup_py']
+[0.433s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/usd/plugins) by extension 'python_setup_py'
+[0.434s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/usd/plugins/mjcf) by extensions ['ignore', 'ignore_ament_install']
+[0.434s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/usd/plugins/mjcf) by extension 'ignore'
+[0.434s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/usd/plugins/mjcf) by extension 'ignore_ament_install'
+[0.434s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/usd/plugins/mjcf) by extensions ['colcon_pkg']
+[0.434s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/usd/plugins/mjcf) by extension 'colcon_pkg'
+[0.434s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/usd/plugins/mjcf) by extensions ['colcon_meta']
+[0.434s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/usd/plugins/mjcf) by extension 'colcon_meta'
+[0.434s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/usd/plugins/mjcf) by extensions ['ros']
+[0.434s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/usd/plugins/mjcf) by extension 'ros'
+[0.434s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/usd/plugins/mjcf) by extensions ['cmake', 'python']
+[0.434s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/usd/plugins/mjcf) by extension 'cmake'
+[0.434s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/usd/plugins/mjcf) by extension 'python'
+[0.434s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/usd/plugins/mjcf) by extensions ['python_setup_py']
+[0.434s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/experimental/usd/plugins/mjcf) by extension 'python_setup_py'
+[0.435s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/render) by extensions ['ignore', 'ignore_ament_install']
+[0.435s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/render) by extension 'ignore'
+[0.435s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/render) by extension 'ignore_ament_install'
+[0.435s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/render) by extensions ['colcon_pkg']
+[0.435s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/render) by extension 'colcon_pkg'
+[0.435s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/render) by extensions ['colcon_meta']
+[0.435s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/render) by extension 'colcon_meta'
+[0.435s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/render) by extensions ['ros']
+[0.435s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/render) by extension 'ros'
+[0.435s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/render) by extensions ['cmake', 'python']
+[0.435s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/render) by extension 'cmake'
+[0.435s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/render) by extension 'python'
+[0.435s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/render) by extensions ['python_setup_py']
+[0.435s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/render) by extension 'python_setup_py'
+[0.436s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/render/filament) by extensions ['ignore', 'ignore_ament_install']
+[0.436s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/render/filament) by extension 'ignore'
+[0.436s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/render/filament) by extension 'ignore_ament_install'
+[0.436s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/render/filament) by extensions ['colcon_pkg']
+[0.436s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/render/filament) by extension 'colcon_pkg'
+[0.436s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/render/filament) by extensions ['colcon_meta']
+[0.436s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/render/filament) by extension 'colcon_meta'
+[0.436s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/render/filament) by extensions ['ros']
+[0.436s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/render/filament) by extension 'ros'
+[0.436s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/render/filament) by extensions ['cmake', 'python']
+[0.436s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/render/filament) by extension 'cmake'
+[0.436s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/render/filament) by extension 'python'
+[0.436s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/render/filament) by extensions ['python_setup_py']
+[0.436s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/render/filament) by extension 'python_setup_py'
+[0.436s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/render/filament/support) by extensions ['ignore', 'ignore_ament_install']
+[0.437s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/render/filament/support) by extension 'ignore'
+[0.437s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/render/filament/support) by extension 'ignore_ament_install'
+[0.437s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/render/filament/support) by extensions ['colcon_pkg']
+[0.437s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/render/filament/support) by extension 'colcon_pkg'
+[0.437s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/render/filament/support) by extensions ['colcon_meta']
+[0.437s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/render/filament/support) by extension 'colcon_meta'
+[0.437s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/render/filament/support) by extensions ['ros']
+[0.437s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/render/filament/support) by extension 'ros'
+[0.437s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/render/filament/support) by extensions ['cmake', 'python']
+[0.437s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/render/filament/support) by extension 'cmake'
+[0.437s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/render/filament/support) by extension 'python'
+[0.437s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/render/filament/support) by extensions ['python_setup_py']
+[0.437s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/include/mujoco/render/filament/support) by extension 'python_setup_py'
+[0.437s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/lib) by extensions ['ignore', 'ignore_ament_install']
+[0.438s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/lib) by extension 'ignore'
+[0.438s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/lib) by extension 'ignore_ament_install'
+[0.438s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/lib) by extensions ['colcon_pkg']
+[0.438s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/lib) by extension 'colcon_pkg'
+[0.438s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/lib) by extensions ['colcon_meta']
+[0.438s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/lib) by extension 'colcon_meta'
+[0.438s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/lib) by extensions ['ros']
+[0.438s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/lib) by extension 'ros'
+[0.438s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/lib) by extensions ['cmake', 'python']
+[0.438s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/lib) by extension 'cmake'
+[0.438s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/lib) by extension 'python'
+[0.438s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/lib) by extensions ['python_setup_py']
+[0.438s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/lib) by extension 'python_setup_py'
+[0.438s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model) by extensions ['ignore', 'ignore_ament_install']
+[0.438s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model) by extension 'ignore'
+[0.438s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model) by extension 'ignore_ament_install'
+[0.438s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model) by extensions ['colcon_pkg']
+[0.439s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model) by extension 'colcon_pkg'
+[0.439s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model) by extensions ['colcon_meta']
+[0.439s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model) by extension 'colcon_meta'
+[0.439s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model) by extensions ['ros']
+[0.439s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model) by extension 'ros'
+[0.439s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model) by extensions ['cmake', 'python']
+[0.439s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model) by extension 'cmake'
+[0.439s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model) by extension 'python'
+[0.439s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model) by extensions ['python_setup_py']
+[0.439s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model) by extension 'python_setup_py'
+[0.439s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/adhesion) by extensions ['ignore', 'ignore_ament_install']
+[0.439s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/adhesion) by extension 'ignore'
+[0.439s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/adhesion) by extension 'ignore_ament_install'
+[0.439s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/adhesion) by extensions ['colcon_pkg']
+[0.439s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/adhesion) by extension 'colcon_pkg'
+[0.439s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/adhesion) by extensions ['colcon_meta']
+[0.440s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/adhesion) by extension 'colcon_meta'
+[0.440s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/adhesion) by extensions ['ros']
+[0.440s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/adhesion) by extension 'ros'
+[0.440s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/adhesion) by extensions ['cmake', 'python']
+[0.440s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/adhesion) by extension 'cmake'
+[0.440s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/adhesion) by extension 'python'
+[0.440s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/adhesion) by extensions ['python_setup_py']
+[0.440s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/adhesion) by extension 'python_setup_py'
+[0.440s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/arch) by extensions ['ignore', 'ignore_ament_install']
+[0.440s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/arch) by extension 'ignore'
+[0.440s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/arch) by extension 'ignore_ament_install'
+[0.440s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/arch) by extensions ['colcon_pkg']
+[0.440s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/arch) by extension 'colcon_pkg'
+[0.440s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/arch) by extensions ['colcon_meta']
+[0.440s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/arch) by extension 'colcon_meta'
+[0.440s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/arch) by extensions ['ros']
+[0.440s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/arch) by extension 'ros'
+[0.441s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/arch) by extensions ['cmake', 'python']
+[0.441s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/arch) by extension 'cmake'
+[0.441s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/arch) by extension 'python'
+[0.441s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/arch) by extensions ['python_setup_py']
+[0.441s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/arch) by extension 'python_setup_py'
+[0.441s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/balloons) by extensions ['ignore', 'ignore_ament_install']
+[0.441s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/balloons) by extension 'ignore'
+[0.441s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/balloons) by extension 'ignore_ament_install'
+[0.441s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/balloons) by extensions ['colcon_pkg']
+[0.441s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/balloons) by extension 'colcon_pkg'
+[0.441s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/balloons) by extensions ['colcon_meta']
+[0.441s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/balloons) by extension 'colcon_meta'
+[0.441s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/balloons) by extensions ['ros']
+[0.441s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/balloons) by extension 'ros'
+[0.441s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/balloons) by extensions ['cmake', 'python']
+[0.442s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/balloons) by extension 'cmake'
+[0.442s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/balloons) by extension 'python'
+[0.442s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/balloons) by extensions ['python_setup_py']
+[0.442s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/balloons) by extension 'python_setup_py'
+[0.442s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/car) by extensions ['ignore', 'ignore_ament_install']
+[0.442s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/car) by extension 'ignore'
+[0.442s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/car) by extension 'ignore_ament_install'
+[0.442s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/car) by extensions ['colcon_pkg']
+[0.442s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/car) by extension 'colcon_pkg'
+[0.442s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/car) by extensions ['colcon_meta']
+[0.442s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/car) by extension 'colcon_meta'
+[0.442s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/car) by extensions ['ros']
+[0.442s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/car) by extension 'ros'
+[0.442s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/car) by extensions ['cmake', 'python']
+[0.442s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/car) by extension 'cmake'
+[0.442s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/car) by extension 'python'
+[0.443s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/car) by extensions ['python_setup_py']
+[0.443s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/car) by extension 'python_setup_py'
+[0.443s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/cards) by extensions ['ignore', 'ignore_ament_install']
+[0.443s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/cards) by extension 'ignore'
+[0.443s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/cards) by extension 'ignore_ament_install'
+[0.443s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/cards) by extensions ['colcon_pkg']
+[0.443s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/cards) by extension 'colcon_pkg'
+[0.443s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/cards) by extensions ['colcon_meta']
+[0.443s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/cards) by extension 'colcon_meta'
+[0.443s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/cards) by extensions ['ros']
+[0.443s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/cards) by extension 'ros'
+[0.443s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/cards) by extensions ['cmake', 'python']
+[0.443s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/cards) by extension 'cmake'
+[0.443s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/cards) by extension 'python'
+[0.443s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/cards) by extensions ['python_setup_py']
+[0.443s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/cards) by extension 'python_setup_py'
+[0.444s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/cards/assets) by extensions ['ignore', 'ignore_ament_install']
+[0.444s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/cards/assets) by extension 'ignore'
+[0.444s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/cards/assets) by extension 'ignore_ament_install'
+[0.444s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/cards/assets) by extensions ['colcon_pkg']
+[0.444s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/cards/assets) by extension 'colcon_pkg'
+[0.444s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/cards/assets) by extensions ['colcon_meta']
+[0.444s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/cards/assets) by extension 'colcon_meta'
+[0.444s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/cards/assets) by extensions ['ros']
+[0.444s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/cards/assets) by extension 'ros'
+[0.444s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/cards/assets) by extensions ['cmake', 'python']
+[0.444s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/cards/assets) by extension 'cmake'
+[0.444s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/cards/assets) by extension 'python'
+[0.444s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/cards/assets) by extensions ['python_setup_py']
+[0.444s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/cards/assets) by extension 'python_setup_py'
+[0.445s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/cube) by extensions ['ignore', 'ignore_ament_install']
+[0.445s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/cube) by extension 'ignore'
+[0.445s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/cube) by extension 'ignore_ament_install'
+[0.445s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/cube) by extensions ['colcon_pkg']
+[0.445s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/cube) by extension 'colcon_pkg'
+[0.445s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/cube) by extensions ['colcon_meta']
+[0.445s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/cube) by extension 'colcon_meta'
+[0.445s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/cube) by extensions ['ros']
+[0.445s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/cube) by extension 'ros'
+[0.445s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/cube) by extensions ['cmake', 'python']
+[0.445s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/cube) by extension 'cmake'
+[0.445s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/cube) by extension 'python'
+[0.445s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/cube) by extensions ['python_setup_py']
+[0.445s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/cube) by extension 'python_setup_py'
+[0.445s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/cube/assets) by extensions ['ignore', 'ignore_ament_install']
+[0.446s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/cube/assets) by extension 'ignore'
+[0.446s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/cube/assets) by extension 'ignore_ament_install'
+[0.446s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/cube/assets) by extensions ['colcon_pkg']
+[0.446s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/cube/assets) by extension 'colcon_pkg'
+[0.446s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/cube/assets) by extensions ['colcon_meta']
+[0.446s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/cube/assets) by extension 'colcon_meta'
+[0.446s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/cube/assets) by extensions ['ros']
+[0.446s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/cube/assets) by extension 'ros'
+[0.446s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/cube/assets) by extensions ['cmake', 'python']
+[0.446s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/cube/assets) by extension 'cmake'
+[0.446s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/cube/assets) by extension 'python'
+[0.446s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/cube/assets) by extensions ['python_setup_py']
+[0.446s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/cube/assets) by extension 'python_setup_py'
+[0.446s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/flex) by extensions ['ignore', 'ignore_ament_install']
+[0.446s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/flex) by extension 'ignore'
+[0.447s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/flex) by extension 'ignore_ament_install'
+[0.447s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/flex) by extensions ['colcon_pkg']
+[0.447s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/flex) by extension 'colcon_pkg'
+[0.447s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/flex) by extensions ['colcon_meta']
+[0.447s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/flex) by extension 'colcon_meta'
+[0.447s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/flex) by extensions ['ros']
+[0.447s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/flex) by extension 'ros'
+[0.447s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/flex) by extensions ['cmake', 'python']
+[0.447s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/flex) by extension 'cmake'
+[0.447s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/flex) by extension 'python'
+[0.447s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/flex) by extensions ['python_setup_py']
+[0.447s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/flex) by extension 'python_setup_py'
+[0.447s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/flex/asset) by extensions ['ignore', 'ignore_ament_install']
+[0.447s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/flex/asset) by extension 'ignore'
+[0.447s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/flex/asset) by extension 'ignore_ament_install'
+[0.447s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/flex/asset) by extensions ['colcon_pkg']
+[0.448s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/flex/asset) by extension 'colcon_pkg'
+[0.448s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/flex/asset) by extensions ['colcon_meta']
+[0.448s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/flex/asset) by extension 'colcon_meta'
+[0.448s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/flex/asset) by extensions ['ros']
+[0.448s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/flex/asset) by extension 'ros'
+[0.448s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/flex/asset) by extensions ['cmake', 'python']
+[0.448s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/flex/asset) by extension 'cmake'
+[0.448s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/flex/asset) by extension 'python'
+[0.448s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/flex/asset) by extensions ['python_setup_py']
+[0.448s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/flex/asset) by extension 'python_setup_py'
+[0.449s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/hammock) by extensions ['ignore', 'ignore_ament_install']
+[0.449s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/hammock) by extension 'ignore'
+[0.449s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/hammock) by extension 'ignore_ament_install'
+[0.449s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/hammock) by extensions ['colcon_pkg']
+[0.449s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/hammock) by extension 'colcon_pkg'
+[0.449s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/hammock) by extensions ['colcon_meta']
+[0.449s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/hammock) by extension 'colcon_meta'
+[0.450s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/hammock) by extensions ['ros']
+[0.450s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/hammock) by extension 'ros'
+[0.450s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/hammock) by extensions ['cmake', 'python']
+[0.450s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/hammock) by extension 'cmake'
+[0.450s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/hammock) by extension 'python'
+[0.450s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/hammock) by extensions ['python_setup_py']
+[0.450s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/hammock) by extension 'python_setup_py'
+[0.451s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/humanoid) by extensions ['ignore', 'ignore_ament_install']
+[0.451s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/humanoid) by extension 'ignore'
+[0.451s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/humanoid) by extension 'ignore_ament_install'
+[0.451s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/humanoid) by extensions ['colcon_pkg']
+[0.451s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/humanoid) by extension 'colcon_pkg'
+[0.451s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/humanoid) by extensions ['colcon_meta']
+[0.451s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/humanoid) by extension 'colcon_meta'
+[0.451s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/humanoid) by extensions ['ros']
+[0.451s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/humanoid) by extension 'ros'
+[0.452s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/humanoid) by extensions ['cmake', 'python']
+[0.452s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/humanoid) by extension 'cmake'
+[0.452s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/humanoid) by extension 'python'
+[0.452s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/humanoid) by extensions ['python_setup_py']
+[0.452s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/humanoid) by extension 'python_setup_py'
+[0.452s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/mug) by extensions ['ignore', 'ignore_ament_install']
+[0.452s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/mug) by extension 'ignore'
+[0.452s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/mug) by extension 'ignore_ament_install'
+[0.453s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/mug) by extensions ['colcon_pkg']
+[0.453s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/mug) by extension 'colcon_pkg'
+[0.453s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/mug) by extensions ['colcon_meta']
+[0.453s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/mug) by extension 'colcon_meta'
+[0.453s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/mug) by extensions ['ros']
+[0.453s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/mug) by extension 'ros'
+[0.453s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/mug) by extensions ['cmake', 'python']
+[0.453s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/mug) by extension 'cmake'
+[0.453s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/mug) by extension 'python'
+[0.453s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/mug) by extensions ['python_setup_py']
+[0.453s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/mug) by extension 'python_setup_py'
+[0.454s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin) by extensions ['ignore', 'ignore_ament_install']
+[0.454s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin) by extension 'ignore'
+[0.454s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin) by extension 'ignore_ament_install'
+[0.454s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin) by extensions ['colcon_pkg']
+[0.454s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin) by extension 'colcon_pkg'
+[0.454s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin) by extensions ['colcon_meta']
+[0.454s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin) by extension 'colcon_meta'
+[0.454s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin) by extensions ['ros']
+[0.454s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin) by extension 'ros'
+[0.454s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin) by extensions ['cmake', 'python']
+[0.455s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin) by extension 'cmake'
+[0.455s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin) by extension 'python'
+[0.455s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin) by extensions ['python_setup_py']
+[0.455s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin) by extension 'python_setup_py'
+[0.455s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/actuator) by extensions ['ignore', 'ignore_ament_install']
+[0.455s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/actuator) by extension 'ignore'
+[0.455s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/actuator) by extension 'ignore_ament_install'
+[0.455s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/actuator) by extensions ['colcon_pkg']
+[0.455s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/actuator) by extension 'colcon_pkg'
+[0.456s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/actuator) by extensions ['colcon_meta']
+[0.456s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/actuator) by extension 'colcon_meta'
+[0.456s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/actuator) by extensions ['ros']
+[0.456s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/actuator) by extension 'ros'
+[0.456s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/actuator) by extensions ['cmake', 'python']
+[0.456s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/actuator) by extension 'cmake'
+[0.456s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/actuator) by extension 'python'
+[0.456s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/actuator) by extensions ['python_setup_py']
+[0.456s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/actuator) by extension 'python_setup_py'
+[0.457s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/elasticity) by extensions ['ignore', 'ignore_ament_install']
+[0.457s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/elasticity) by extension 'ignore'
+[0.457s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/elasticity) by extension 'ignore_ament_install'
+[0.457s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/elasticity) by extensions ['colcon_pkg']
+[0.457s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/elasticity) by extension 'colcon_pkg'
+[0.457s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/elasticity) by extensions ['colcon_meta']
+[0.457s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/elasticity) by extension 'colcon_meta'
+[0.457s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/elasticity) by extensions ['ros']
+[0.457s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/elasticity) by extension 'ros'
+[0.458s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/elasticity) by extensions ['cmake', 'python']
+[0.458s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/elasticity) by extension 'cmake'
+[0.458s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/elasticity) by extension 'python'
+[0.458s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/elasticity) by extensions ['python_setup_py']
+[0.458s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/elasticity) by extension 'python_setup_py'
+[0.458s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/sdf) by extensions ['ignore', 'ignore_ament_install']
+[0.458s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/sdf) by extension 'ignore'
+[0.458s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/sdf) by extension 'ignore_ament_install'
+[0.459s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/sdf) by extensions ['colcon_pkg']
+[0.459s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/sdf) by extension 'colcon_pkg'
+[0.459s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/sdf) by extensions ['colcon_meta']
+[0.459s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/sdf) by extension 'colcon_meta'
+[0.459s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/sdf) by extensions ['ros']
+[0.459s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/sdf) by extension 'ros'
+[0.459s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/sdf) by extensions ['cmake', 'python']
+[0.459s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/sdf) by extension 'cmake'
+[0.459s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/sdf) by extension 'python'
+[0.459s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/sdf) by extensions ['python_setup_py']
+[0.460s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/sdf) by extension 'python_setup_py'
+[0.460s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/sdf/asset) by extensions ['ignore', 'ignore_ament_install']
+[0.460s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/sdf/asset) by extension 'ignore'
+[0.460s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/sdf/asset) by extension 'ignore_ament_install'
+[0.460s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/sdf/asset) by extensions ['colcon_pkg']
+[0.460s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/sdf/asset) by extension 'colcon_pkg'
+[0.460s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/sdf/asset) by extensions ['colcon_meta']
+[0.460s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/sdf/asset) by extension 'colcon_meta'
+[0.461s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/sdf/asset) by extensions ['ros']
+[0.461s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/sdf/asset) by extension 'ros'
+[0.461s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/sdf/asset) by extensions ['cmake', 'python']
+[0.461s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/sdf/asset) by extension 'cmake'
+[0.461s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/sdf/asset) by extension 'python'
+[0.461s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/sdf/asset) by extensions ['python_setup_py']
+[0.461s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/sdf/asset) by extension 'python_setup_py'
+[0.462s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/sensor) by extensions ['ignore', 'ignore_ament_install']
+[0.462s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/sensor) by extension 'ignore'
+[0.462s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/sensor) by extension 'ignore_ament_install'
+[0.462s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/sensor) by extensions ['colcon_pkg']
+[0.462s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/sensor) by extension 'colcon_pkg'
+[0.462s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/sensor) by extensions ['colcon_meta']
+[0.462s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/sensor) by extension 'colcon_meta'
+[0.462s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/sensor) by extensions ['ros']
+[0.462s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/sensor) by extension 'ros'
+[0.463s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/sensor) by extensions ['cmake', 'python']
+[0.463s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/sensor) by extension 'cmake'
+[0.463s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/sensor) by extension 'python'
+[0.463s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/sensor) by extensions ['python_setup_py']
+[0.463s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/plugin/sensor) by extension 'python_setup_py'
+[0.463s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/replicate) by extensions ['ignore', 'ignore_ament_install']
+[0.463s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/replicate) by extension 'ignore'
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/replicate) by extension 'ignore_ament_install'
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/replicate) by extensions ['colcon_pkg']
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/replicate) by extension 'colcon_pkg'
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/replicate) by extensions ['colcon_meta']
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/replicate) by extension 'colcon_meta'
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/replicate) by extensions ['ros']
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/replicate) by extension 'ros'
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/replicate) by extensions ['cmake', 'python']
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/replicate) by extension 'cmake'
+[0.464s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/replicate) by extension 'python'
+[0.465s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/replicate) by extensions ['python_setup_py']
+[0.465s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/replicate) by extension 'python_setup_py'
+[0.465s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/replicate/asset) by extensions ['ignore', 'ignore_ament_install']
+[0.465s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/replicate/asset) by extension 'ignore'
+[0.465s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/replicate/asset) by extension 'ignore_ament_install'
+[0.465s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/replicate/asset) by extensions ['colcon_pkg']
+[0.465s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/replicate/asset) by extension 'colcon_pkg'
+[0.465s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/replicate/asset) by extensions ['colcon_meta']
+[0.465s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/replicate/asset) by extension 'colcon_meta'
+[0.466s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/replicate/asset) by extensions ['ros']
+[0.466s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/replicate/asset) by extension 'ros'
+[0.466s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/replicate/asset) by extensions ['cmake', 'python']
+[0.466s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/replicate/asset) by extension 'cmake'
+[0.466s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/replicate/asset) by extension 'python'
+[0.466s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/replicate/asset) by extensions ['python_setup_py']
+[0.466s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/replicate/asset) by extension 'python_setup_py'
+[0.466s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/sleep) by extensions ['ignore', 'ignore_ament_install']
+[0.467s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/sleep) by extension 'ignore'
+[0.467s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/sleep) by extension 'ignore_ament_install'
+[0.467s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/sleep) by extensions ['colcon_pkg']
+[0.467s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/sleep) by extension 'colcon_pkg'
+[0.467s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/sleep) by extensions ['colcon_meta']
+[0.467s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/sleep) by extension 'colcon_meta'
+[0.467s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/sleep) by extensions ['ros']
+[0.467s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/sleep) by extension 'ros'
+[0.467s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/sleep) by extensions ['cmake', 'python']
+[0.467s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/sleep) by extension 'cmake'
+[0.468s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/sleep) by extension 'python'
+[0.468s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/sleep) by extensions ['python_setup_py']
+[0.468s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/sleep) by extension 'python_setup_py'
+[0.468s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/slider_crank) by extensions ['ignore', 'ignore_ament_install']
+[0.468s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/slider_crank) by extension 'ignore'
+[0.468s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/slider_crank) by extension 'ignore_ament_install'
+[0.468s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/slider_crank) by extensions ['colcon_pkg']
+[0.468s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/slider_crank) by extension 'colcon_pkg'
+[0.468s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/slider_crank) by extensions ['colcon_meta']
+[0.468s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/slider_crank) by extension 'colcon_meta'
+[0.469s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/slider_crank) by extensions ['ros']
+[0.469s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/slider_crank) by extension 'ros'
+[0.469s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/slider_crank) by extensions ['cmake', 'python']
+[0.469s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/slider_crank) by extension 'cmake'
+[0.469s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/slider_crank) by extension 'python'
+[0.469s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/slider_crank) by extensions ['python_setup_py']
+[0.469s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/slider_crank) by extension 'python_setup_py'
+[0.469s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/surfacevel) by extensions ['ignore', 'ignore_ament_install']
+[0.470s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/surfacevel) by extension 'ignore'
+[0.470s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/surfacevel) by extension 'ignore_ament_install'
+[0.470s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/surfacevel) by extensions ['colcon_pkg']
+[0.470s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/surfacevel) by extension 'colcon_pkg'
+[0.470s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/surfacevel) by extensions ['colcon_meta']
+[0.470s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/surfacevel) by extension 'colcon_meta'
+[0.470s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/surfacevel) by extensions ['ros']
+[0.470s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/surfacevel) by extension 'ros'
+[0.470s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/surfacevel) by extensions ['cmake', 'python']
+[0.470s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/surfacevel) by extension 'cmake'
+[0.471s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/surfacevel) by extension 'python'
+[0.471s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/surfacevel) by extensions ['python_setup_py']
+[0.471s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/surfacevel) by extension 'python_setup_py'
+[0.471s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/tactile) by extensions ['ignore', 'ignore_ament_install']
+[0.471s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/tactile) by extension 'ignore'
+[0.471s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/tactile) by extension 'ignore_ament_install'
+[0.471s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/tactile) by extensions ['colcon_pkg']
+[0.471s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/tactile) by extension 'colcon_pkg'
+[0.472s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/tactile) by extensions ['colcon_meta']
+[0.472s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/tactile) by extension 'colcon_meta'
+[0.472s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/tactile) by extensions ['ros']
+[0.472s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/tactile) by extension 'ros'
+[0.472s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/tactile) by extensions ['cmake', 'python']
+[0.472s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/tactile) by extension 'cmake'
+[0.472s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/tactile) by extension 'python'
+[0.472s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/tactile) by extensions ['python_setup_py']
+[0.472s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/tactile) by extension 'python_setup_py'
+[0.472s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/tendon_arm) by extensions ['ignore', 'ignore_ament_install']
+[0.473s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/tendon_arm) by extension 'ignore'
+[0.473s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/tendon_arm) by extension 'ignore_ament_install'
+[0.473s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/tendon_arm) by extensions ['colcon_pkg']
+[0.473s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/tendon_arm) by extension 'colcon_pkg'
+[0.473s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/tendon_arm) by extensions ['colcon_meta']
+[0.473s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/tendon_arm) by extension 'colcon_meta'
+[0.473s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/tendon_arm) by extensions ['ros']
+[0.473s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/tendon_arm) by extension 'ros'
+[0.473s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/tendon_arm) by extensions ['cmake', 'python']
+[0.473s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/tendon_arm) by extension 'cmake'
+[0.474s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/tendon_arm) by extension 'python'
+[0.474s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/tendon_arm) by extensions ['python_setup_py']
+[0.474s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/model/tendon_arm) by extension 'python_setup_py'
+[0.474s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/sample) by extensions ['ignore', 'ignore_ament_install']
+[0.474s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/sample) by extension 'ignore'
+[0.474s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/sample) by extension 'ignore_ament_install'
+[0.474s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/sample) by extensions ['colcon_pkg']
+[0.474s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/sample) by extension 'colcon_pkg'
+[0.475s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/sample) by extensions ['colcon_meta']
+[0.475s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/sample) by extension 'colcon_meta'
+[0.475s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/sample) by extensions ['ros']
+[0.475s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/sample) by extension 'ros'
+[0.475s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/sample) by extensions ['cmake', 'python']
+[0.475s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/sample) by extension 'cmake'
+[0.475s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/sample) by extension 'python'
+[0.475s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/sample) by extensions ['python_setup_py']
+[0.475s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/sample) by extension 'python_setup_py'
+[0.476s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/sample/cmake) by extensions ['ignore', 'ignore_ament_install']
+[0.476s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/sample/cmake) by extension 'ignore'
+[0.476s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/sample/cmake) by extension 'ignore_ament_install'
+[0.476s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/sample/cmake) by extensions ['colcon_pkg']
+[0.476s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/sample/cmake) by extension 'colcon_pkg'
+[0.476s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/sample/cmake) by extensions ['colcon_meta']
+[0.476s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/sample/cmake) by extension 'colcon_meta'
+[0.476s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/sample/cmake) by extensions ['ros']
+[0.476s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/sample/cmake) by extension 'ros'
+[0.477s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/sample/cmake) by extensions ['cmake', 'python']
+[0.477s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/sample/cmake) by extension 'cmake'
+[0.477s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/sample/cmake) by extension 'python'
+[0.477s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/sample/cmake) by extensions ['python_setup_py']
+[0.477s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/sample/cmake) by extension 'python_setup_py'
+[0.477s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/simulate) by extensions ['ignore', 'ignore_ament_install']
+[0.477s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/simulate) by extension 'ignore'
+[0.477s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/simulate) by extension 'ignore_ament_install'
+[0.478s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/simulate) by extensions ['colcon_pkg']
+[0.478s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/simulate) by extension 'colcon_pkg'
+[0.478s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/simulate) by extensions ['colcon_meta']
+[0.478s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/simulate) by extension 'colcon_meta'
+[0.478s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/simulate) by extensions ['ros']
+[0.478s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/simulate) by extension 'ros'
+[0.478s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/simulate) by extensions ['cmake', 'python']
+[0.478s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/simulate) by extension 'cmake'
+[0.478s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/simulate) by extension 'python'
+[0.478s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/simulate) by extensions ['python_setup_py']
+[0.478s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/simulate) by extension 'python_setup_py'
+[0.479s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/simulate/cmake) by extensions ['ignore', 'ignore_ament_install']
+[0.479s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/simulate/cmake) by extension 'ignore'
+[0.479s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/simulate/cmake) by extension 'ignore_ament_install'
+[0.479s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/simulate/cmake) by extensions ['colcon_pkg']
+[0.479s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/simulate/cmake) by extension 'colcon_pkg'
+[0.479s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/simulate/cmake) by extensions ['colcon_meta']
+[0.479s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/simulate/cmake) by extension 'colcon_meta'
+[0.479s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/simulate/cmake) by extensions ['ros']
+[0.479s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/simulate/cmake) by extension 'ros'
+[0.480s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/simulate/cmake) by extensions ['cmake', 'python']
+[0.480s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/simulate/cmake) by extension 'cmake'
+[0.480s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/simulate/cmake) by extension 'python'
+[0.480s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/simulate/cmake) by extensions ['python_setup_py']
+[0.480s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/simulate/cmake) by extension 'python_setup_py'
+[0.480s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/wasm) by extensions ['ignore', 'ignore_ament_install']
+[0.480s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/wasm) by extension 'ignore'
+[0.480s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/wasm) by extension 'ignore_ament_install'
+[0.481s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/wasm) by extensions ['colcon_pkg']
+[0.481s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/wasm) by extension 'colcon_pkg'
+[0.481s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/wasm) by extensions ['colcon_meta']
+[0.481s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/wasm) by extension 'colcon_meta'
+[0.481s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/wasm) by extensions ['ros']
+[0.481s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/wasm) by extension 'ros'
+[0.481s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/wasm) by extensions ['cmake', 'python']
+[0.481s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/wasm) by extension 'cmake'
+[0.481s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/wasm) by extension 'python'
+[0.481s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/wasm) by extensions ['python_setup_py']
+[0.481s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/wasm) by extension 'python_setup_py'
+[0.482s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/wasm/mt) by extensions ['ignore', 'ignore_ament_install']
+[0.482s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/wasm/mt) by extension 'ignore'
+[0.482s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/wasm/mt) by extension 'ignore_ament_install'
+[0.482s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/wasm/mt) by extensions ['colcon_pkg']
+[0.482s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/wasm/mt) by extension 'colcon_pkg'
+[0.482s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/wasm/mt) by extensions ['colcon_meta']
+[0.483s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/wasm/mt) by extension 'colcon_meta'
+[0.483s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/wasm/mt) by extensions ['ros']
+[0.483s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/wasm/mt) by extension 'ros'
+[0.483s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/wasm/mt) by extensions ['cmake', 'python']
+[0.483s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/wasm/mt) by extension 'cmake'
+[0.483s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/wasm/mt) by extension 'python'
+[0.483s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/wasm/mt) by extensions ['python_setup_py']
+[0.483s] Level 1:colcon.colcon_core.package_identification:_identify(mujoco-3.13.0/wasm/mt) by extension 'python_setup_py'
+[0.484s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.484s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.484s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.484s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.484s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.484s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.484s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.484s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.484s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.490s] DEBUG:colcon.colcon_core.package_identification:Package 'src' with type 'ros.ament_cmake' and name 'mujoco_ros2'
+[0.490s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.490s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.490s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.490s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.490s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.523s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.524s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.526s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 1 installed packages in /home/ahmed/Desktop/Robotics Repo/Project Files/install
+[0.529s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 287 installed packages in /opt/ros/jazzy
+[0.530s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.626s] Level 5:colcon.colcon_core.verb:set package 'mujoco_ros2' build argument 'cmake_args' from command line to 'None'
+[0.626s] Level 5:colcon.colcon_core.verb:set package 'mujoco_ros2' build argument 'cmake_target' from command line to 'None'
+[0.626s] Level 5:colcon.colcon_core.verb:set package 'mujoco_ros2' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.626s] Level 5:colcon.colcon_core.verb:set package 'mujoco_ros2' build argument 'cmake_clean_cache' from command line to 'False'
+[0.626s] Level 5:colcon.colcon_core.verb:set package 'mujoco_ros2' build argument 'cmake_clean_first' from command line to 'False'
+[0.626s] Level 5:colcon.colcon_core.verb:set package 'mujoco_ros2' build argument 'cmake_force_configure' from command line to 'False'
+[0.627s] Level 5:colcon.colcon_core.verb:set package 'mujoco_ros2' build argument 'ament_cmake_args' from command line to 'None'
+[0.627s] Level 5:colcon.colcon_core.verb:set package 'mujoco_ros2' build argument 'catkin_cmake_args' from command line to 'None'
+[0.627s] Level 5:colcon.colcon_core.verb:set package 'mujoco_ros2' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.627s] DEBUG:colcon.colcon_core.verb:Building package 'mujoco_ros2' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/ahmed/Desktop/Robotics Repo/Project Files/build/mujoco_ros2', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2', 'merge_install': False, 'path': '/home/ahmed/Desktop/Robotics Repo/Project Files/src', 'symlink_install': False, 'test_result_base': None}
+[0.627s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.628s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.629s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/ahmed/Desktop/Robotics Repo/Project Files/src' with build type 'ament_cmake'
+[0.629s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/ahmed/Desktop/Robotics Repo/Project Files/src'
+[0.633s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.634s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.634s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.651s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/ahmed/Desktop/Robotics Repo/Project Files/build/mujoco_ros2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/ahmed/Desktop/Robotics Repo/Project Files/build/mujoco_ros2 -- -j16 -l16
+[0.791s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/ahmed/Desktop/Robotics Repo/Project Files/build/mujoco_ros2' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/ahmed/Desktop/Robotics Repo/Project Files/build/mujoco_ros2 -- -j16 -l16
+[0.807s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/ahmed/Desktop/Robotics Repo/Project Files/build/mujoco_ros2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/ahmed/Desktop/Robotics Repo/Project Files/build/mujoco_ros2
+[0.828s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(mujoco_ros2)
+[0.829s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/ahmed/Desktop/Robotics Repo/Project Files/build/mujoco_ros2' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/ahmed/Desktop/Robotics Repo/Project Files/build/mujoco_ros2
+[0.832s] Level 1:colcon.colcon_core.environment:checking '/home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2' for CMake module files
+[0.833s] Level 1:colcon.colcon_core.environment:checking '/home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2' for CMake config files
+[0.833s] Level 1:colcon.colcon_core.shell:create_environment_hook('mujoco_ros2', 'cmake_prefix_path')
+[0.833s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/hook/cmake_prefix_path.ps1'
+[0.834s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/hook/cmake_prefix_path.dsv'
+[0.835s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/hook/cmake_prefix_path.sh'
+[0.837s] Level 1:colcon.colcon_core.environment:checking '/home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/lib'
+[0.837s] Level 1:colcon.colcon_core.environment:checking '/home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/bin'
+[0.838s] Level 1:colcon.colcon_core.environment:checking '/home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/lib/pkgconfig/mujoco_ros2.pc'
+[0.838s] Level 1:colcon.colcon_core.environment:checking '/home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/lib/python3.12/site-packages'
+[0.839s] Level 1:colcon.colcon_core.environment:checking '/home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/bin'
+[0.839s] INFO:colcon.colcon_core.shell:Creating package script '/home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/package.ps1'
+[0.842s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/package.dsv'
+[0.843s] INFO:colcon.colcon_core.shell:Creating package script '/home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/package.sh'
+[0.844s] INFO:colcon.colcon_core.shell:Creating package script '/home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/package.bash'
+[0.845s] INFO:colcon.colcon_core.shell:Creating package script '/home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/package.zsh'
+[0.847s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/colcon-core/packages/mujoco_ros2)
+[0.848s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(mujoco_ros2)
+[0.848s] Level 1:colcon.colcon_core.environment:checking '/home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2' for CMake module files
+[0.850s] Level 1:colcon.colcon_core.environment:checking '/home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2' for CMake config files
+[0.850s] Level 1:colcon.colcon_core.shell:create_environment_hook('mujoco_ros2', 'cmake_prefix_path')
+[0.851s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/hook/cmake_prefix_path.ps1'
+[0.851s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/hook/cmake_prefix_path.dsv'
+[0.852s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/hook/cmake_prefix_path.sh'
+[0.854s] Level 1:colcon.colcon_core.environment:checking '/home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/lib'
+[0.854s] Level 1:colcon.colcon_core.environment:checking '/home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/bin'
+[0.854s] Level 1:colcon.colcon_core.environment:checking '/home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/lib/pkgconfig/mujoco_ros2.pc'
+[0.854s] Level 1:colcon.colcon_core.environment:checking '/home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/lib/python3.12/site-packages'
+[0.855s] Level 1:colcon.colcon_core.environment:checking '/home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/bin'
+[0.855s] INFO:colcon.colcon_core.shell:Creating package script '/home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/package.ps1'
+[0.857s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/package.dsv'
+[0.858s] INFO:colcon.colcon_core.shell:Creating package script '/home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/package.sh'
+[0.859s] INFO:colcon.colcon_core.shell:Creating package script '/home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/package.bash'
+[0.860s] INFO:colcon.colcon_core.shell:Creating package script '/home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/mujoco_ros2/package.zsh'
+[0.861s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/ahmed/Desktop/Robotics Repo/Project Files/install/mujoco_ros2/share/colcon-core/packages/mujoco_ros2)
+[0.862s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[0.862s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[0.863s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[0.863s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[0.874s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[0.875s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[0.875s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[0.889s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[0.890s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/ahmed/Desktop/Robotics Repo/Project Files/install/local_setup.ps1'
+[0.891s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/ahmed/Desktop/Robotics Repo/Project Files/install/_local_setup_util_ps1.py'
+[0.894s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/ahmed/Desktop/Robotics Repo/Project Files/install/setup.ps1'
+[0.896s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/ahmed/Desktop/Robotics Repo/Project Files/install/local_setup.sh'
+[0.897s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/ahmed/Desktop/Robotics Repo/Project Files/install/_local_setup_util_sh.py'
+[0.898s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/ahmed/Desktop/Robotics Repo/Project Files/install/setup.sh'
+[0.900s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/ahmed/Desktop/Robotics Repo/Project Files/install/local_setup.bash'
+[0.901s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/ahmed/Desktop/Robotics Repo/Project Files/install/setup.bash'
+[0.903s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/ahmed/Desktop/Robotics Repo/Project Files/install/local_setup.zsh'
+[0.904s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/ahmed/Desktop/Robotics Repo/Project Files/install/setup.zsh'
