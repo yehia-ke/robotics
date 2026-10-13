@@ -1,0 +1,6 @@
+/usr/bin/ld:/home/ahmed/Desktop/Robotics Repo/Project Files/mujoco-3.13.0/lib/libmujoco.so: file format not recognized; treating as linker script
+/usr/bin/ld:/home/ahmed/Desktop/Robotics Repo/Project Files/mujoco-3.13.0/lib/libmujoco.so:0: syntax error
+collect2: error: ld returned 1 exit status
+gmake[2]: *** [CMakeFiles/mujoco_node.dir/build.make:203: mujoco_node] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/mujoco_node.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2
