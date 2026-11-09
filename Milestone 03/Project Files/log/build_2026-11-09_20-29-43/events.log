@@ -1,0 +1,215 @@
+[0.000000] (-) TimerEvent: {}
+[0.000136] (mujoco_ros2) JobQueued: {'identifier': 'mujoco_ros2', 'dependencies': OrderedDict()}
+[0.000474] (mujoco_ros2) JobStarted: {'identifier': 'mujoco_ros2'}
+[0.009846] (mujoco_ros2) JobProgress: {'identifier': 'mujoco_ros2', 'progress': 'cmake'}
+[0.011336] (mujoco_ros2) Command: {'cmd': ['/usr/bin/cmake', '/home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/src', '-DCMAKE_INSTALL_PREFIX=/home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2'], 'cwd': '/home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/build/mujoco_ros2', 'env': OrderedDict({'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'EGL_PLATFORM': 'wayland', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'ubuntuecho', 'XDG_SESSION_TYPE': 'wayland', 'GIT_ASKPASS': '/usr/share/code/resources/app/extensions/git/dist/askpass.sh', 'CLUTTER_DISABLE_MIPMAPPED_TEXT': '1', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib:/home/ubuntuecho/Documents/mujoco/mujoco-3.15.0/lib:/home/ubuntuecho/Documents/mujoco/mujoco-3.15.0/lib:/home/ubuntuecho/Documents/mujoco/mujoco-3.15.0/lib::/home/ubuntuecho/Documents/mujoco/mujoco-3.15.0/bin:/home/ubuntuecho/Documents/mujoco/mujoco-3.15.0/bin', 'HOME': '/home/ubuntuecho', 'CHROME_DESKTOP': 'com.microsoft.VSCode.desktop', 'OLDPWD': '/home/ubuntuecho/Desktop/Uni', 'TERM_PROGRAM_VERSION': '1.141.0', 'DESKTOP_SESSION': 'ubuntu', 'GIO_LAUNCHED_DESKTOP_FILE': '/usr/share/applications/com.microsoft.VSCode.desktop', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'VSCODE_GIT_ASKPASS_MAIN': '/usr/share/code/resources/app/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/usr/share/code/code', 'MANAGERPID': '2566', 'SYSTEMD_EXEC_PID': '2839', 'IM_CONFIG_CHECK_ENV': '1', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '3865', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'ubuntuecho', 'JOURNAL_STREAM': '10:34994', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@wayland.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'ubuntuecho', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'FC_FONTATIONS': '1', 'PATH': '/opt/ros/jazzy/bin:/home/ubuntuecho/.config/Code/User/globalStorage/github.copilot-chat/debugCommand:/home/ubuntuecho/.config/Code/User/globalStorage/github.copilot-chat/copilotCli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/Central46Ubuntu:@/tmp/.ICE-unix/2809,unix/Central46Ubuntu:/tmp/.ICE-unix/2809', 'INVOCATION_ID': '0b57f02f43f84f9f96d568cd0e808ef5', 'XDG_MENU_PREFIX': 'gnome-', 'MUJOCO_DIR': '/home/ubuntuecho/Documents/mujoco/mujoco-3.15.0', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'MUJOCO_PY_MUJOCO_PATH': '/home/ubuntuecho/Documents/mujoco/mujoco-3.15.0', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.3JIXY3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-363f89206e.sock', 'TERM_PROGRAM': 'vscode', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GJS_DEBUG_OUTPUT': 'stderr', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/build/mujoco_ros2', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'COPILOT_DEBUG_NONCE': '0be312b6c10bb067594fc3ef5b6dec36', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/opt/gz_math_vendor/lib/python:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[0.030479] (mujoco_ros2) StdoutLine: {'line': b'-- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)\n'}
+[0.099899] (-) TimerEvent: {}
+[0.159564] (mujoco_ros2) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter \n'}
+[0.200030] (-) TimerEvent: {}
+[0.280993] (mujoco_ros2) StdoutLine: {'line': b'-- Found rclcpp: 28.1.22 (/opt/ros/jazzy/share/rclcpp/cmake)\n'}
+[0.300296] (-) TimerEvent: {}
+[0.331622] (mujoco_ros2) StdoutLine: {'line': b'-- Found rosidl_generator_c: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)\n'}
+[0.346167] (mujoco_ros2) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)\n'}
+[0.366094] (mujoco_ros2) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.386389] (mujoco_ros2) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.400545] (-) TimerEvent: {}
+[0.477128] (mujoco_ros2) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 7.3.4 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)\n'}
+[0.481062] (mujoco_ros2) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 8.4.4 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)\n'}
+[0.500866] (-) TimerEvent: {}
+[0.572670] (mujoco_ros2) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.13")  \n'}
+[0.592069] (mujoco_ros2) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") \n'}
+[0.601141] (-) TimerEvent: {}
+[0.614687] (mujoco_ros2) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[0.701375] (-) TimerEvent: {}
+[0.705532] (mujoco_ros2) StdoutLine: {'line': b'-- Found sensor_msgs: 5.3.8 (/opt/ros/jazzy/share/sensor_msgs/cmake)\n'}
+[0.802045] (-) TimerEvent: {}
+[0.851435] (mujoco_ros2) StdoutLine: {'line': b'-- Configuring done (0.8s)\n'}
+[0.863454] (mujoco_ros2) StdoutLine: {'line': b'-- Generating done (0.0s)\n'}
+[0.866638] (mujoco_ros2) StdoutLine: {'line': b'-- Build files have been written to: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/build/mujoco_ros2\n'}
+[0.874257] (mujoco_ros2) CommandEnded: {'returncode': 0}
+[0.875548] (mujoco_ros2) JobProgress: {'identifier': 'mujoco_ros2', 'progress': 'build'}
+[0.875574] (mujoco_ros2) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/build/mujoco_ros2', '--', '-j4', '-l4'], 'cwd': '/home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/build/mujoco_ros2', 'env': OrderedDict({'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'EGL_PLATFORM': 'wayland', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'ubuntuecho', 'XDG_SESSION_TYPE': 'wayland', 'GIT_ASKPASS': '/usr/share/code/resources/app/extensions/git/dist/askpass.sh', 'CLUTTER_DISABLE_MIPMAPPED_TEXT': '1', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib:/home/ubuntuecho/Documents/mujoco/mujoco-3.15.0/lib:/home/ubuntuecho/Documents/mujoco/mujoco-3.15.0/lib:/home/ubuntuecho/Documents/mujoco/mujoco-3.15.0/lib::/home/ubuntuecho/Documents/mujoco/mujoco-3.15.0/bin:/home/ubuntuecho/Documents/mujoco/mujoco-3.15.0/bin', 'HOME': '/home/ubuntuecho', 'CHROME_DESKTOP': 'com.microsoft.VSCode.desktop', 'OLDPWD': '/home/ubuntuecho/Desktop/Uni', 'TERM_PROGRAM_VERSION': '1.141.0', 'DESKTOP_SESSION': 'ubuntu', 'GIO_LAUNCHED_DESKTOP_FILE': '/usr/share/applications/com.microsoft.VSCode.desktop', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'VSCODE_GIT_ASKPASS_MAIN': '/usr/share/code/resources/app/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/usr/share/code/code', 'MANAGERPID': '2566', 'SYSTEMD_EXEC_PID': '2839', 'IM_CONFIG_CHECK_ENV': '1', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '3865', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'ubuntuecho', 'JOURNAL_STREAM': '10:34994', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@wayland.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'ubuntuecho', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'FC_FONTATIONS': '1', 'PATH': '/opt/ros/jazzy/bin:/home/ubuntuecho/.config/Code/User/globalStorage/github.copilot-chat/debugCommand:/home/ubuntuecho/.config/Code/User/globalStorage/github.copilot-chat/copilotCli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/Central46Ubuntu:@/tmp/.ICE-unix/2809,unix/Central46Ubuntu:/tmp/.ICE-unix/2809', 'INVOCATION_ID': '0b57f02f43f84f9f96d568cd0e808ef5', 'XDG_MENU_PREFIX': 'gnome-', 'MUJOCO_DIR': '/home/ubuntuecho/Documents/mujoco/mujoco-3.15.0', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'MUJOCO_PY_MUJOCO_PATH': '/home/ubuntuecho/Documents/mujoco/mujoco-3.15.0', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.3JIXY3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-363f89206e.sock', 'TERM_PROGRAM': 'vscode', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GJS_DEBUG_OUTPUT': 'stderr', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/build/mujoco_ros2', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'COPILOT_DEBUG_NONCE': '0be312b6c10bb067594fc3ef5b6dec36', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/opt/gz_math_vendor/lib/python:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[0.902467] (-) TimerEvent: {}
+[0.940906] (mujoco_ros2) StdoutLine: {'line': b'[ 33%] \x1b[32mBuilding CXX object CMakeFiles/mujoco_node.dir/src/mujoco_ros.cpp.o\x1b[0m\n'}
+[0.941883] (mujoco_ros2) StdoutLine: {'line': b'[ 66%] \x1b[32mBuilding CXX object CMakeFiles/mujoco_node.dir/src/nodes/mujoco_node.cpp.o\x1b[0m\n'}
+[1.002837] (-) TimerEvent: {}
+[1.103402] (-) TimerEvent: {}
+[1.204250] (-) TimerEvent: {}
+[1.305096] (-) TimerEvent: {}
+[1.406049] (-) TimerEvent: {}
+[1.506811] (-) TimerEvent: {}
+[1.607829] (-) TimerEvent: {}
+[1.708366] (-) TimerEvent: {}
+[1.809188] (-) TimerEvent: {}
+[1.909792] (-) TimerEvent: {}
+[2.010934] (-) TimerEvent: {}
+[2.111943] (-) TimerEvent: {}
+[2.212900] (-) TimerEvent: {}
+[2.317611] (-) TimerEvent: {}
+[2.418723] (-) TimerEvent: {}
+[2.519359] (-) TimerEvent: {}
+[2.619935] (-) TimerEvent: {}
+[2.720811] (-) TimerEvent: {}
+[2.821548] (-) TimerEvent: {}
+[2.922268] (-) TimerEvent: {}
+[3.022859] (-) TimerEvent: {}
+[3.123742] (-) TimerEvent: {}
+[3.224679] (-) TimerEvent: {}
+[3.325817] (-) TimerEvent: {}
+[3.426747] (-) TimerEvent: {}
+[3.527283] (-) TimerEvent: {}
+[3.627725] (-) TimerEvent: {}
+[3.728769] (-) TimerEvent: {}
+[3.832687] (-) TimerEvent: {}
+[3.933948] (-) TimerEvent: {}
+[4.034315] (-) TimerEvent: {}
+[4.135633] (-) TimerEvent: {}
+[4.237728] (-) TimerEvent: {}
+[4.338129] (-) TimerEvent: {}
+[4.439026] (-) TimerEvent: {}
+[4.541905] (-) TimerEvent: {}
+[4.642890] (-) TimerEvent: {}
+[4.743864] (-) TimerEvent: {}
+[4.845054] (-) TimerEvent: {}
+[4.946207] (-) TimerEvent: {}
+[5.047233] (-) TimerEvent: {}
+[5.148487] (-) TimerEvent: {}
+[5.249167] (-) TimerEvent: {}
+[5.350061] (-) TimerEvent: {}
+[5.450700] (-) TimerEvent: {}
+[5.551591] (-) TimerEvent: {}
+[5.652179] (-) TimerEvent: {}
+[5.754927] (-) TimerEvent: {}
+[5.855365] (-) TimerEvent: {}
+[5.957571] (-) TimerEvent: {}
+[6.058196] (-) TimerEvent: {}
+[6.159125] (-) TimerEvent: {}
+[6.259658] (-) TimerEvent: {}
+[6.360614] (-) TimerEvent: {}
+[6.462690] (-) TimerEvent: {}
+[6.563592] (-) TimerEvent: {}
+[6.664098] (-) TimerEvent: {}
+[6.764472] (-) TimerEvent: {}
+[6.864891] (-) TimerEvent: {}
+[6.965826] (-) TimerEvent: {}
+[7.066689] (-) TimerEvent: {}
+[7.167582] (-) TimerEvent: {}
+[7.268680] (-) TimerEvent: {}
+[7.369279] (-) TimerEvent: {}
+[7.470660] (-) TimerEvent: {}
+[7.571392] (-) TimerEvent: {}
+[7.671905] (-) TimerEvent: {}
+[7.772417] (-) TimerEvent: {}
+[7.873356] (-) TimerEvent: {}
+[7.974242] (-) TimerEvent: {}
+[8.075339] (-) TimerEvent: {}
+[8.176384] (-) TimerEvent: {}
+[8.277738] (-) TimerEvent: {}
+[8.378399] (-) TimerEvent: {}
+[8.478841] (-) TimerEvent: {}
+[8.579386] (-) TimerEvent: {}
+[8.680159] (-) TimerEvent: {}
+[8.780791] (-) TimerEvent: {}
+[8.881411] (-) TimerEvent: {}
+[8.981732] (-) TimerEvent: {}
+[9.082219] (-) TimerEvent: {}
+[9.183007] (-) TimerEvent: {}
+[9.283463] (-) TimerEvent: {}
+[9.384134] (-) TimerEvent: {}
+[9.484583] (-) TimerEvent: {}
+[9.585556] (-) TimerEvent: {}
+[9.686200] (-) TimerEvent: {}
+[9.786924] (-) TimerEvent: {}
+[9.887517] (-) TimerEvent: {}
+[9.987996] (-) TimerEvent: {}
+[10.088627] (-) TimerEvent: {}
+[10.189531] (-) TimerEvent: {}
+[10.290600] (-) TimerEvent: {}
+[10.391063] (-) TimerEvent: {}
+[10.491804] (-) TimerEvent: {}
+[10.592283] (-) TimerEvent: {}
+[10.692837] (-) TimerEvent: {}
+[10.793876] (-) TimerEvent: {}
+[10.894824] (-) TimerEvent: {}
+[10.995359] (-) TimerEvent: {}
+[11.095896] (-) TimerEvent: {}
+[11.196471] (-) TimerEvent: {}
+[11.296805] (-) TimerEvent: {}
+[11.336937] (mujoco_ros2) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable mujoco_node\x1b[0m\n'}
+[11.398174] (-) TimerEvent: {}
+[11.498644] (-) TimerEvent: {}
+[11.599349] (-) TimerEvent: {}
+[11.696312] (mujoco_ros2) StdoutLine: {'line': b'[100%] Built target mujoco_node\n'}
+[11.699931] (-) TimerEvent: {}
+[11.709437] (mujoco_ros2) CommandEnded: {'returncode': 0}
+[11.710586] (mujoco_ros2) JobProgress: {'identifier': 'mujoco_ros2', 'progress': 'install'}
+[11.722935] (mujoco_ros2) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/build/mujoco_ros2'], 'cwd': '/home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/build/mujoco_ros2', 'env': OrderedDict({'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'EGL_PLATFORM': 'wayland', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'ubuntuecho', 'XDG_SESSION_TYPE': 'wayland', 'GIT_ASKPASS': '/usr/share/code/resources/app/extensions/git/dist/askpass.sh', 'CLUTTER_DISABLE_MIPMAPPED_TEXT': '1', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib:/home/ubuntuecho/Documents/mujoco/mujoco-3.15.0/lib:/home/ubuntuecho/Documents/mujoco/mujoco-3.15.0/lib:/home/ubuntuecho/Documents/mujoco/mujoco-3.15.0/lib::/home/ubuntuecho/Documents/mujoco/mujoco-3.15.0/bin:/home/ubuntuecho/Documents/mujoco/mujoco-3.15.0/bin', 'HOME': '/home/ubuntuecho', 'CHROME_DESKTOP': 'com.microsoft.VSCode.desktop', 'OLDPWD': '/home/ubuntuecho/Desktop/Uni', 'TERM_PROGRAM_VERSION': '1.141.0', 'DESKTOP_SESSION': 'ubuntu', 'GIO_LAUNCHED_DESKTOP_FILE': '/usr/share/applications/com.microsoft.VSCode.desktop', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'VSCODE_GIT_ASKPASS_MAIN': '/usr/share/code/resources/app/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/usr/share/code/code', 'MANAGERPID': '2566', 'SYSTEMD_EXEC_PID': '2839', 'IM_CONFIG_CHECK_ENV': '1', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '3865', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'ubuntuecho', 'JOURNAL_STREAM': '10:34994', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@wayland.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'ubuntuecho', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'FC_FONTATIONS': '1', 'PATH': '/opt/ros/jazzy/bin:/home/ubuntuecho/.config/Code/User/globalStorage/github.copilot-chat/debugCommand:/home/ubuntuecho/.config/Code/User/globalStorage/github.copilot-chat/copilotCli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/Central46Ubuntu:@/tmp/.ICE-unix/2809,unix/Central46Ubuntu:/tmp/.ICE-unix/2809', 'INVOCATION_ID': '0b57f02f43f84f9f96d568cd0e808ef5', 'XDG_MENU_PREFIX': 'gnome-', 'MUJOCO_DIR': '/home/ubuntuecho/Documents/mujoco/mujoco-3.15.0', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'MUJOCO_PY_MUJOCO_PATH': '/home/ubuntuecho/Documents/mujoco/mujoco-3.15.0', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.3JIXY3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-363f89206e.sock', 'TERM_PROGRAM': 'vscode', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GJS_DEBUG_OUTPUT': 'stderr', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/build/mujoco_ros2', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'COPILOT_DEBUG_NONCE': '0be312b6c10bb067594fc3ef5b6dec36', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/opt/gz_math_vendor/lib/python:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[11.732794] (mujoco_ros2) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[11.733174] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/lib/mujoco_ros2/mujoco_node\n'}
+[11.737741] (mujoco_ros2) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/lib/mujoco_ros2/mujoco_node" to ""\n'}
+[11.738018] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/launch\n'}
+[11.738826] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/launch/example.py\n'}
+[11.739150] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model\n'}
+[11.739403] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/scene.xml\n'}
+[11.739736] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6\n'}
+[11.740182] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/LICENSE\n'}
+[11.740597] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/CHANGELOG.md\n'}
+[11.740921] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/lite6_gripper_wide_closed.png\n'}
+[11.741783] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/scene.xml\n'}
+[11.742073] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/lite6_gripper_narrow_open.png\n'}
+[11.742954] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/lite6.png\n'}
+[11.745135] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/lite6.xml\n'}
+[11.745418] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/README.md\n'}
+[11.745729] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/lite6_gripper_wide.xml\n'}
+[11.746040] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets\n'}
+[11.746317] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/visual\n'}
+[11.746592] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/visual/gripper_lite_right_finger_wide.stl\n'}
+[11.747117] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/visual/link_base.stl\n'}
+[11.747864] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/visual/gripper_lite_body.stl\n'}
+[11.748575] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/visual/link5.stl\n'}
+[11.749724] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/visual/link3.stl\n'}
+[11.750868] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/visual/link6.stl\n'}
+[11.751608] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/visual/vacuum_gripper_lite.stl\n'}
+[11.752407] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/visual/gripper_lite_right_finger_narrow.stl\n'}
+[11.752878] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/visual/link2.stl\n'}
+[11.753700] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/visual/link4.stl\n'}
+[11.755049] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/visual/gripper_lite_left_finger_narrow.stl\n'}
+[11.755535] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/visual/gripper_lite_left_finger_wide.stl\n'}
+[11.756043] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/visual/link1.stl\n'}
+[11.756840] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/collision\n'}
+[11.757152] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/collision/gripper_lite_right_finger_wide_base.stl\n'}
+[11.757486] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/collision/gripper_lite_left_finger_wide_tip.stl\n'}
+[11.757898] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/collision/link_base.stl\n'}
+[11.758506] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/collision/gripper_lite_body.stl\n'}
+[11.758992] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/collision/link5.stl\n'}
+[11.759926] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/collision/gripper_lite_right_finger_wide_tip.stl\n'}
+[11.760222] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/collision/link3.stl\n'}
+[11.760687] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/collision/link6.stl\n'}
+[11.760999] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/collision/vacuum_gripper_lite.stl\n'}
+[11.761352] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/collision/gripper_lite_left_finger_wide_base.stl\n'}
+[11.761673] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/collision/link2.stl\n'}
+[11.762211] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/collision/link4.stl\n'}
+[11.763089] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/collision/link1.stl\n'}
+[11.763579] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/lite6_gripper_wide_open.png\n'}
+[11.764241] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/lite6_gripper_narrow.xml\n'}
+[11.764576] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/lite6_gripper_narrow_closed.png\n'}
+[11.765198] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/two_link_planar.xml\n'}
+[11.765842] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/ament_index/resource_index/package_run_dependencies/mujoco_ros2\n'}
+[11.766228] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/ament_index/resource_index/parent_prefix_path/mujoco_ros2\n'}
+[11.766670] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/environment/ament_prefix_path.sh\n'}
+[11.766974] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/environment/ament_prefix_path.dsv\n'}
+[11.767331] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/environment/path.sh\n'}
+[11.767653] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/environment/path.dsv\n'}
+[11.767948] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/local_setup.bash\n'}
+[11.768316] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/local_setup.sh\n'}
+[11.768654] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/local_setup.zsh\n'}
+[11.768956] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/local_setup.dsv\n'}
+[11.769332] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/package.dsv\n'}
+[11.769691] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/ament_index/resource_index/packages/mujoco_ros2\n'}
+[11.769879] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/cmake/mujoco_ros2Config.cmake\n'}
+[11.770164] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/cmake/mujoco_ros2Config-version.cmake\n'}
+[11.770535] (mujoco_ros2) StdoutLine: {'line': b'-- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/package.xml\n'}
+[11.773120] (mujoco_ros2) CommandEnded: {'returncode': 0}
+[11.793807] (mujoco_ros2) JobEnded: {'identifier': 'mujoco_ros2', 'rc': 0}
+[11.794653] (-) EventReactorShutdown: {}

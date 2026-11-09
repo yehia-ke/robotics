@@ -1,0 +1,2 @@
+WARNING Tue Sep 22 18:02:27 2026: File size over 2GB is not supported. File: '/home/ahmed/Desktop/Robotics/src/mujoco_ros2/model/ufactory_lite6/'
+
