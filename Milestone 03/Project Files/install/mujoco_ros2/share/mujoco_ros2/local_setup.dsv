@@ -1,1 +1,2 @@
-/home/landau/Documents/projects/robotics/robotics/Milestone 03/Project Files/build/mujoco_ros2/ament_cmake_environment_hooks/local_setup.dsv
+source;share/mujoco_ros2/environment/ament_prefix_path.sh
+source;share/mujoco_ros2/environment/path.sh

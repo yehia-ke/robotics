@@ -1,0 +1,205 @@
+[0.014s] Invoking command in '/home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/build/mujoco_ros2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/src -DCMAKE_INSTALL_PREFIX=/home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2
+[0.983s] -- The C compiler identification is GNU 13.3.0
+[1.914s] -- The CXX compiler identification is GNU 13.3.0
+[2.011s] -- Detecting C compiler ABI info
+[2.115s] -- Detecting C compiler ABI info - done
+[2.124s] -- Check for working C compiler: /usr/bin/cc - skipped
+[2.125s] -- Detecting C compile features
+[2.127s] -- Detecting C compile features - done
+[2.140s] -- Detecting CXX compiler ABI info
+[2.236s] -- Detecting CXX compiler ABI info - done
+[2.245s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[2.245s] -- Detecting CXX compile features
+[2.245s] -- Detecting CXX compile features - done
+[2.388s] -- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[3.000s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[3.539s] -- Found rclcpp: 28.1.22 (/opt/ros/jazzy/share/rclcpp/cmake)
+[4.985s] -- Found rosidl_generator_c: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[5.399s] -- Found rosidl_generator_cpp: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[5.984s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[6.371s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[9.174s] -- Found rmw_implementation_cmake: 7.3.4 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[9.421s] -- Found rmw_fastrtps_cpp: 8.4.4 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+[24.759s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.13")  
+[25.072s] -- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") 
+[25.188s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[27.245s] -- Found sensor_msgs: 5.3.8 (/opt/ros/jazzy/share/sensor_msgs/cmake)
+[28.749s] -- Configuring done (28.7s)
+[28.762s] -- Generating done (0.0s)
+[28.765s] -- Build files have been written to: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/build/mujoco_ros2
+[28.791s] Invoked command in '/home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/build/mujoco_ros2' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/src -DCMAKE_INSTALL_PREFIX=/home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2
+[28.795s] Invoking command in '/home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/build/mujoco_ros2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/build/mujoco_ros2 -- -j4 -l4
+[28.887s] [ 33%] [32mBuilding CXX object CMakeFiles/mujoco_node.dir/src/nodes/mujoco_node.cpp.o[0m
+[55.198s] [ 66%] [32mBuilding CXX object CMakeFiles/mujoco_node.dir/src/mujoco_ros.cpp.o[0m
+[57.579s] In file included from [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+[57.593s]                  from [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/copy_all_parameter_values.hpp:27[m[K,
+[57.593s]                  from [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/rclcpp.hpp:175[m[K,
+[57.593s]                  from [01m[K/home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/src/include/mujoco_ros2/mujoco_ros.hpp:25[m[K,
+[57.593s]                  from [01m[K/home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/src/src/mujoco_ros.cpp:17[m[K:
+[57.593s] [01m[K/home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/src/src/mujoco_ros.cpp:[m[K In constructor ‘[01m[KMuJoCoROS::[01;32m[KMuJoCoROS[m[K(const std::string&)[m[K’:
+[57.594s] [01m[K/home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/src/src/mujoco_ros.cpp:318:9:[m[K [01;35m[Kwarning: [m[Kformat ‘[01m[K%d[m[K’ expects argument of type ‘[01m[Kint[m[K’, but argument 8 has type ‘[01m[KmjtSize[m[K’ {aka ‘[01m[Klong int[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wformat=-Wformat=]8;;[m[K]
+[57.594s]   318 |         [01;35m[K"MuJoCo simulation initiated. "[m[K
+[57.594s]       |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[57.594s]   319 | [01;35m[K        "Publishing joint states to '%s'. "[m[K
+[57.594s]       |         [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[57.594s]   320 | [01;35m[K        "Subscribing to %s commands via '%s'. "[m[K
+[57.594s]       |         [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[57.594s]   321 | [01;35m[K        "Model dimensions: nq=%d, nv=%d, njnt=%d, nu=%d."[m[K,
+[57.594s]       |         [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[57.594s] ......
+[57.594s]   325 |         [32m[K_model->nq[m[K,
+[57.594s]       |         [32m[K~~~~~~~~~~[m[K
+[57.594s]       |                 [32m[K|[m[K
+[57.595s]       |                 [32m[KmjtSize {aka long int}[m[K
+[57.595s] [01m[K/home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/src/src/mujoco_ros.cpp:321:32:[m[K [01;36m[Knote: [m[Kformat string is defined here
+[57.595s]   321 |         "Model dimensions: nq=[01;36m[K%d[m[K, nv=%d, njnt=%d, nu=%d.",
+[57.595s]       |                               [01;36m[K~^[m[K
+[57.595s]       |                                [01;36m[K|[m[K
+[57.595s]       |                                [01;36m[Kint[m[K
+[57.595s]       |                               [32m[K%ld[m[K
+[57.595s] [01m[K/home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/src/src/mujoco_ros.cpp:318:9:[m[K [01;35m[Kwarning: [m[Kformat ‘[01m[K%d[m[K’ expects argument of type ‘[01m[Kint[m[K’, but argument 9 has type ‘[01m[KmjtSize[m[K’ {aka ‘[01m[Klong int[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wformat=-Wformat=]8;;[m[K]
+[57.595s]   318 |         [01;35m[K"MuJoCo simulation initiated. "[m[K
+[57.595s]       |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[57.595s]   319 | [01;35m[K        "Publishing joint states to '%s'. "[m[K
+[57.595s]       |         [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[57.595s]   320 | [01;35m[K        "Subscribing to %s commands via '%s'. "[m[K
+[57.595s]       |         [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[57.595s]   321 | [01;35m[K        "Model dimensions: nq=%d, nv=%d, njnt=%d, nu=%d."[m[K,
+[57.595s]       |         [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[57.595s] ......
+[57.595s]   326 |         [32m[K_model->nv[m[K,
+[57.595s]       |         [32m[K~~~~~~~~~~[m[K
+[57.595s]       |                 [32m[K|[m[K
+[57.595s]       |                 [32m[KmjtSize {aka long int}[m[K
+[57.595s] [01m[K/home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/src/src/mujoco_ros.cpp:321:39:[m[K [01;36m[Knote: [m[Kformat string is defined here
+[57.595s]   321 |         "Model dimensions: nq=%d, nv=[01;36m[K%d[m[K, njnt=%d, nu=%d.",
+[57.595s]       |                                      [01;36m[K~^[m[K
+[57.595s]       |                                       [01;36m[K|[m[K
+[57.596s]       |                                       [01;36m[Kint[m[K
+[57.596s]       |                                      [32m[K%ld[m[K
+[57.596s] [01m[K/home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/src/src/mujoco_ros.cpp:318:9:[m[K [01;35m[Kwarning: [m[Kformat ‘[01m[K%d[m[K’ expects argument of type ‘[01m[Kint[m[K’, but argument 10 has type ‘[01m[KmjtSize[m[K’ {aka ‘[01m[Klong int[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wformat=-Wformat=]8;;[m[K]
+[57.596s]   318 |         [01;35m[K"MuJoCo simulation initiated. "[m[K
+[57.596s]       |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[57.596s]   319 | [01;35m[K        "Publishing joint states to '%s'. "[m[K
+[57.596s]       |         [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[57.596s]   320 | [01;35m[K        "Subscribing to %s commands via '%s'. "[m[K
+[57.596s]       |         [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[57.596s]   321 | [01;35m[K        "Model dimensions: nq=%d, nv=%d, njnt=%d, nu=%d."[m[K,
+[57.596s]       |         [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[57.596s] ......
+[57.596s]   327 |         [32m[K_model->njnt[m[K,
+[57.596s]       |         [32m[K~~~~~~~~~~~~[m[K
+[57.596s]       |                 [32m[K|[m[K
+[57.596s]       |                 [32m[KmjtSize {aka long int}[m[K
+[57.596s] [01m[K/home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/src/src/mujoco_ros.cpp:321:48:[m[K [01;36m[Knote: [m[Kformat string is defined here
+[57.596s]   321 |         "Model dimensions: nq=%d, nv=%d, njnt=[01;36m[K%d[m[K, nu=%d.",
+[57.596s]       |                                               [01;36m[K~^[m[K
+[57.596s]       |                                                [01;36m[K|[m[K
+[57.596s]       |                                                [01;36m[Kint[m[K
+[57.596s]       |                                               [32m[K%ld[m[K
+[57.597s] [01m[K/home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/src/src/mujoco_ros.cpp:318:9:[m[K [01;35m[Kwarning: [m[Kformat ‘[01m[K%d[m[K’ expects argument of type ‘[01m[Kint[m[K’, but argument 11 has type ‘[01m[KmjtSize[m[K’ {aka ‘[01m[Klong int[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wformat=-Wformat=]8;;[m[K]
+[57.597s]   318 |         [01;35m[K"MuJoCo simulation initiated. "[m[K
+[57.597s]       |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[57.597s]   319 | [01;35m[K        "Publishing joint states to '%s'. "[m[K
+[57.597s]       |         [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[57.597s]   320 | [01;35m[K        "Subscribing to %s commands via '%s'. "[m[K
+[57.597s]       |         [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[57.597s]   321 | [01;35m[K        "Model dimensions: nq=%d, nv=%d, njnt=%d, nu=%d."[m[K,
+[57.597s]       |         [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[57.597s] ......
+[57.597s]   328 |         [32m[K_model->nu[m[K);
+[57.597s]       |         [32m[K~~~~~~~~~~[m[K
+[57.597s]       |                 [32m[K|[m[K
+[57.597s]       |                 [32m[KmjtSize {aka long int}[m[K
+[57.597s] [01m[K/home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/src/src/mujoco_ros.cpp:321:55:[m[K [01;36m[Knote: [m[Kformat string is defined here
+[57.597s]   321 |         "Model dimensions: nq=%d, nv=%d, njnt=%d, nu=[01;36m[K%d[m[K.",
+[57.597s]       |                                                      [01;36m[K~^[m[K
+[57.597s]       |                                                       [01;36m[K|[m[K
+[57.597s]       |                                                       [01;36m[Kint[m[K
+[57.597s]       |                                                      [32m[K%ld[m[K
+[57.597s] [01m[K/home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/src/src/mujoco_ros.cpp:[m[K In member function ‘[01m[Kvoid MuJoCoROS::[01;32m[Kjoint_command_callback[m[K(std_msgs::msg::Float64MultiArray_<std::allocator<void> >::SharedPtr)[m[K’:
+[57.597s] [01m[K/home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/src/src/mujoco_ros.cpp:430:13:[m[K [01;35m[Kwarning: [m[Kformat ‘[01m[K%d[m[K’ expects argument of type ‘[01m[Kint[m[K’, but argument 6 has type ‘[01m[KmjtSize[m[K’ {aka ‘[01m[Klong int[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wformat=-Wformat=]8;;[m[K]
+[57.597s]   430 |             [01;35m[K"Received %zu commands, but the model expects %d actuator commands."[m[K,
+[57.597s]       |             [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[57.598s]   431 |             msg->data.size(),
+[57.598s]   432 |             [32m[K_model->nu[m[K);
+[57.598s]       |             [32m[K~~~~~~~~~~[m[K
+[57.598s]       |                     [32m[K|[m[K
+[57.598s]       |                     [32m[KmjtSize {aka long int}[m[K
+[57.598s] [01m[K/home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/src/src/mujoco_ros.cpp:430:60:[m[K [01;36m[Knote: [m[Kformat string is defined here
+[57.598s]   430 |             "Received %zu commands, but the model expects [01;36m[K%d[m[K actuator commands.",
+[57.598s]       |                                                           [01;36m[K~^[m[K
+[57.598s]       |                                                            [01;36m[K|[m[K
+[57.598s]       |                                                            [01;36m[Kint[m[K
+[57.598s]       |                                                           [32m[K%ld[m[K
+[64.062s] [100%] [32m[1mLinking CXX executable mujoco_node[0m
+[71.194s] [100%] Built target mujoco_node
+[75.524s] Invoked command in '/home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/build/mujoco_ros2' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/build/mujoco_ros2 -- -j4 -l4
+[82.078s] Invoking command in '/home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/build/mujoco_ros2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/build/mujoco_ros2
+[82.078s] -- Install configuration: ""
+[82.078s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/lib/mujoco_ros2/mujoco_node
+[82.084s] -- Set non-toolchain portion of runtime path of "/home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/lib/mujoco_ros2/mujoco_node" to ""
+[82.085s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/launch
+[82.085s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/launch/example.py
+[82.085s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model
+[82.085s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/scene.xml
+[82.130s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6
+[82.130s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/LICENSE
+[82.199s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/CHANGELOG.md
+[82.238s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/lite6_gripper_wide_closed.png
+[82.366s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/scene.xml
+[82.413s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/lite6_gripper_narrow_open.png
+[82.670s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/lite6.png
+[83.123s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/lite6.xml
+[83.264s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/README.md
+[83.272s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/lite6_gripper_wide.xml
+[83.272s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets
+[83.272s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/visual
+[83.272s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/visual/gripper_lite_right_finger_wide.stl
+[83.279s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/visual/link_base.stl
+[83.311s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/visual/gripper_lite_body.stl
+[83.345s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/visual/link5.stl
+[83.460s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/visual/link3.stl
+[83.508s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/visual/link6.stl
+[83.555s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/visual/vacuum_gripper_lite.stl
+[83.566s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/visual/gripper_lite_right_finger_narrow.stl
+[83.567s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/visual/link2.stl
+[83.576s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/visual/link4.stl
+[83.599s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/visual/gripper_lite_left_finger_narrow.stl
+[83.605s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/visual/gripper_lite_left_finger_wide.stl
+[83.625s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/visual/link1.stl
+[83.637s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/collision
+[83.637s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/collision/gripper_lite_right_finger_wide_base.stl
+[83.637s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/collision/gripper_lite_left_finger_wide_tip.stl
+[83.638s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/collision/link_base.stl
+[83.653s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/collision/gripper_lite_body.stl
+[83.667s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/collision/link5.stl
+[83.674s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/collision/gripper_lite_right_finger_wide_tip.stl
+[83.683s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/collision/link3.stl
+[83.683s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/collision/link6.stl
+[83.684s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/collision/vacuum_gripper_lite.stl
+[83.685s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/collision/gripper_lite_left_finger_wide_base.stl
+[83.685s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/collision/link2.stl
+[83.686s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/collision/link4.stl
+[83.700s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/collision/link1.stl
+[83.701s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/lite6_gripper_wide_open.png
+[83.713s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/lite6_gripper_narrow.xml
+[83.713s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/lab-scene.xml
+[83.713s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/lite6_gripper_narrow_closed.png
+[83.716s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/model/two_link_planar.xml
+[83.717s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/ament_index/resource_index/package_run_dependencies/mujoco_ros2
+[83.717s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/ament_index/resource_index/parent_prefix_path/mujoco_ros2
+[83.718s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/environment/ament_prefix_path.sh
+[83.718s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/environment/ament_prefix_path.dsv
+[83.718s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/environment/path.sh
+[83.718s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/environment/path.dsv
+[83.719s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/local_setup.bash
+[83.719s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/local_setup.sh
+[83.719s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/local_setup.zsh
+[83.719s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/local_setup.dsv
+[83.720s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/package.dsv
+[83.720s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/ament_index/resource_index/packages/mujoco_ros2
+[83.720s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/cmake/mujoco_ros2Config.cmake
+[83.720s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/cmake/mujoco_ros2Config-version.cmake
+[83.720s] -- Installing: /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/install/mujoco_ros2/share/mujoco_ros2/package.xml
+[83.731s] Invoked command in '/home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/build/mujoco_ros2' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/ubuntuecho/Desktop/Uni/robotics/Milestone 03/Project Files/build/mujoco_ros2

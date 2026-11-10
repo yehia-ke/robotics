@@ -8,7 +8,7 @@ from ament_index_python.packages import get_package_share_directory
 def generate_launch_description():
     directory = get_package_share_directory('mujoco_ros2')  # Gets relative path of mujoco_ros2 package
 
-    xmlScenePath = os.path.join(directory, 'model', 'ufactory_lite6', 'lab-scene.xml')
+    xmlScenePath = os.path.join(directory, 'model', 'ufactory_lite6', 'scene.xml')
 
     if not os.path.exists(xmlScenePath):
         raise FileNotFoundError(f"Scene file does not exist: {xmlScenePath}.")
@@ -32,43 +32,23 @@ def generate_launch_description():
         parameters=[
             {"joint_state_topic_name": "joint_state"},
             {"joint_command_topic_name": "joint_commands"},
-            {"control_mode": "POSITION"},
+            {"control_mode": "VELOCITY"},
             {"simulation_frequency": 1000},
             {"visualisation_frequency": 20},
             {"camera_focal_point": [0.0, 0.0, 0.25]},
-            {"camera_distance": 1.0},
+            {"camera_distance": 2.5},
             {"camera_azimuth": 135.0},
             {"camera_elevation": -20.0},
             {"camera_orthographic": True}
         ]
     )
 
-    monitorScriptPath = os.path.join(
-        workspace_dir, 'src', 'src', 'nodes', 'kinematics_monitor.py'
-    )
-
-    if not os.path.exists(monitorScriptPath):
-        raise FileNotFoundError(f"Monitor script does not exist: {monitorScriptPath}.")
-
     sliders = ExecuteProcess(
         cmd=['python3', sliderScriptPath,
              '--ros-args',
-             '-p', 'mode:=position',
+             '-p', 'mode:=velocity',
              '-p', f'model_path:={xmlScenePath}'],
         output='screen'
     )
 
-    # Real-time check of kinematics.py against the simulator (Milestone 3).
-    # Tolerances are in metres, m/s and m/s^2; csv_path logs every sample for the report plots.
-    monitor = ExecuteProcess(
-        cmd=['python3', monitorScriptPath,
-             '--ros-args',
-             '-p', f'model_path:={xmlScenePath}',
-             '-p', 'tol_pos:=0.001',
-             '-p', 'tol_vel:=0.001',
-             '-p', 'tol_acc:=0.05',
-             '-p', 'csv_path:=/tmp/kinematics_validation.csv'],
-        output='screen'
-    )
-
-    return LaunchDescription([mujoco, sliders, monitor])
+    return LaunchDescription([mujoco, sliders])

@@ -1,1 +1,1 @@
-/home/landau/Documents/projects/robotics/robotics/Milestone 03/Project Files/build/mujoco_ros2/ament_cmake_environment_hooks/path.dsv
+prepend-non-duplicate-if-exists;PATH;bin
