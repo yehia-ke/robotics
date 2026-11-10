@@ -1,410 +1,912 @@
-
-<mujoco model="lite6 robotics laboratory">
+<mujoco model="lite6 sample handling laboratory">
   <include file="lite6.xml"/>
 
-  <!-- ===================================================== -->
-  <!-- VISUAL SETTINGS                                       -->
-  <!-- ===================================================== -->
+  <!--
+    Lite6 laboratory automation cell (sample handling / sorting).
 
+    Coordinate convention: the robot base stays at the world origin (lite6.xml is
+    not modified). The top surface of the robot bench is z = 0 and the floor is at
+    z = -0.9 m, so the arm is mounted on a 0.9 m lab bench while the world frame is
+    still the kinematic base frame used by kinematics.py.
+
+    Only free-jointed bodies are added (no hinges, no actuators), so the six arm
+    joints remain the first movable joints and the only actuated ones.
+  -->
+
+  <!-- ========================================================== -->
+  <!-- VISUAL SETTINGS                                            -->
+  <!-- ========================================================== -->
   <visual>
-    <headlight diffuse="0.65 0.65 0.65"
-               ambient="0.35 0.35 0.35"
-               specular="0.15 0.15 0.15"/>
-    <rgba haze="0.12 0.18 0.25 1"/>
+    <headlight diffuse="0.45 0.45 0.45" ambient="0.30 0.30 0.30" specular="0.1 0.1 0.1"/>
+    <rgba haze="0.85 0.88 0.90 1"/>
+    <quality shadowsize="4096"/>
     <global azimuth="135" elevation="-25"/>
   </visual>
 
-  <!-- ===================================================== -->
-  <!-- MATERIALS AND TEXTURES                                -->
-  <!-- ===================================================== -->
+  <!-- ========================================================== -->
+  <!-- DEFAULT CLASSES                                            -->
+  <!-- ========================================================== -->
+  <default>
+    <!-- Decoration: visible, no collisions (out of the arm's reach or inside glass). -->
+    <default class="lab_deco">
+      <geom contype="0" conaffinity="0" group="1"/>
+    </default>
+    <!-- Static fixtures the arm can touch (bench top, racks, bins, hot plate). -->
+    <default class="lab_solid">
+      <geom group="0" friction="1 0.005 0.0001"/>
+    </default>
+    <!-- Loose labware the arm can pick up (free bodies). -->
+    <default class="lab_item">
+      <geom group="0" condim="4" friction="1.2 0.01 0.0001" solref="0.004 1"/>
+    </default>
+  </default>
 
+  <!-- ========================================================== -->
+  <!-- MATERIALS, TEXTURES AND MESHES                             -->
+  <!-- ========================================================== -->
   <asset>
+    <texture name="lab_skybox" type="skybox" builtin="gradient" rgb1="0.92 0.94 0.96" rgb2="0.70 0.74 0.78" width="512" height="3072"/>
+    <texture name="lab_floor_texture" type="2d" builtin="checker" mark="edge" rgb1="0.80 0.81 0.82" rgb2="0.75 0.77 0.79" markrgb="0.62 0.64 0.66" width="512" height="512"/>
+    <material name="lab_floor_material" texture="lab_floor_texture" texuniform="true" texrepeat="2 2" reflectance="0.08"/>
+    <material name="lab_wall_material" rgba="0.91 0.93 0.94 1"/>
+    <material name="lab_wall_trim_material" rgba="0.55 0.66 0.74 1"/>
+    <material name="lab_ceiling_material" rgba="0.95 0.95 0.95 1"/>
+    <material name="lab_ceiling_light_material" rgba="1 1 0.97 1" emission="1"/>
+    <material name="lab_baseboard_material" rgba="0.30 0.33 0.36 1"/>
+    <material name="lab_epoxy_material" rgba="0.09 0.10 0.11 1" specular="0.6" shininess="0.6" reflectance="0.05"/>
+    <material name="lab_cabinet_material" rgba="0.86 0.88 0.88 1"/>
+    <material name="lab_drawer_material" rgba="0.78 0.81 0.83 1"/>
+    <material name="lab_steel_material" rgba="0.72 0.74 0.76 1" specular="0.8" shininess="0.8"/>
+    <material name="lab_dark_metal_material" rgba="0.24 0.26 0.29 1" specular="0.4"/>
+    <material name="lab_flammable_material" rgba="0.96 0.76 0.10 1"/>
+    <material name="lab_hazard_tape_material" rgba="0.98 0.80 0.08 1"/>
+    <material name="lab_glass_material" rgba="0.80 0.92 0.97 0.28" specular="1" shininess="1"/>
+    <material name="lab_amber_glass_material" rgba="0.55 0.30 0.07 0.85" specular="0.8" shininess="0.8"/>
+    <material name="lab_liquid_blue_material" rgba="0.15 0.45 0.92 0.75"/>
+    <material name="lab_liquid_red_material" rgba="0.86 0.14 0.20 0.75"/>
+    <material name="lab_liquid_green_material" rgba="0.20 0.76 0.36 0.75"/>
+    <material name="lab_liquid_yellow_material" rgba="0.96 0.78 0.16 0.75"/>
+    <material name="lab_liquid_purple_material" rgba="0.56 0.26 0.82 0.75"/>
+    <material name="lab_liquid_clear_material" rgba="0.70 0.86 0.96 0.40"/>
+    <material name="lab_agar_material" rgba="0.93 0.70 0.35 0.85"/>
+    <material name="lab_white_plastic_material" rgba="0.96 0.96 0.95 1"/>
+    <material name="lab_blue_plastic_material" rgba="0.18 0.42 0.82 1"/>
+    <material name="lab_red_material" rgba="0.85 0.13 0.13 1"/>
+    <material name="lab_green_material" rgba="0.15 0.66 0.32 1"/>
+    <material name="lab_blue_material" rgba="0.15 0.40 0.88 1"/>
+    <material name="lab_yellow_material" rgba="0.97 0.78 0.12 1"/>
+    <material name="lab_orange_material" rgba="0.96 0.45 0.10 1"/>
+    <material name="lab_purple_material" rgba="0.52 0.28 0.75 1"/>
+    <material name="lab_black_material" rgba="0.07 0.07 0.08 1"/>
+    <material name="lab_screen_material" rgba="0.10 0.40 0.60 1" emission="0.6"/>
+    <material name="lab_display_material" rgba="0.20 0.85 0.55 1" emission="0.8"/>
+    <material name="lab_lamp_green_material" rgba="0.20 0.95 0.35 1" emission="0.9"/>
+    <material name="lab_lamp_off_material" rgba="0.45 0.40 0.30 0.9"/>
+    <material name="lab_safety_sign_material" rgba="0.05 0.62 0.32 1" emission="0.4"/>
+    <material name="lab_whiteboard_material" rgba="0.98 0.98 0.98 1" specular="0.6"/>
+    <material name="lab_skin_material" rgba="0.86 0.68 0.55 1"/>
+    <material name="lab_skin_dark_material" rgba="0.55 0.38 0.27 1"/>
+    <material name="lab_hair_material" rgba="0.13 0.09 0.06 1"/>
+    <material name="lab_coat_material" rgba="0.97 0.97 0.98 1"/>
+    <material name="lab_trousers_material" rgba="0.16 0.20 0.33 1"/>
+    <material name="lab_glove_material" rgba="0.38 0.58 0.96 1"/>
 
-    <texture name="lab_skybox"
-             type="skybox"
-             builtin="gradient"
-             rgb1="0.35 0.48 0.62"
-             rgb2="0.04 0.06 0.09"
-             width="512"
-             height="3072"/>
-
-    <texture name="lab_floor_texture"
-             type="2d"
-             builtin="checker"
-             mark="edge"
-             rgb1="0.22 0.25 0.28"
-             rgb2="0.16 0.19 0.22"
-             markrgb="0.35 0.38 0.4"
-             width="300"
-             height="300"/>
-
-    <material name="lab_floor_material"
-              texture="lab_floor_texture"
-              texuniform="true"
-              texrepeat="8 8"
-              reflectance="0.12"/>
-
-    <material name="lab_wall_material"
-              rgba="0.72 0.77 0.80 1"/>
-
-    <material name="lab_wall_dark_material"
-              rgba="0.16 0.20 0.24 1"/>
-
-    <material name="lab_ceiling_material"
-              rgba="0.35 0.40 0.44 1"/>
-
-    <material name="lab_table_material"
-              rgba="0.30 0.34 0.37 1"/>
-
-    <material name="lab_metal_material"
-              rgba="0.45 0.49 0.52 1"/>
-
-    <material name="lab_cabinet_material"
-              rgba="0.20 0.28 0.34 1"/>
-
-    <material name="lab_panel_material"
-              rgba="0.08 0.12 0.16 1"/>
-
-    <material name="lab_screen_material"
-              rgba="0.08 0.35 0.42 1"
-              emission="0.15"/>
-
-    <material name="lab_yellow_material"
-              rgba="0.95 0.68 0.12 1"/>
-
-    <material name="lab_red_material"
-              rgba="0.85 0.20 0.17 1"/>
-
-    <material name="lab_blue_material"
-              rgba="0.15 0.40 0.85 1"/>
-
-    <material name="lab_green_material"
-              rgba="0.15 0.65 0.32 1"/>
-
-    <material name="lab_orange_material"
-              rgba="0.95 0.40 0.10 1"/>
-
-    <material name="lab_purple_material"
-              rgba="0.52 0.28 0.75 1"/>
-
-    <material name="lab_white_material"
-              rgba="0.85 0.88 0.90 1"/>
-
+    <!-- Labware shapes (convex frustums: Erlenmeyer flask body and its liquid). -->
+    <mesh name="lab_erlenmeyer_mesh" vertex="0.04 0 0 0.03804 0.01236 0 0.03236 0.02351 0 0.02351 0.03236 0 0.01236 0.03804 0 0 0.04 0 -0.01236 0.03804 0 -0.02351 0.03236 0 -0.03236 0.02351 0 -0.03804 0.01236 0 -0.04 0 0 -0.03804 -0.01236 0 -0.03236 -0.02351 0 -0.02351 -0.03236 0 -0.01236 -0.03804 0 0 -0.04 0 0.01236 -0.03804 0 0.02351 -0.03236 0 0.03236 -0.02351 0 0.03804 -0.01236 0 0.014 0 0.085 0.01331 0.004326 0.085 0.01133 0.008229 0.085 0.008229 0.01133 0.085 0.004326 0.01331 0.085 0 0.014 0.085 -0.004326 0.01331 0.085 -0.008229 0.01133 0.085 -0.01133 0.008229 0.085 -0.01331 0.004326 0.085 -0.014 0 0.085 -0.01331 -0.004326 0.085 -0.01133 -0.008229 0.085 -0.008229 -0.01133 0.085 -0.004326 -0.01331 0.085 0 -0.014 0.085 0.004326 -0.01331 0.085 0.008229 -0.01133 0.085 0.01133 -0.008229 0.085 0.01331 -0.004326 0.085"/>
+    <mesh name="lab_erlenmeyer_liquid_mesh" vertex="0.037 0 0 0.03519 0.01143 0 0.02993 0.02175 0 0.02175 0.02993 0 0.01143 0.03519 0 0 0.037 0 -0.01143 0.03519 0 -0.02175 0.02993 0 -0.02993 0.02175 0 -0.03519 0.01143 0 -0.037 0 0 -0.03519 -0.01143 0 -0.02993 -0.02175 0 -0.02175 -0.02993 0 -0.01143 -0.03519 0 0 -0.037 0 0.01143 -0.03519 0 0.02175 -0.02993 0 0.02993 -0.02175 0 0.03519 -0.01143 0 0.026 0 0.034 0.02473 0.008034 0.034 0.02103 0.01528 0.034 0.01528 0.02103 0.034 0.008034 0.02473 0.034 0 0.026 0.034 -0.008034 0.02473 0.034 -0.01528 0.02103 0.034 -0.02103 0.01528 0.034 -0.02473 0.008034 0.034 -0.026 0 0.034 -0.02473 -0.008034 0.034 -0.02103 -0.01528 0.034 -0.01528 -0.02103 0.034 -0.008034 -0.02473 0.034 0 -0.026 0.034 0.008034 -0.02473 0.034 0.01528 -0.02103 0.034 0.02103 -0.01528 0.034 0.02473 -0.008034 0.034"/>
+    <mesh name="lab_small_flask_mesh" vertex="0.034 0 0 0.03234 0.01051 0 0.02751 0.01998 0 0.01998 0.02751 0 0.01051 0.03234 0 0 0.034 0 -0.01051 0.03234 0 -0.01998 0.02751 0 -0.02751 0.01998 0 -0.03234 0.01051 0 -0.034 0 0 -0.03234 -0.01051 0 -0.02751 -0.01998 0 -0.01998 -0.02751 0 -0.01051 -0.03234 0 0 -0.034 0 0.01051 -0.03234 0 0.01998 -0.02751 0 0.02751 -0.01998 0 0.03234 -0.01051 0 0.012 0 0.07 0.01141 0.003708 0.07 0.009708 0.007053 0.07 0.007053 0.009708 0.07 0.003708 0.01141 0.07 0 0.012 0.07 -0.003708 0.01141 0.07 -0.007053 0.009708 0.07 -0.009708 0.007053 0.07 -0.01141 0.003708 0.07 -0.012 0 0.07 -0.01141 -0.003708 0.07 -0.009708 -0.007053 0.07 -0.007053 -0.009708 0.07 -0.003708 -0.01141 0.07 0 -0.012 0.07 0.003708 -0.01141 0.07 0.007053 -0.009708 0.07 0.009708 -0.007053 0.07 0.01141 -0.003708 0.07"/>
+    <mesh name="lab_small_flask_liquid_mesh" vertex="0.031 0 0 0.02948 0.00958 0 0.02508 0.01822 0 0.01822 0.02508 0 0.00958 0.02948 0 0 0.031 0 -0.00958 0.02948 0 -0.01822 0.02508 0 -0.02508 0.01822 0 -0.02948 0.00958 0 -0.031 0 0 -0.02948 -0.00958 0 -0.02508 -0.01822 0 -0.01822 -0.02508 0 -0.00958 -0.02948 0 0 -0.031 0 0.00958 -0.02948 0 0.01822 -0.02508 0 0.02508 -0.01822 0 0.02948 -0.00958 0 0.021 0 0.028 0.01997 0.006489 0.028 0.01699 0.01234 0.028 0.01234 0.01699 0.028 0.006489 0.01997 0.028 0 0.021 0.028 -0.006489 0.01997 0.028 -0.01234 0.01699 0.028 -0.01699 0.01234 0.028 -0.01997 0.006489 0.028 -0.021 0 0.028 -0.01997 -0.006489 0.028 -0.01699 -0.01234 0.028 -0.01234 -0.01699 0.028 -0.006489 -0.01997 0.028 0 -0.021 0.028 0.006489 -0.01997 0.028 0.01234 -0.01699 0.028 0.01699 -0.01234 0.028 0.01997 -0.006489 0.028"/>
   </asset>
 
-  <!-- ===================================================== -->
-  <!-- WORLD                                                  -->
-  <!-- ===================================================== -->
-
+  <!-- ========================================================== -->
+  <!-- WORLD                                                      -->
+  <!-- ========================================================== -->
   <worldbody>
 
-    <!-- Lighting -->
+    <!-- ========================================================== -->
+    <!-- LIGHTING                                                   -->
+    <!-- ========================================================== -->
+    <light name="lab_fill_light" directional="true" pos="0 0 2.3" dir="0.2 0.35 -1" diffuse="0.35 0.35 0.35" specular="0.1 0.1 0.1" castshadow="false"/>
+    <light name="lab_cell_light" pos="0.4 -0.6 2.3" dir="-0.15 0.25 -1" cutoff="50" exponent="3" diffuse="0.65 0.65 0.62" specular="0.3 0.3 0.3" castshadow="true"/>
+    <light name="lab_counter_light" pos="1.2 1.6 2.3" dir="0 0.4 -1" cutoff="60" exponent="2" diffuse="0.35 0.35 0.35" castshadow="false"/>
+    <light name="lab_hood_light" pos="-1.4 1.2 2.3" dir="0 0.3 -1" cutoff="60" exponent="2" diffuse="0.35 0.35 0.35" castshadow="false"/>
+    <light name="lab_sink_light" pos="-1.8 -0.7 2.3" dir="-0.3 0 -1" cutoff="60" exponent="2" diffuse="0.30 0.30 0.30" castshadow="false"/>
 
-    <light name="lab_main_light"
-           pos="0 0 3.5"
-           dir="0 0 -1"
-           directional="true"
-           diffuse="0.9 0.9 0.9"/>
+    <!-- ========================================================== -->
+    <!-- CAMERAS (switch with [ / ] in the MuJoCo viewer)           -->
+    <!-- ========================================================== -->
+    <camera name="lab_overview_camera" pos="2.3 -2.4 1.35" xyaxes="0.7557 0.6549 0 -0.2247 0.2593 0.9393"/>
+    <camera name="lab_robot_cell_camera" pos="1 -1.05 0.65" xyaxes="0.7241 0.6897 0 -0.2446 0.2568 0.935"/>
+    <camera name="lab_back_counter_camera" pos="0.4 1.1 0.75" xyaxes="0.7372 -0.6757 0 0.2506 0.2734 0.9287"/>
+    <camera name="lab_fume_hood_camera" pos="-0.2 1 0.8" xyaxes="0.7682 0.6402 0 -0.1952 0.2342 0.9524"/>
 
-    <light name="lab_left_light"
-           pos="-2 0 3"
-           dir="0 0 -1"
-           diffuse="0.45 0.45 0.45"/>
+    <!-- ========================================================== -->
+    <!-- ROOM: FLOOR, WALLS, CEILING                                -->
+    <!-- ========================================================== -->
+    <geom name="lab_floor" class="lab_solid" type="plane" size="3 3 0.1" pos="0 0 -0.9" material="lab_floor_material"/>
+    <geom name="lab_wall_back" class="lab_solid" type="box" size="2.65 0.05 1.65" pos="0 2.6 0.75" material="lab_wall_material"/>
+    <geom name="lab_wall_left" class="lab_solid" type="box" size="0.05 2.65 1.65" pos="-2.6 0 0.75" material="lab_wall_material"/>
+    <geom name="lab_wall_right" class="lab_solid" type="box" size="0.05 2.65 1.65" pos="2.6 0 0.75" material="lab_wall_material"/>
+    <geom name="lab_ceiling" class="lab_deco" type="box" size="2.65 2.65 0.05" pos="0 0 2.45" material="lab_ceiling_material"/>
+    <!-- Baseboards and a coloured band along the walls -->
+    <geom class="lab_deco" type="box" size="2.55 0.008 0.05" pos="0 2.542 -0.85" material="lab_baseboard_material"/>
+    <geom class="lab_deco" type="box" size="0.008 2.55 0.05" pos="-2.542 0 -0.85" material="lab_baseboard_material"/>
+    <geom class="lab_deco" type="box" size="0.008 2.55 0.05" pos="2.542 0 -0.85" material="lab_baseboard_material"/>
+    <geom class="lab_deco" type="box" size="2.55 0.006 0.03" pos="0 2.546 1.35" material="lab_wall_trim_material"/>
+    <geom class="lab_deco" type="box" size="0.006 2.55 0.03" pos="-2.546 0 1.35" material="lab_wall_trim_material"/>
+    <geom class="lab_deco" type="box" size="0.006 2.55 0.03" pos="2.546 0 1.35" material="lab_wall_trim_material"/>
+    <!-- Ceiling light panels -->
+    <geom name="lab_ceiling_light_1" class="lab_deco" type="box" size="0.6 0.3 0.008" pos="0 0 2.392" material="lab_ceiling_light_material"/>
+    <geom name="lab_ceiling_light_2" class="lab_deco" type="box" size="0.6 0.3 0.008" pos="0 1.6 2.392" material="lab_ceiling_light_material"/>
+    <geom name="lab_ceiling_light_3" class="lab_deco" type="box" size="0.6 0.3 0.008" pos="-1.6 0 2.392" material="lab_ceiling_light_material"/>
+    <geom name="lab_ceiling_light_4" class="lab_deco" type="box" size="0.6 0.3 0.008" pos="1.6 0 2.392" material="lab_ceiling_light_material"/>
+    <geom name="lab_ceiling_light_5" class="lab_deco" type="box" size="0.6 0.3 0.008" pos="-1.6 1.6 2.392" material="lab_ceiling_light_material"/>
+    <geom name="lab_ceiling_light_6" class="lab_deco" type="box" size="0.6 0.3 0.008" pos="1.6 1.6 2.392" material="lab_ceiling_light_material"/>
+    <geom name="lab_ceiling_light_7" class="lab_deco" type="box" size="0.6 0.3 0.008" pos="0 -1.6 2.392" material="lab_ceiling_light_material"/>
+    <geom name="lab_ceiling_light_8" class="lab_deco" type="box" size="0.6 0.3 0.008" pos="-1.6 -1.6 2.392" material="lab_ceiling_light_material"/>
+    <geom name="lab_ceiling_light_9" class="lab_deco" type="box" size="0.6 0.3 0.008" pos="1.6 -1.6 2.392" material="lab_ceiling_light_material"/>
+    <!-- Yellow safety tape on the floor around the robot cell -->
+    <geom name="lab_floor_tape_1" class="lab_deco" type="box" size="1.2 0.025 0.0006" pos="0 -0.92 -0.8994" material="lab_hazard_tape_material"/>
+    <geom name="lab_floor_tape_2" class="lab_deco" type="box" size="1.2 0.025 0.0006" pos="0 1.02 -0.8994" material="lab_hazard_tape_material"/>
+    <geom name="lab_floor_tape_3" class="lab_deco" type="box" size="0.025 0.995 0.0006" pos="-1.175 0.05 -0.8994" material="lab_hazard_tape_material"/>
+    <geom name="lab_floor_tape_4" class="lab_deco" type="box" size="0.025 0.995 0.0006" pos="1.175 0.05 -0.8994" material="lab_hazard_tape_material"/>
 
-    <light name="lab_right_light"
-           pos="2 0 3"
-           dir="0 0 -1"
-           diffuse="0.45 0.45 0.45"/>
-
-    <light name="lab_back_light"
-           pos="0 2 3"
-           dir="0 -1 -1"
-           diffuse="0.35 0.35 0.35"/>
-
-    <!-- Floor -->
-
-    <geom name="lab_floor"
-          type="plane"
-          size="5 5 0.1"
-          material="lab_floor_material"/>
-
-    <!-- ================================================= -->
-    <!-- LABORATORY WALLS                                  -->
-    <!-- ================================================= -->
-
-    <geom name="lab_wall_back"
-          type="box"
-          size="5 0.05 2"
-          pos="0 2.5 2"
-          material="lab_wall_material"/>
-
-    <geom name="lab_wall_left"
-          type="box"
-          size="0.05 5 2"
-          pos="-2.5 0 2"
-          material="lab_wall_material"/>
-
-    <geom name="lab_wall_right"
-          type="box"
-          size="0.05 5 2"
-          pos="2.5 0 2"
-          material="lab_wall_material"/>
-
-    <!-- Ceiling -->
-
-    <geom name="lab_ceiling"
-          type="box"
-          size="2.5 2.5 0.05"
-          pos="0 0 4.05"
-          material="lab_ceiling_material"/>
-
-    <!-- Back wall lower accent panel -->
-
-    <geom name="lab_back_wall_panel"
-          type="box"
-          size="4.8 0.025 0.35"
-          pos="0 2.43 0.45"
-          material="lab_wall_dark_material"/>
-
-    <!-- ================================================= -->
-    <!-- ROBOTICS LAB WORKBENCH                            -->
-    <!-- ================================================= -->
-
-    <body name="lab_workbench" pos="0 0 -0.05">
-
-      <!-- Main tabletop -->
-
-      <geom name="lab_table_top"
-            type="box"
-            size="0.6 0.8 0.02"
-            pos="0 0 0"
-            material="lab_table_material"/>
-
-      <!-- Table legs -->
-
-      <geom name="lab_table_leg1"
-            type="cylinder"
-            size="0.03 0.4"
-            pos="-0.5 -0.7 -0.2"
-            material="lab_metal_material"/>
-
-      <geom name="lab_table_leg2"
-            type="cylinder"
-            size="0.03 0.4"
-            pos="0.5 -0.7 -0.2"
-            material="lab_metal_material"/>
-
-      <geom name="lab_table_leg3"
-            type="cylinder"
-            size="0.03 0.4"
-            pos="-0.5 0.7 -0.2"
-            material="lab_metal_material"/>
-
-      <geom name="lab_table_leg4"
-            type="cylinder"
-            size="0.03 0.4"
-            pos="0.5 0.7 -0.2"
-            material="lab_metal_material"/>
-
-      <!-- Front table trim -->
-
-      <geom name="lab_table_front_trim"
-            type="box"
-            size="0.58 0.015 0.025"
-            pos="0 -0.805 -0.045"
-            material="lab_yellow_material"/>
-
+    <!-- ========================================================== -->
+    <!-- ROBOT BENCH (robot base at the world origin, bench top at z = 0) -->
+    <!-- ========================================================== -->
+    <body name="lab_robot_bench" pos="0 0.05 0">
+      <geom name="lab_robot_bench_top" class="lab_solid" type="box" size="0.8 0.6 0.015" pos="0 0 -0.015" material="lab_epoxy_material"/>
+      <geom class="lab_deco" type="box" size="0.77 0.57 0.395" pos="0 0 -0.425" material="lab_cabinet_material"/>
+      <geom class="lab_deco" type="box" size="0.74 0.54 0.04" pos="0 0 -0.86" material="lab_baseboard_material"/>
+      <geom class="lab_deco" type="box" size="0.2467 0.006 0.07" pos="-0.5133 -0.576 -0.12" material="lab_drawer_material"/>
+      <geom class="lab_deco" type="box" size="0.06 0.008 0.008" pos="-0.5133 -0.59 -0.09" material="lab_steel_material"/>
+      <geom class="lab_deco" type="box" size="0.2467 0.006 0.29" pos="-0.5133 -0.576 -0.5" material="lab_drawer_material"/>
+      <geom class="lab_deco" type="box" size="0.06 0.008 0.008" pos="-0.5133 -0.59 -0.25" material="lab_steel_material"/>
+      <geom class="lab_deco" type="box" size="0.2467 0.006 0.07" pos="0 -0.576 -0.12" material="lab_drawer_material"/>
+      <geom class="lab_deco" type="box" size="0.06 0.008 0.008" pos="0 -0.59 -0.09" material="lab_steel_material"/>
+      <geom class="lab_deco" type="box" size="0.2467 0.006 0.29" pos="0 -0.576 -0.5" material="lab_drawer_material"/>
+      <geom class="lab_deco" type="box" size="0.06 0.008 0.008" pos="0 -0.59 -0.25" material="lab_steel_material"/>
+      <geom class="lab_deco" type="box" size="0.2467 0.006 0.07" pos="0.5133 -0.576 -0.12" material="lab_drawer_material"/>
+      <geom class="lab_deco" type="box" size="0.06 0.008 0.008" pos="0.5133 -0.59 -0.09" material="lab_steel_material"/>
+      <geom class="lab_deco" type="box" size="0.2467 0.006 0.29" pos="0.5133 -0.576 -0.5" material="lab_drawer_material"/>
+      <geom class="lab_deco" type="box" size="0.06 0.008 0.008" pos="0.5133 -0.59 -0.25" material="lab_steel_material"/>
     </body>
 
-    <!-- ================================================= -->
-    <!-- LABORATORY STORAGE CABINET                         -->
-    <!-- ================================================= -->
-
-    <body name="lab_storage_cabinet" pos="-1.8 1.8 0">
-
-      <geom name="lab_cabinet_body"
-            type="box"
-            size="0.35 0.25 0.85"
-            pos="0 0 0.85"
-            material="lab_cabinet_material"/>
-
-      <geom name="lab_cabinet_door1"
-            type="box"
-            size="0.16 0.012 0.38"
-            pos="-0.17 -0.255 0.85"
-            material="lab_metal_material"/>
-
-      <geom name="lab_cabinet_door2"
-            type="box"
-            size="0.16 0.012 0.38"
-            pos="0.17 -0.255 0.85"
-            material="lab_metal_material"/>
-
-      <geom name="lab_cabinet_handle1"
-            type="box"
-            size="0.012 0.015 0.06"
-            pos="-0.05 -0.28 0.85"
-            material="lab_yellow_material"/>
-
-      <geom name="lab_cabinet_handle2"
-            type="box"
-            size="0.012 0.015 0.06"
-            pos="0.05 -0.28 0.85"
-            material="lab_yellow_material"/>
-
+    <!-- Robot mounting plate and bolts -->
+    <body name="lab_robot_mount" pos="0 0 0">
+      <geom class="lab_deco" type="box" size="0.11 0.11 0.003" pos="0 0 0.003" material="lab_dark_metal_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.008 0.004" pos="-0.095 -0.095 0.006" material="lab_steel_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.008 0.004" pos="-0.095 0.095 0.006" material="lab_steel_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.008 0.004" pos="0.095 -0.095 0.006" material="lab_steel_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.008 0.004" pos="0.095 0.095 0.006" material="lab_steel_material"/>
     </body>
 
-    <!-- ================================================= -->
-    <!-- WALL-MOUNTED CONTROL PANEL                         -->
-    <!-- ================================================= -->
-
-    <body name="lab_control_panel" pos="0 2.38 1.65">
-
-      <geom name="lab_panel_body"
-            type="box"
-            size="0.55 0.035 0.35"
-            pos="0 0 0"
-            material="lab_panel_material"/>
-
-      <geom name="lab_panel_screen"
-            type="box"
-            size="0.20 0.012 0.13"
-            pos="-0.20 -0.04 0.03"
-            material="lab_screen_material"/>
-
-      <geom name="lab_panel_indicator_red"
-            type="sphere"
-            size="0.035"
-            pos="0.28 -0.045 0.12"
-            material="lab_red_material"/>
-
-      <geom name="lab_panel_indicator_green"
-            type="sphere"
-            size="0.035"
-            pos="0.28 -0.045 0"
-            material="lab_green_material"/>
-
-      <geom name="lab_panel_indicator_yellow"
-            type="sphere"
-            size="0.035"
-            pos="0.28 -0.045 -0.12"
-            material="lab_yellow_material"/>
-
+    <!-- ========================================================== -->
+    <!-- ROBOT BENCH: INBOUND TEST TUBE RACK                        -->
+    <!-- ========================================================== -->
+    <body name="lab_tube_rack" pos="0.3 -0.22 0">
+      <geom name="lab_tube_rack_base" class="lab_solid" type="box" size="0.08 0.035 0.003" pos="0 0 0.003" material="lab_blue_plastic_material"/>
+      <geom name="lab_tube_rack_top" class="lab_solid" type="box" size="0.08 0.035 0.003" pos="0 0 0.058" material="lab_blue_plastic_material"/>
+      <geom class="lab_solid" type="box" size="0.003 0.035 0.0275" pos="-0.077 0 0.0305" material="lab_blue_plastic_material"/>
+      <geom class="lab_solid" type="box" size="0.003 0.035 0.0275" pos="0.077 0 0.0305" material="lab_blue_plastic_material"/>
+      <geom class="lab_deco" type="capsule" size="0.0075" fromto="-0.06 -0.016 0.0135 -0.06 -0.016 0.098" material="lab_glass_material"/>
+      <geom class="lab_deco" type="capsule" size="0.0062" fromto="-0.06 -0.016 0.0145 -0.06 -0.016 0.045" material="lab_liquid_red_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0085 0.007" pos="-0.06 -0.016 0.11" material="lab_red_material"/>
+      <geom class="lab_deco" type="capsule" size="0.0075" fromto="-0.03 -0.016 0.0135 -0.03 -0.016 0.098" material="lab_glass_material"/>
+      <geom class="lab_deco" type="capsule" size="0.0062" fromto="-0.03 -0.016 0.0145 -0.03 -0.016 0.055" material="lab_liquid_blue_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0085 0.007" pos="-0.03 -0.016 0.11" material="lab_blue_material"/>
+      <geom class="lab_deco" type="capsule" size="0.0075" fromto="0 -0.016 0.0135 0 -0.016 0.098" material="lab_glass_material"/>
+      <geom class="lab_deco" type="capsule" size="0.0062" fromto="0 -0.016 0.0145 0 -0.016 0.065" material="lab_liquid_green_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0085 0.007" pos="0 -0.016 0.11" material="lab_green_material"/>
+      <geom class="lab_deco" type="capsule" size="0.0075" fromto="0.03 -0.016 0.0135 0.03 -0.016 0.098" material="lab_glass_material"/>
+      <geom class="lab_deco" type="capsule" size="0.0062" fromto="0.03 -0.016 0.0145 0.03 -0.016 0.045" material="lab_liquid_yellow_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0085 0.007" pos="0.03 -0.016 0.11" material="lab_yellow_material"/>
+      <geom class="lab_deco" type="capsule" size="0.0075" fromto="0.06 -0.016 0.0135 0.06 -0.016 0.098" material="lab_glass_material"/>
+      <geom class="lab_deco" type="capsule" size="0.0062" fromto="0.06 -0.016 0.0145 0.06 -0.016 0.055" material="lab_liquid_purple_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0085 0.007" pos="0.06 -0.016 0.11" material="lab_purple_material"/>
+      <geom class="lab_deco" type="capsule" size="0.0075" fromto="-0.06 0.016 0.0135 -0.06 0.016 0.098" material="lab_glass_material"/>
+      <geom class="lab_deco" type="capsule" size="0.0062" fromto="-0.06 0.016 0.0145 -0.06 0.016 0.055" material="lab_liquid_green_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0085 0.007" pos="-0.06 0.016 0.11" material="lab_green_material"/>
+      <geom class="lab_deco" type="capsule" size="0.0075" fromto="-0.03 0.016 0.0135 -0.03 0.016 0.098" material="lab_glass_material"/>
+      <geom class="lab_deco" type="capsule" size="0.0062" fromto="-0.03 0.016 0.0145 -0.03 0.016 0.065" material="lab_liquid_yellow_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0085 0.007" pos="-0.03 0.016 0.11" material="lab_yellow_material"/>
+      <geom class="lab_deco" type="capsule" size="0.0075" fromto="0 0.016 0.0135 0 0.016 0.098" material="lab_glass_material"/>
+      <geom class="lab_deco" type="capsule" size="0.0062" fromto="0 0.016 0.0145 0 0.016 0.045" material="lab_liquid_purple_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0085 0.007" pos="0 0.016 0.11" material="lab_purple_material"/>
+      <geom class="lab_deco" type="capsule" size="0.0075" fromto="0.03 0.016 0.0135 0.03 0.016 0.098" material="lab_glass_material"/>
+      <geom class="lab_deco" type="capsule" size="0.0062" fromto="0.03 0.016 0.0145 0.03 0.016 0.055" material="lab_liquid_red_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0085 0.007" pos="0.03 0.016 0.11" material="lab_red_material"/>
+      <geom class="lab_deco" type="capsule" size="0.0075" fromto="0.06 0.016 0.0135 0.06 0.016 0.098" material="lab_glass_material"/>
+      <geom class="lab_deco" type="capsule" size="0.0062" fromto="0.06 0.016 0.0145 0.06 0.016 0.065" material="lab_liquid_blue_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0085 0.007" pos="0.06 0.016 0.11" material="lab_blue_material"/>
     </body>
 
-    <!-- ================================================= -->
-    <!-- WALL SHELVES                                       -->
-    <!-- ================================================= -->
-
-    <body name="lab_wall_shelves" pos="1.8 2.25 0">
-
-      <geom name="lab_shelf_upper"
-            type="box"
-            size="0.45 0.22 0.025"
-            pos="0 0 1.65"
-            material="lab_metal_material"/>
-
-      <geom name="lab_shelf_lower"
-            type="box"
-            size="0.45 0.22 0.025"
-            pos="0 0 1.15"
-            material="lab_metal_material"/>
-
-      <geom name="lab_shelf_support1"
-            type="box"
-            size="0.025 0.025 0.35"
-            pos="-0.4 0 1.4"
-            material="lab_wall_dark_material"/>
-
-      <geom name="lab_shelf_support2"
-            type="box"
-            size="0.025 0.025 0.35"
-            pos="0.4 0 1.4"
-            material="lab_wall_dark_material"/>
-
+    <!-- ========================================================== -->
+    <!-- ROBOT BENCH: PICK TRAY WITH LOOSE SAMPLE VIALS (cap colour = sort category) -->
+    <!-- ========================================================== -->
+    <body name="lab_pick_tray" pos="0.33 0.05 0">
+      <geom name="lab_pick_tray_floor" class="lab_solid" type="box" size="0.075 0.075 0.002" pos="0 0 0.002" material="lab_white_plastic_material"/>
+      <geom class="lab_solid" type="box" size="0.002 0.075 0.012" pos="-0.073 0 0.016" material="lab_white_plastic_material"/>
+      <geom class="lab_solid" type="box" size="0.075 0.002 0.012" pos="0 -0.073 0.016" material="lab_white_plastic_material"/>
+      <geom class="lab_solid" type="box" size="0.002 0.075 0.012" pos="0.073 0 0.016" material="lab_white_plastic_material"/>
+      <geom class="lab_solid" type="box" size="0.075 0.002 0.012" pos="0 0.073 0.016" material="lab_white_plastic_material"/>
+      <geom class="lab_deco" type="box" size="0.03 0.001 0.006" pos="0 -0.076 0.016" material="lab_green_material"/>
     </body>
 
-    <!-- ================================================= -->
-    <!-- MOVABLE OBSTACLE BOXES                             -->
-    <!-- ================================================= -->
-
-    <!-- Box 1: Red -->
-
-    <body name="lab_box_obstacle_1" pos="0.4 0.2 0.05">
-      <freejoint name="lab_box_joint_1"/>
-
-      <geom name="lab_geom_box1"
-            type="box"
-            size="0.04 0.04 0.04"
-            material="lab_red_material"
-            mass="0.2"
-            friction="1.0 0.005 0.0001"/>
+    <body name="lab_sample_vial_1" pos="0.3 0.02 0.034" childclass="lab_item">
+      <freejoint name="lab_sample_vial_1_joint"/>
+      <geom name="lab_sample_vial_1_glass" type="cylinder" size="0.012 0.03" pos="0 0 0" material="lab_glass_material" mass="0.025"/>
+      <geom class="lab_deco" type="cylinder" size="0.0105 0.017" pos="0 0 -0.011" material="lab_liquid_red_material" mass="0.005"/>
+      <geom name="lab_sample_vial_1_cap" type="cylinder" size="0.0125 0.006" pos="0 0 0.036" material="lab_red_material" mass="0.004"/>
     </body>
 
-    <!-- Box 2: Blue -->
-
-    <body name="lab_box_obstacle_2" pos="-0.3 0.3 0.06">
-      <freejoint name="lab_box_joint_2"/>
-
-      <geom name="lab_geom_box2"
-            type="box"
-            size="0.04 0.05 0.05"
-            material="lab_blue_material"
-            mass="0.3"
-            friction="1.0 0.005 0.0001"/>
+    <body name="lab_sample_vial_2" pos="0.36 0.02 0.034" childclass="lab_item">
+      <freejoint name="lab_sample_vial_2_joint"/>
+      <geom name="lab_sample_vial_2_glass" type="cylinder" size="0.012 0.03" pos="0 0 0" material="lab_glass_material" mass="0.025"/>
+      <geom class="lab_deco" type="cylinder" size="0.0105 0.017" pos="0 0 -0.011" material="lab_liquid_green_material" mass="0.005"/>
+      <geom name="lab_sample_vial_2_cap" type="cylinder" size="0.0125 0.006" pos="0 0 0.036" material="lab_green_material" mass="0.004"/>
     </body>
 
-    <!-- Box 3: Green -->
-
-    <body name="lab_box_obstacle_3" pos="0.3 -0.3 0.04">
-      <freejoint name="lab_box_joint_3"/>
-
-      <geom name="lab_geom_box3"
-            type="box"
-            size="0.04 0.04 0.04"
-            material="lab_green_material"
-            mass="0.2"
-            friction="1.0 0.005 0.0001"/>
+    <body name="lab_sample_vial_3" pos="0.3 0.08 0.034" childclass="lab_item">
+      <freejoint name="lab_sample_vial_3_joint"/>
+      <geom name="lab_sample_vial_3_glass" type="cylinder" size="0.012 0.03" pos="0 0 0" material="lab_glass_material" mass="0.025"/>
+      <geom class="lab_deco" type="cylinder" size="0.0105 0.017" pos="0 0 -0.011" material="lab_liquid_blue_material" mass="0.005"/>
+      <geom name="lab_sample_vial_3_cap" type="cylinder" size="0.0125 0.006" pos="0 0 0.036" material="lab_blue_material" mass="0.004"/>
     </body>
 
-    <!-- Box 4: Orange -->
-
-    <body name="lab_box_obstacle_4" pos="0.55 0.45 0.07">
-      <freejoint name="lab_box_joint_4"/>
-
-      <geom name="lab_geom_box4"
-            type="box"
-            size="0.05 0.05 0.05"
-            material="lab_orange_material"
-            mass="0.35"
-            friction="1.0 0.005 0.0001"/>
+    <body name="lab_sample_vial_4" pos="0.36 0.08 0.034" childclass="lab_item">
+      <freejoint name="lab_sample_vial_4_joint"/>
+      <geom name="lab_sample_vial_4_glass" type="cylinder" size="0.012 0.03" pos="0 0 0" material="lab_glass_material" mass="0.025"/>
+      <geom class="lab_deco" type="cylinder" size="0.0105 0.017" pos="0 0 -0.011" material="lab_liquid_green_material" mass="0.005"/>
+      <geom name="lab_sample_vial_4_cap" type="cylinder" size="0.0125 0.006" pos="0 0 0.036" material="lab_green_material" mass="0.004"/>
     </body>
 
-    <!-- Box 5: Purple -->
-
-    <body name="lab_box_obstacle_5" pos="-0.55 -0.35 0.06">
-      <freejoint name="lab_box_joint_5"/>
-
-      <geom name="lab_geom_box5"
-            type="box"
-            size="0.045 0.045 0.045"
-            material="lab_purple_material"
-            mass="0.25"
-            friction="1.0 0.005 0.0001"/>
+    <!-- ========================================================== -->
+    <!-- ROBOT BENCH: OUTBOUND SORTING BINS (red / green / blue)    -->
+    <!-- ========================================================== -->
+    <body name="lab_sort_bin_red" pos="-0.3 -0.31 0">
+      <geom class="lab_solid" type="box" size="0.065 0.065 0.002" pos="0 0 0.002" material="lab_white_plastic_material"/>
+      <geom class="lab_solid" type="box" size="0.002 0.065 0.025" pos="-0.063 0 0.027" material="lab_white_plastic_material"/>
+      <geom class="lab_solid" type="box" size="0.065 0.002 0.025" pos="0 -0.063 0.027" material="lab_white_plastic_material"/>
+      <geom class="lab_solid" type="box" size="0.002 0.065 0.025" pos="0.063 0 0.027" material="lab_white_plastic_material"/>
+      <geom class="lab_solid" type="box" size="0.065 0.002 0.025" pos="0 0.063 0.027" material="lab_white_plastic_material"/>
+      <geom class="lab_deco" type="box" size="0.066 0.0025 0.008" pos="0 -0.0655 0.044" material="lab_red_material"/>
+      <geom class="lab_deco" type="box" size="0.0025 0.066 0.008" pos="0.0655 0 0.044" material="lab_red_material"/>
+    </body>
+    <body name="lab_sort_bin_green" pos="-0.15 -0.31 0">
+      <geom class="lab_solid" type="box" size="0.065 0.065 0.002" pos="0 0 0.002" material="lab_white_plastic_material"/>
+      <geom class="lab_solid" type="box" size="0.002 0.065 0.025" pos="-0.063 0 0.027" material="lab_white_plastic_material"/>
+      <geom class="lab_solid" type="box" size="0.065 0.002 0.025" pos="0 -0.063 0.027" material="lab_white_plastic_material"/>
+      <geom class="lab_solid" type="box" size="0.002 0.065 0.025" pos="0.063 0 0.027" material="lab_white_plastic_material"/>
+      <geom class="lab_solid" type="box" size="0.065 0.002 0.025" pos="0 0.063 0.027" material="lab_white_plastic_material"/>
+      <geom class="lab_deco" type="box" size="0.066 0.0025 0.008" pos="0 -0.0655 0.044" material="lab_green_material"/>
+      <geom class="lab_deco" type="box" size="0.0025 0.066 0.008" pos="0.0655 0 0.044" material="lab_green_material"/>
+    </body>
+    <body name="lab_sort_bin_blue" pos="0 -0.31 0">
+      <geom class="lab_solid" type="box" size="0.065 0.065 0.002" pos="0 0 0.002" material="lab_white_plastic_material"/>
+      <geom class="lab_solid" type="box" size="0.002 0.065 0.025" pos="-0.063 0 0.027" material="lab_white_plastic_material"/>
+      <geom class="lab_solid" type="box" size="0.065 0.002 0.025" pos="0 -0.063 0.027" material="lab_white_plastic_material"/>
+      <geom class="lab_solid" type="box" size="0.002 0.065 0.025" pos="0.063 0 0.027" material="lab_white_plastic_material"/>
+      <geom class="lab_solid" type="box" size="0.065 0.002 0.025" pos="0 0.063 0.027" material="lab_white_plastic_material"/>
+      <geom class="lab_deco" type="box" size="0.066 0.0025 0.008" pos="0 -0.0655 0.044" material="lab_blue_material"/>
+      <geom class="lab_deco" type="box" size="0.0025 0.066 0.008" pos="0.0655 0 0.044" material="lab_blue_material"/>
     </body>
 
-    <!-- Box 6: White -->
+    <!-- ========================================================== -->
+    <!-- ROBOT BENCH: HOT PLATE STIRRER WITH ERLENMEYER FLASK       -->
+    <!-- ========================================================== -->
+    <body name="lab_hot_plate" pos="-0.3 0.26 0">
+      <geom name="lab_hot_plate_body" class="lab_solid" type="box" size="0.075 0.085 0.032" pos="0 0 0.032" material="lab_white_plastic_material"/>
+      <geom name="lab_hot_plate_top" class="lab_solid" type="box" size="0.068 0.068 0.003" pos="0 0.01 0.067" material="lab_dark_metal_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.011" fromto="-0.035 -0.085 0.03 -0.035 -0.097 0.03" material="lab_dark_metal_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.011" fromto="0.035 -0.085 0.03 0.035 -0.097 0.03" material="lab_dark_metal_material"/>
+      <geom class="lab_deco" type="box" size="0.018 0.001 0.008" pos="0 -0.0855 0.045" material="lab_display_material"/>
+    </body>
 
-    <body name="lab_box_obstacle_6" pos="0.0 0.55 0.06">
-      <freejoint name="lab_box_joint_6"/>
+    <body name="lab_erlenmeyer_flask" pos="-0.3 0.27 0.07" childclass="lab_item">
+      <freejoint name="lab_erlenmeyer_flask_joint"/>
+      <geom name="lab_erlenmeyer_flask_glass" type="mesh" mesh="lab_erlenmeyer_mesh" material="lab_glass_material" mass="0.12"/>
+      <geom name="lab_erlenmeyer_flask_neck" type="cylinder" size="0.0135 0.016" pos="0 0 0.1" material="lab_glass_material" mass="0.01"/>
+      <geom class="lab_deco" type="mesh" mesh="lab_erlenmeyer_liquid_mesh" pos="0 0 0.002" material="lab_liquid_blue_material" mass="0.02"/>
+      <geom class="lab_deco" type="cylinder" size="0.004 0.0015" pos="0 0 0.0035" material="lab_white_plastic_material" mass="0.001" quat="0.7071 0.7071 0 0"/>
+    </body>
 
-      <geom name="lab_geom_box6"
-            type="box"
-            size="0.035 0.06 0.035"
-            material="lab_white_material"
-            mass="0.2"
-            friction="1.0 0.005 0.0001"/>
+    <!-- ========================================================== -->
+    <!-- ROBOT BENCH: BEAKERS                                       -->
+    <!-- ========================================================== -->
+    <body name="lab_beaker_1" pos="0.12 0.33 0.048" childclass="lab_item">
+      <freejoint name="lab_beaker_1_joint"/>
+      <geom name="lab_beaker_1_glass" type="cylinder" size="0.032 0.048" pos="0 0 0" material="lab_glass_material" mass="0.08"/>
+      <geom class="lab_deco" type="cylinder" size="0.029 0.024" pos="0 0 -0.0216" material="lab_liquid_green_material" mass="0.02"/>
+      <geom class="lab_deco" type="box" size="0.006 0.0005 0.0006" pos="0 -0.0325 -0.0144" material="lab_white_plastic_material" mass="0.0001"/>
+      <geom class="lab_deco" type="box" size="0.006 0.0005 0.0006" pos="0 -0.0325 0.0048" material="lab_white_plastic_material" mass="0.0001"/>
+      <geom class="lab_deco" type="box" size="0.006 0.0005 0.0006" pos="0 -0.0325 0.024" material="lab_white_plastic_material" mass="0.0001"/>
+    </body>
+
+    <body name="lab_beaker_2" pos="0.25 0.28 0.04" childclass="lab_item">
+      <freejoint name="lab_beaker_2_joint"/>
+      <geom name="lab_beaker_2_glass" type="cylinder" size="0.026 0.04" pos="0 0 0" material="lab_glass_material" mass="0.08"/>
+      <geom class="lab_deco" type="cylinder" size="0.023 0.02" pos="0 0 -0.018" material="lab_liquid_red_material" mass="0.02"/>
+      <geom class="lab_deco" type="box" size="0.006 0.0005 0.0006" pos="0 -0.0265 -0.012" material="lab_white_plastic_material" mass="0.0001"/>
+      <geom class="lab_deco" type="box" size="0.006 0.0005 0.0006" pos="0 -0.0265 0.004" material="lab_white_plastic_material" mass="0.0001"/>
+      <geom class="lab_deco" type="box" size="0.006 0.0005 0.0006" pos="0 -0.0265 0.02" material="lab_white_plastic_material" mass="0.0001"/>
+    </body>
+
+
+    <!-- ========================================================== -->
+    <!-- ROBOT BENCH: 24-WELL MICROPLATE AND PETRI DISHES           -->
+    <!-- ========================================================== -->
+    <body name="lab_microplate" pos="0.47 -0.36 0">
+      <geom name="lab_microplate_body" class="lab_solid" type="box" size="0.064 0.043 0.01" pos="0 0 0.01" material="lab_white_plastic_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.008 0.0012" pos="-0.05 -0.03 0.0205" material="lab_liquid_blue_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.008 0.0012" pos="-0.03 -0.03 0.0205" material="lab_liquid_red_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.008 0.0012" pos="-0.01 -0.03 0.0205" material="lab_liquid_yellow_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.008 0.0012" pos="0.01 -0.03 0.0205" material="lab_liquid_green_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.008 0.0012" pos="0.03 -0.03 0.0205" material="lab_liquid_purple_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.008 0.0012" pos="0.05 -0.03 0.0205" material="lab_liquid_clear_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.008 0.0012" pos="-0.05 -0.01 0.0205" material="lab_liquid_red_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.008 0.0012" pos="-0.03 -0.01 0.0205" material="lab_liquid_yellow_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.008 0.0012" pos="-0.01 -0.01 0.0205" material="lab_liquid_green_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.008 0.0012" pos="0.01 -0.01 0.0205" material="lab_liquid_purple_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.008 0.0012" pos="0.03 -0.01 0.0205" material="lab_liquid_clear_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.008 0.0012" pos="0.05 -0.01 0.0205" material="lab_liquid_blue_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.008 0.0012" pos="-0.05 0.01 0.0205" material="lab_liquid_yellow_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.008 0.0012" pos="-0.03 0.01 0.0205" material="lab_liquid_green_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.008 0.0012" pos="-0.01 0.01 0.0205" material="lab_liquid_purple_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.008 0.0012" pos="0.01 0.01 0.0205" material="lab_liquid_clear_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.008 0.0012" pos="0.03 0.01 0.0205" material="lab_liquid_blue_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.008 0.0012" pos="0.05 0.01 0.0205" material="lab_liquid_red_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.008 0.0012" pos="-0.05 0.03 0.0205" material="lab_liquid_green_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.008 0.0012" pos="-0.03 0.03 0.0205" material="lab_liquid_purple_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.008 0.0012" pos="-0.01 0.03 0.0205" material="lab_liquid_clear_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.008 0.0012" pos="0.01 0.03 0.0205" material="lab_liquid_blue_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.008 0.0012" pos="0.03 0.03 0.0205" material="lab_liquid_red_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.008 0.0012" pos="0.05 0.03 0.0205" material="lab_liquid_yellow_material"/>
+    </body>
+
+    <body name="lab_petri_dishes" pos="-0.48 -0.08 0">
+      <geom class="lab_solid" type="cylinder" size="0.045 0.006" pos="0 0 0.0065" material="lab_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.042 0.003" pos="0 0 0.0045" material="lab_agar_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.045 0.006" pos="0.004 0 0.019" material="lab_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.042 0.003" pos="0.004 0 0.017" material="lab_agar_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.045 0.006" pos="0.008 0 0.0315" material="lab_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.042 0.003" pos="0.008 0 0.0295" material="lab_agar_material"/>
+    </body>
+
+    <!-- ========================================================== -->
+    <!-- ROBOT BENCH: MICROPIPETTE STAND, SHARPS BIN, E-STOP, STACK LIGHT -->
+    <!-- ========================================================== -->
+    <body name="lab_pipette_stand" pos="-0.58 0.4 0">
+      <geom class="lab_deco" type="box" size="0.06 0.04 0.006" pos="0 0 0.006" material="lab_dark_metal_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.008 0.11" pos="0 0.025 0.12" material="lab_dark_metal_material"/>
+      <geom class="lab_deco" type="box" size="0.06 0.012 0.006" pos="0 0.012 0.22" material="lab_dark_metal_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.009" fromto="-0.04 0 0.08 -0.04 0 0.215" material="lab_white_plastic_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.004" fromto="-0.04 0 0.03 -0.04 0 0.08" material="lab_white_plastic_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.007 0.006" pos="-0.04 0 0.232" material="lab_blue_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.009" fromto="0 0 0.08 0 0 0.215" material="lab_white_plastic_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.004" fromto="0 0 0.03 0 0 0.08" material="lab_white_plastic_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.007 0.006" pos="0 0 0.232" material="lab_yellow_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.009" fromto="0.04 0 0.08 0.04 0 0.215" material="lab_white_plastic_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.004" fromto="0.04 0 0.03 0.04 0 0.08" material="lab_white_plastic_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.007 0.006" pos="0.04 0 0.232" material="lab_red_material"/>
+    </body>
+
+    <body name="lab_sharps_bin" pos="0.66 0.42 0">
+      <geom class="lab_deco" type="box" size="0.04 0.035 0.05" pos="0 0 0.05" material="lab_yellow_material"/>
+      <geom class="lab_deco" type="box" size="0.042 0.037 0.006" pos="0 0 0.106" material="lab_red_material"/>
+    </body>
+
+    <body name="lab_emergency_stop" pos="0.7 -0.45 0">
+      <geom class="lab_deco" type="box" size="0.035 0.035 0.025" pos="0 0 0.025" material="lab_yellow_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.01 0.006" pos="0 0 0.056" material="lab_dark_metal_material"/>
+      <geom name="lab_emergency_stop_button" class="lab_deco" type="cylinder" size="0.024 0.008" pos="0 0 0.068" material="lab_red_material"/>
+    </body>
+
+    <body name="lab_stack_light" pos="-0.72 0.58 0">
+      <geom class="lab_deco" type="cylinder" size="0.03 0.004" pos="0 0 0.004" material="lab_dark_metal_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.008 0.15" pos="0 0 0.158" material="lab_steel_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.024 0.02" pos="0 0 0.33" material="lab_lamp_green_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.024 0.02" pos="0 0 0.372" material="lab_lamp_off_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.024 0.02" pos="0 0 0.414" material="lab_lamp_off_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.024 0.005" pos="0 0 0.42" material="lab_dark_metal_material"/>
+    </body>
+
+    <!-- ========================================================== -->
+    <!-- BACK COUNTER: COMPUTER, MICROSCOPE, CENTRIFUGE, REAGENTS   -->
+    <!-- ========================================================== -->
+    <body name="lab_back_counter" pos="1.25 2.25 0">
+      <geom name="lab_back_counter_top" class="lab_solid" type="box" size="1.2 0.3 0.015" pos="0 0 -0.015" material="lab_epoxy_material"/>
+      <geom class="lab_deco" type="box" size="1.17 0.27 0.395" pos="0 0 -0.425" material="lab_cabinet_material"/>
+      <geom class="lab_deco" type="box" size="1.14 0.24 0.04" pos="0 0 -0.86" material="lab_baseboard_material"/>
+      <geom class="lab_deco" type="box" size="0.224 0.006 0.07" pos="-0.936 -0.276 -0.12" material="lab_drawer_material"/>
+      <geom class="lab_deco" type="box" size="0.06 0.008 0.008" pos="-0.936 -0.29 -0.09" material="lab_steel_material"/>
+      <geom class="lab_deco" type="box" size="0.224 0.006 0.29" pos="-0.936 -0.276 -0.5" material="lab_drawer_material"/>
+      <geom class="lab_deco" type="box" size="0.06 0.008 0.008" pos="-0.936 -0.29 -0.25" material="lab_steel_material"/>
+      <geom class="lab_deco" type="box" size="0.224 0.006 0.07" pos="-0.468 -0.276 -0.12" material="lab_drawer_material"/>
+      <geom class="lab_deco" type="box" size="0.06 0.008 0.008" pos="-0.468 -0.29 -0.09" material="lab_steel_material"/>
+      <geom class="lab_deco" type="box" size="0.224 0.006 0.29" pos="-0.468 -0.276 -0.5" material="lab_drawer_material"/>
+      <geom class="lab_deco" type="box" size="0.06 0.008 0.008" pos="-0.468 -0.29 -0.25" material="lab_steel_material"/>
+      <geom class="lab_deco" type="box" size="0.224 0.006 0.07" pos="0 -0.276 -0.12" material="lab_drawer_material"/>
+      <geom class="lab_deco" type="box" size="0.06 0.008 0.008" pos="0 -0.29 -0.09" material="lab_steel_material"/>
+      <geom class="lab_deco" type="box" size="0.224 0.006 0.29" pos="0 -0.276 -0.5" material="lab_drawer_material"/>
+      <geom class="lab_deco" type="box" size="0.06 0.008 0.008" pos="0 -0.29 -0.25" material="lab_steel_material"/>
+      <geom class="lab_deco" type="box" size="0.224 0.006 0.07" pos="0.468 -0.276 -0.12" material="lab_drawer_material"/>
+      <geom class="lab_deco" type="box" size="0.06 0.008 0.008" pos="0.468 -0.29 -0.09" material="lab_steel_material"/>
+      <geom class="lab_deco" type="box" size="0.224 0.006 0.29" pos="0.468 -0.276 -0.5" material="lab_drawer_material"/>
+      <geom class="lab_deco" type="box" size="0.06 0.008 0.008" pos="0.468 -0.29 -0.25" material="lab_steel_material"/>
+      <geom class="lab_deco" type="box" size="0.224 0.006 0.07" pos="0.936 -0.276 -0.12" material="lab_drawer_material"/>
+      <geom class="lab_deco" type="box" size="0.06 0.008 0.008" pos="0.936 -0.29 -0.09" material="lab_steel_material"/>
+      <geom class="lab_deco" type="box" size="0.224 0.006 0.29" pos="0.936 -0.276 -0.5" material="lab_drawer_material"/>
+      <geom class="lab_deco" type="box" size="0.06 0.008 0.008" pos="0.936 -0.29 -0.25" material="lab_steel_material"/>
+    </body>
+
+    <!-- Computer workstation -->
+    <body name="lab_computer" pos="0.62 2.33 0">
+      <geom class="lab_deco" type="box" size="0.08 0.06 0.005" pos="0 0.02 0.005" material="lab_dark_metal_material"/>
+      <geom class="lab_deco" type="box" size="0.015 0.012 0.12" pos="0 0.04 0.13" material="lab_dark_metal_material"/>
+      <geom class="lab_deco" type="box" size="0.27 0.015 0.16" pos="0 0.02 0.33" material="lab_black_material"/>
+      <geom name="lab_computer_screen" class="lab_deco" type="box" size="0.255 0.002 0.145" pos="0 0.004 0.33" material="lab_screen_material"/>
+      <geom class="lab_deco" type="box" size="0.2 0.065 0.008" pos="0 -0.18 0.008" material="lab_black_material"/>
+      <geom class="lab_deco" type="ellipsoid" size="0.02 0.032 0.012" pos="0.27 -0.18 0.012" material="lab_black_material"/>
+    </body>
+
+    <!-- Microscope (front faces -y, towards the technician) -->
+    <body name="lab_microscope" pos="1.62 2.22 0">
+      <geom class="lab_deco" type="box" size="0.09 0.12 0.02" pos="0 0 0.02" material="lab_white_plastic_material"/>
+      <geom class="lab_deco" type="box" size="0.035 0.045 0.14" pos="0 0.08 0.17" material="lab_white_plastic_material"/>
+      <geom class="lab_deco" type="box" size="0.075 0.075 0.006" pos="0 -0.01 0.13" material="lab_black_material"/>
+      <geom class="lab_deco" type="box" size="0.038 0.013 0.001" pos="0 -0.01 0.137" material="lab_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.02 0.003" pos="0 -0.01 0.06" material="lab_display_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.012" fromto="0 -0.01 0.06 0 -0.01 0.125" material="lab_dark_metal_material"/>
+      <geom class="lab_deco" type="box" size="0.05 0.065 0.035" pos="0 0.03 0.27" material="lab_white_plastic_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.032 0.008" pos="0 -0.01 0.228" material="lab_dark_metal_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.007" fromto="-0.016 -0.01 0.222 -0.016 -0.01 0.18" material="lab_steel_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.007" fromto="0.016 -0.01 0.222 0.016 -0.01 0.18" material="lab_steel_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.007" fromto="0 -0.027 0.222 0 -0.027 0.18" material="lab_steel_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.012" fromto="-0.02 -0.01 0.29 -0.026 -0.07 0.345" material="lab_black_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.026" fromto="-0.035 0.08 0.09 -0.06 0.08 0.09" material="lab_dark_metal_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.012" fromto="0.02 -0.01 0.29 0.026 -0.07 0.345" material="lab_black_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.026" fromto="0.035 0.08 0.09 0.06 0.08 0.09" material="lab_dark_metal_material"/>
+    </body>
+
+    <!-- Benchtop centrifuge -->
+    <body name="lab_centrifuge" pos="2.12 2.22 0">
+      <geom class="lab_deco" type="box" size="0.17 0.2 0.11" pos="0 0 0.11" material="lab_white_plastic_material"/>
+      <geom class="lab_deco" type="ellipsoid" size="0.14 0.15 0.035" pos="0 0.02 0.22" material="lab_steel_material"/>
+      <geom class="lab_deco" type="box" size="0.07 0.002 0.028" pos="0 -0.201 0.16" material="lab_display_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.008" fromto="-0.05 -0.2 0.08 -0.05 -0.208 0.08" material="lab_blue_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.008" fromto="0 -0.2 0.08 0 -0.208 0.08" material="lab_blue_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.008" fromto="0.05 -0.2 0.08 0.05 -0.208 0.08" material="lab_blue_material"/>
+    </body>
+
+    <!-- Reagent bottles and a wash bottle -->
+    <body name="lab_counter_reagents" pos="0.15 2.36 0">
+      <geom class="lab_deco" type="cylinder" size="0.04 0.08" pos="-0.08 0 0.08" material="lab_amber_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.018 0.0128" pos="-0.08 0 0.1728" material="lab_amber_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.02 0.0096" pos="-0.08 0 0.192" material="lab_black_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.04 0.08" pos="0.02 0.03 0.08" material="lab_amber_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.018 0.0128" pos="0.02 0.03 0.1728" material="lab_amber_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.02 0.0096" pos="0.02 0.03 0.192" material="lab_black_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.035 0.065" pos="0.11 -0.01 0.065" material="lab_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.02975 0.039" pos="0.11 -0.01 0.0416" material="lab_liquid_blue_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.01575 0.0104" pos="0.11 -0.01 0.1404" material="lab_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0175 0.0078" pos="0.11 -0.01 0.156" material="lab_blue_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.03 0.07" pos="0.2 -0.05 0.07" material="lab_white_plastic_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.012 0.012" pos="0.2 -0.05 0.152" material="lab_red_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.003" fromto="0.2 -0.05 0.164 0.2 -0.12 0.2" material="lab_white_plastic_material"/>
+    </body>
+
+    <!-- ========================================================== -->
+    <!-- WALL SHELVES ABOVE THE BACK COUNTER                        -->
+    <!-- ========================================================== -->
+    <body name="lab_wall_shelves" pos="1.25 2.43 0">
+      <geom class="lab_deco" type="box" size="1.15 0.11 0.012" pos="0 0 0.62" material="lab_cabinet_material"/>
+      <geom class="lab_deco" type="box" size="0.01 0.09 0.03" pos="-1 0 0.58" material="lab_steel_material"/>
+      <geom class="lab_deco" type="box" size="0.01 0.09 0.03" pos="0 0 0.58" material="lab_steel_material"/>
+      <geom class="lab_deco" type="box" size="0.01 0.09 0.03" pos="1 0 0.58" material="lab_steel_material"/>
+      <geom class="lab_deco" type="box" size="1.15 0.11 0.012" pos="0 0 1.02" material="lab_cabinet_material"/>
+      <geom class="lab_deco" type="box" size="0.01 0.09 0.03" pos="-1 0 0.98" material="lab_steel_material"/>
+      <geom class="lab_deco" type="box" size="0.01 0.09 0.03" pos="0 0 0.98" material="lab_steel_material"/>
+      <geom class="lab_deco" type="box" size="0.01 0.09 0.03" pos="1 0 0.98" material="lab_steel_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.035 0.075" pos="-1.08 0 0.707" material="lab_amber_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.01575 0.012" pos="-1.08 0 0.794" material="lab_amber_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0175 0.009" pos="-1.08 0 0.812" material="lab_black_material"/>
+      <geom class="lab_deco" type="mesh" mesh="lab_small_flask_mesh" pos="-0.98 0 0.632" material="lab_glass_material"/>
+      <geom class="lab_deco" type="mesh" mesh="lab_small_flask_liquid_mesh" pos="-0.98 0 0.634" material="lab_liquid_purple_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0115 0.012" pos="-0.98 0 0.714" material="lab_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.03 0.06" pos="-0.89 0 0.692" material="lab_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0255 0.036" pos="-0.89 0 0.6704" material="lab_liquid_blue_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0135 0.0096" pos="-0.89 0 0.7616" material="lab_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.015 0.0072" pos="-0.89 0 0.776" material="lab_white_plastic_material"/>
+      <geom class="lab_deco" type="box" size="0.06 0.05 0.045" pos="-0.78 0 0.677" material="lab_blue_plastic_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.035 0.075" pos="-0.66 0 0.707" material="lab_amber_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.01575 0.012" pos="-0.66 0 0.794" material="lab_amber_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0175 0.009" pos="-0.66 0 0.812" material="lab_black_material"/>
+      <geom class="lab_deco" type="mesh" mesh="lab_small_flask_mesh" pos="-0.56 0 0.632" material="lab_glass_material"/>
+      <geom class="lab_deco" type="mesh" mesh="lab_small_flask_liquid_mesh" pos="-0.56 0 0.634" material="lab_liquid_red_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0115 0.012" pos="-0.56 0 0.714" material="lab_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.03 0.06" pos="-0.47 0 0.692" material="lab_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0255 0.036" pos="-0.47 0 0.6704" material="lab_liquid_blue_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0135 0.0096" pos="-0.47 0 0.7616" material="lab_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.015 0.0072" pos="-0.47 0 0.776" material="lab_white_plastic_material"/>
+      <geom class="lab_deco" type="box" size="0.06 0.05 0.045" pos="-0.36 0 0.677" material="lab_purple_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.035 0.075" pos="-0.24 0 0.707" material="lab_amber_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.01575 0.012" pos="-0.24 0 0.794" material="lab_amber_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0175 0.009" pos="-0.24 0 0.812" material="lab_black_material"/>
+      <geom class="lab_deco" type="mesh" mesh="lab_small_flask_mesh" pos="-0.14 0 0.632" material="lab_glass_material"/>
+      <geom class="lab_deco" type="mesh" mesh="lab_small_flask_liquid_mesh" pos="-0.14 0 0.634" material="lab_liquid_purple_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0115 0.012" pos="-0.14 0 0.714" material="lab_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.03 0.06" pos="-0.05 0 0.692" material="lab_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0255 0.036" pos="-0.05 0 0.6704" material="lab_liquid_green_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0135 0.0096" pos="-0.05 0 0.7616" material="lab_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.015 0.0072" pos="-0.05 0 0.776" material="lab_white_plastic_material"/>
+      <geom class="lab_deco" type="box" size="0.06 0.05 0.045" pos="0.06 0 0.677" material="lab_blue_plastic_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.035 0.075" pos="0.18 0 0.707" material="lab_amber_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.01575 0.012" pos="0.18 0 0.794" material="lab_amber_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0175 0.009" pos="0.18 0 0.812" material="lab_black_material"/>
+      <geom class="lab_deco" type="mesh" mesh="lab_small_flask_mesh" pos="0.28 0 0.632" material="lab_glass_material"/>
+      <geom class="lab_deco" type="mesh" mesh="lab_small_flask_liquid_mesh" pos="0.28 0 0.634" material="lab_liquid_blue_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0115 0.012" pos="0.28 0 0.714" material="lab_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.03 0.06" pos="0.37 0 0.692" material="lab_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0255 0.036" pos="0.37 0 0.6704" material="lab_liquid_red_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0135 0.0096" pos="0.37 0 0.7616" material="lab_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.015 0.0072" pos="0.37 0 0.776" material="lab_white_plastic_material"/>
+      <geom class="lab_deco" type="box" size="0.06 0.05 0.045" pos="0.48 0 0.677" material="lab_blue_plastic_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.035 0.075" pos="0.6 0 0.707" material="lab_amber_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.01575 0.012" pos="0.6 0 0.794" material="lab_amber_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0175 0.009" pos="0.6 0 0.812" material="lab_black_material"/>
+      <geom class="lab_deco" type="mesh" mesh="lab_small_flask_mesh" pos="0.7 0 0.632" material="lab_glass_material"/>
+      <geom class="lab_deco" type="mesh" mesh="lab_small_flask_liquid_mesh" pos="0.7 0 0.634" material="lab_liquid_yellow_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0115 0.012" pos="0.7 0 0.714" material="lab_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.03 0.06" pos="0.79 0 0.692" material="lab_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0255 0.036" pos="0.79 0 0.6704" material="lab_liquid_green_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0135 0.0096" pos="0.79 0 0.7616" material="lab_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.015 0.0072" pos="0.79 0 0.776" material="lab_white_plastic_material"/>
+      <geom class="lab_deco" type="box" size="0.06 0.05 0.045" pos="0.9 0 0.677" material="lab_blue_plastic_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.035 0.075" pos="1.02 0 0.707" material="lab_amber_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.01575 0.012" pos="1.02 0 0.794" material="lab_amber_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0175 0.009" pos="1.02 0 0.812" material="lab_black_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.035 0.075" pos="-1.08 0 1.107" material="lab_amber_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.01575 0.012" pos="-1.08 0 1.194" material="lab_amber_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0175 0.009" pos="-1.08 0 1.212" material="lab_black_material"/>
+      <geom class="lab_deco" type="mesh" mesh="lab_small_flask_mesh" pos="-0.98 0 1.032" material="lab_glass_material"/>
+      <geom class="lab_deco" type="mesh" mesh="lab_small_flask_liquid_mesh" pos="-0.98 0 1.034" material="lab_liquid_blue_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0115 0.012" pos="-0.98 0 1.114" material="lab_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.03 0.06" pos="-0.89 0 1.092" material="lab_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0255 0.036" pos="-0.89 0 1.07" material="lab_liquid_yellow_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0135 0.0096" pos="-0.89 0 1.162" material="lab_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.015 0.0072" pos="-0.89 0 1.176" material="lab_white_plastic_material"/>
+      <geom class="lab_deco" type="box" size="0.06 0.05 0.045" pos="-0.78 0 1.077" material="lab_purple_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.035 0.075" pos="-0.66 0 1.107" material="lab_amber_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.01575 0.012" pos="-0.66 0 1.194" material="lab_amber_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0175 0.009" pos="-0.66 0 1.212" material="lab_black_material"/>
+      <geom class="lab_deco" type="mesh" mesh="lab_small_flask_mesh" pos="-0.56 0 1.032" material="lab_glass_material"/>
+      <geom class="lab_deco" type="mesh" mesh="lab_small_flask_liquid_mesh" pos="-0.56 0 1.034" material="lab_liquid_blue_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0115 0.012" pos="-0.56 0 1.114" material="lab_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.03 0.06" pos="-0.47 0 1.092" material="lab_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0255 0.036" pos="-0.47 0 1.07" material="lab_liquid_blue_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0135 0.0096" pos="-0.47 0 1.162" material="lab_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.015 0.0072" pos="-0.47 0 1.176" material="lab_white_plastic_material"/>
+      <geom class="lab_deco" type="box" size="0.06 0.05 0.045" pos="-0.36 0 1.077" material="lab_blue_plastic_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.035 0.075" pos="-0.24 0 1.107" material="lab_amber_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.01575 0.012" pos="-0.24 0 1.194" material="lab_amber_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0175 0.009" pos="-0.24 0 1.212" material="lab_black_material"/>
+      <geom class="lab_deco" type="mesh" mesh="lab_small_flask_mesh" pos="-0.14 0 1.032" material="lab_glass_material"/>
+      <geom class="lab_deco" type="mesh" mesh="lab_small_flask_liquid_mesh" pos="-0.14 0 1.034" material="lab_liquid_red_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0115 0.012" pos="-0.14 0 1.114" material="lab_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.03 0.06" pos="-0.05 0 1.092" material="lab_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0255 0.036" pos="-0.05 0 1.07" material="lab_liquid_purple_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0135 0.0096" pos="-0.05 0 1.162" material="lab_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.015 0.0072" pos="-0.05 0 1.176" material="lab_white_plastic_material"/>
+      <geom class="lab_deco" type="box" size="0.06 0.05 0.045" pos="0.06 0 1.077" material="lab_purple_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.035 0.075" pos="0.18 0 1.107" material="lab_amber_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.01575 0.012" pos="0.18 0 1.194" material="lab_amber_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0175 0.009" pos="0.18 0 1.212" material="lab_black_material"/>
+      <geom class="lab_deco" type="mesh" mesh="lab_small_flask_mesh" pos="0.28 0 1.032" material="lab_glass_material"/>
+      <geom class="lab_deco" type="mesh" mesh="lab_small_flask_liquid_mesh" pos="0.28 0 1.034" material="lab_liquid_green_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0115 0.012" pos="0.28 0 1.114" material="lab_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.03 0.06" pos="0.37 0 1.092" material="lab_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0255 0.036" pos="0.37 0 1.07" material="lab_liquid_green_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0135 0.0096" pos="0.37 0 1.162" material="lab_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.015 0.0072" pos="0.37 0 1.176" material="lab_white_plastic_material"/>
+      <geom class="lab_deco" type="box" size="0.06 0.05 0.045" pos="0.48 0 1.077" material="lab_purple_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.035 0.075" pos="0.6 0 1.107" material="lab_amber_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.01575 0.012" pos="0.6 0 1.194" material="lab_amber_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0175 0.009" pos="0.6 0 1.212" material="lab_black_material"/>
+      <geom class="lab_deco" type="mesh" mesh="lab_small_flask_mesh" pos="0.7 0 1.032" material="lab_glass_material"/>
+      <geom class="lab_deco" type="mesh" mesh="lab_small_flask_liquid_mesh" pos="0.7 0 1.034" material="lab_liquid_green_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0115 0.012" pos="0.7 0 1.114" material="lab_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.03 0.06" pos="0.79 0 1.092" material="lab_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0255 0.036" pos="0.79 0 1.07" material="lab_liquid_blue_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0135 0.0096" pos="0.79 0 1.162" material="lab_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.015 0.0072" pos="0.79 0 1.176" material="lab_white_plastic_material"/>
+      <geom class="lab_deco" type="box" size="0.06 0.05 0.045" pos="0.9 0 1.077" material="lab_purple_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.035 0.075" pos="1.02 0 1.107" material="lab_amber_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.01575 0.012" pos="1.02 0 1.194" material="lab_amber_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0175 0.009" pos="1.02 0 1.212" material="lab_black_material"/>
+    </body>
+
+    <!-- ========================================================== -->
+    <!-- FUME HOOD (back-left), WITH FLAMMABLES CABINET BELOW       -->
+    <!-- ========================================================== -->
+    <body name="lab_fume_hood" pos="-1.2 2.22 0">
+      <!-- yellow flammables storage cabinet under the work surface -->
+      <geom class="lab_deco" type="box" size="0.6 0.3 0.435" pos="0 0 -0.465" material="lab_flammable_material"/>
+      <geom class="lab_deco" type="box" size="0.28 0.006 0.36" pos="-0.295 -0.306 -0.47" material="lab_flammable_material"/>
+      <geom class="lab_deco" type="box" size="0.01 0.012 0.06" pos="-0.03 -0.32 -0.4" material="lab_dark_metal_material"/>
+      <geom class="lab_deco" type="box" size="0.28 0.006 0.36" pos="0.295 -0.306 -0.47" material="lab_flammable_material"/>
+      <geom class="lab_deco" type="box" size="0.01 0.012 0.06" pos="0.03 -0.32 -0.4" material="lab_dark_metal_material"/>
+      <geom class="lab_deco" type="box" size="0.25 0.007 0.02" pos="0 -0.307 -0.1" material="lab_red_material"/>
+      <geom class="lab_deco" type="box" size="0.6 0.3 0.015" pos="0 0 -0.015" material="lab_epoxy_material"/>
+      <!-- hood shell -->
+      <geom class="lab_deco" type="box" size="0.03 0.31 0.75" pos="-0.62 0 0.75" material="lab_cabinet_material"/>
+      <geom class="lab_deco" type="box" size="0.03 0.31 0.75" pos="0.62 0 0.75" material="lab_cabinet_material"/>
+      <geom class="lab_deco" type="box" size="0.62 0.02 0.75" pos="0 0.3 0.75" material="lab_cabinet_material"/>
+      <geom class="lab_deco" type="box" size="0.65 0.31 0.2" pos="0 0 1.3" material="lab_cabinet_material"/>
+      <geom class="lab_deco" type="box" size="0.59 0.01 0.015" pos="0 -0.315 1.11" material="lab_ceiling_light_material"/>
+      <geom name="lab_fume_hood_sash" class="lab_deco" type="box" size="0.59 0.006 0.36" pos="0 -0.33 0.75" material="lab_glass_material"/>
+      <geom class="lab_deco" type="box" size="0.6 0.012 0.012" pos="0 -0.335 0.39" material="lab_steel_material"/>
+      <geom class="lab_deco" type="box" size="0.02 0.006 0.03" pos="0.64 -0.315 0.9" material="lab_display_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.13 0.45" pos="0 0.05 1.95" material="lab_steel_material"/>
+      <!-- contents -->
+      <geom class="lab_deco" type="cylinder" size="0.04 0.085" pos="-0.3 0.1 0.085" material="lab_amber_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.018 0.0136" pos="-0.3 0.1 0.1836" material="lab_amber_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.02 0.0102" pos="-0.3 0.1 0.204" material="lab_black_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.035 0.07" pos="-0.2 0.14 0.07" material="lab_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.02975 0.042" pos="-0.2 0.14 0.0448" material="lab_liquid_yellow_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.01575 0.0112" pos="-0.2 0.14 0.1512" material="lab_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0175 0.0084" pos="-0.2 0.14 0.168" material="lab_red_material"/>
+      <geom class="lab_deco" type="mesh" mesh="lab_small_flask_mesh" pos="0.15 0.05 0" material="lab_glass_material"/>
+      <geom class="lab_deco" type="mesh" mesh="lab_small_flask_liquid_mesh" pos="0.15 0.05 0.002" material="lab_liquid_purple_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0115 0.012" pos="0.15 0.05 0.082" material="lab_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.03 0.04" pos="0.32 0 0.04" material="lab_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.027 0.018" pos="0.32 0 0.02" material="lab_liquid_green_material"/>
+    </body>
+
+    <!-- ========================================================== -->
+    <!-- GLASS-DOOR CHEMICAL STORAGE CABINET (back-left corner)     -->
+    <!-- ========================================================== -->
+    <body name="lab_storage_cabinet" pos="-2.18 2.24 0">
+      <geom class="lab_deco" type="box" size="0.32 0.26 0.01" pos="0 0 -0.89" material="lab_cabinet_material"/>
+      <geom class="lab_deco" type="box" size="0.32 0.26 0.01" pos="0 0 1" material="lab_cabinet_material"/>
+      <geom class="lab_deco" type="box" size="0.01 0.26 0.95" pos="-0.31 0 0.05" material="lab_cabinet_material"/>
+      <geom class="lab_deco" type="box" size="0.01 0.26 0.95" pos="0.31 0 0.05" material="lab_cabinet_material"/>
+      <geom class="lab_deco" type="box" size="0.32 0.01 0.95" pos="0 0.25 0.05" material="lab_cabinet_material"/>
+      <geom class="lab_deco" type="box" size="0.3 0.24 0.008" pos="0 0 -0.45" material="lab_cabinet_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.035 0.075" pos="-0.21 0 -0.367" material="lab_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.02975 0.045" pos="-0.21 0 -0.394" material="lab_liquid_green_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.01575 0.012" pos="-0.21 0 -0.28" material="lab_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0175 0.009" pos="-0.21 0 -0.262" material="lab_black_material"/>
+      <geom class="lab_deco" type="mesh" mesh="lab_small_flask_mesh" pos="-0.07 0 -0.442" material="lab_glass_material"/>
+      <geom class="lab_deco" type="mesh" mesh="lab_small_flask_liquid_mesh" pos="-0.07 0 -0.44" material="lab_liquid_red_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0115 0.012" pos="-0.07 0 -0.36" material="lab_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.035 0.075" pos="0.07 0 -0.367" material="lab_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.02975 0.045" pos="0.07 0 -0.394" material="lab_liquid_purple_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.01575 0.012" pos="0.07 0 -0.28" material="lab_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0175 0.009" pos="0.07 0 -0.262" material="lab_black_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.035 0.075" pos="0.21 0 -0.367" material="lab_amber_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.01575 0.012" pos="0.21 0 -0.28" material="lab_amber_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0175 0.009" pos="0.21 0 -0.262" material="lab_black_material"/>
+      <geom class="lab_deco" type="box" size="0.3 0.24 0.008" pos="0 0 0" material="lab_cabinet_material"/>
+      <geom class="lab_deco" type="mesh" mesh="lab_small_flask_mesh" pos="-0.21 0 0.008" material="lab_glass_material"/>
+      <geom class="lab_deco" type="mesh" mesh="lab_small_flask_liquid_mesh" pos="-0.21 0 0.01" material="lab_liquid_blue_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0115 0.012" pos="-0.21 0 0.09" material="lab_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.035 0.075" pos="-0.07 0 0.083" material="lab_amber_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.01575 0.012" pos="-0.07 0 0.17" material="lab_amber_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0175 0.009" pos="-0.07 0 0.188" material="lab_black_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.035 0.075" pos="0.07 0 0.083" material="lab_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.02975 0.045" pos="0.07 0 0.056" material="lab_liquid_purple_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.01575 0.012" pos="0.07 0 0.17" material="lab_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0175 0.009" pos="0.07 0 0.188" material="lab_black_material"/>
+      <geom class="lab_deco" type="mesh" mesh="lab_small_flask_mesh" pos="0.21 0 0.008" material="lab_glass_material"/>
+      <geom class="lab_deco" type="mesh" mesh="lab_small_flask_liquid_mesh" pos="0.21 0 0.01" material="lab_liquid_yellow_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0115 0.012" pos="0.21 0 0.09" material="lab_glass_material"/>
+      <geom class="lab_deco" type="box" size="0.3 0.24 0.008" pos="0 0 0.48" material="lab_cabinet_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.035 0.075" pos="-0.21 0 0.563" material="lab_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.02975 0.045" pos="-0.21 0 0.536" material="lab_liquid_green_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.01575 0.012" pos="-0.21 0 0.65" material="lab_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0175 0.009" pos="-0.21 0 0.668" material="lab_black_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.035 0.075" pos="-0.07 0 0.563" material="lab_amber_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.01575 0.012" pos="-0.07 0 0.65" material="lab_amber_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0175 0.009" pos="-0.07 0 0.668" material="lab_black_material"/>
+      <geom class="lab_deco" type="mesh" mesh="lab_small_flask_mesh" pos="0.07 0 0.488" material="lab_glass_material"/>
+      <geom class="lab_deco" type="mesh" mesh="lab_small_flask_liquid_mesh" pos="0.07 0 0.49" material="lab_liquid_green_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0115 0.012" pos="0.07 0 0.57" material="lab_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.035 0.075" pos="0.21 0 0.563" material="lab_amber_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.01575 0.012" pos="0.21 0 0.65" material="lab_amber_glass_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.0175 0.009" pos="0.21 0 0.668" material="lab_black_material"/>
+      <geom class="lab_deco" type="box" size="0.15 0.005 0.92" pos="-0.155 -0.262 0.1" material="lab_glass_material"/>
+      <geom class="lab_deco" type="box" size="0.008 0.012 0.06" pos="-0.02 -0.275 0.1" material="lab_steel_material"/>
+      <geom class="lab_deco" type="box" size="0.15 0.005 0.92" pos="0.155 -0.262 0.1" material="lab_glass_material"/>
+      <geom class="lab_deco" type="box" size="0.008 0.012 0.06" pos="0.02 -0.275 0.1" material="lab_steel_material"/>
+    </body>
+
+    <!-- ========================================================== -->
+    <!-- LEFT WALL: SINK BENCH, WHITEBOARD, TOWEL DISPENSER         -->
+    <!-- ========================================================== -->
+    <body name="lab_sink_bench" pos="-2.25 -0.6 0">
+      <geom name="lab_sink_bench_top" class="lab_solid" type="box" size="0.3 0.75 0.015" pos="0 0 -0.015" material="lab_epoxy_material"/>
+      <geom class="lab_deco" type="box" size="0.27 0.72 0.395" pos="0 0 -0.425" material="lab_cabinet_material"/>
+      <geom class="lab_deco" type="box" size="0.24 0.69 0.04" pos="0 0 -0.86" material="lab_baseboard_material"/>
+      <geom class="lab_deco" type="box" size="0.006 0.23 0.07" pos="0.276 -0.48 -0.12" material="lab_drawer_material"/>
+      <geom class="lab_deco" type="box" size="0.008 0.06 0.008" pos="0.29 -0.48 -0.09" material="lab_steel_material"/>
+      <geom class="lab_deco" type="box" size="0.006 0.23 0.29" pos="0.276 -0.48 -0.5" material="lab_drawer_material"/>
+      <geom class="lab_deco" type="box" size="0.008 0.06 0.008" pos="0.29 -0.48 -0.25" material="lab_steel_material"/>
+      <geom class="lab_deco" type="box" size="0.006 0.23 0.07" pos="0.276 0 -0.12" material="lab_drawer_material"/>
+      <geom class="lab_deco" type="box" size="0.008 0.06 0.008" pos="0.29 0 -0.09" material="lab_steel_material"/>
+      <geom class="lab_deco" type="box" size="0.006 0.23 0.29" pos="0.276 0 -0.5" material="lab_drawer_material"/>
+      <geom class="lab_deco" type="box" size="0.008 0.06 0.008" pos="0.29 0 -0.25" material="lab_steel_material"/>
+      <geom class="lab_deco" type="box" size="0.006 0.23 0.07" pos="0.276 0.48 -0.12" material="lab_drawer_material"/>
+      <geom class="lab_deco" type="box" size="0.008 0.06 0.008" pos="0.29 0.48 -0.09" material="lab_steel_material"/>
+      <geom class="lab_deco" type="box" size="0.006 0.23 0.29" pos="0.276 0.48 -0.5" material="lab_drawer_material"/>
+      <geom class="lab_deco" type="box" size="0.008 0.06 0.008" pos="0.29 0.48 -0.25" material="lab_steel_material"/>
+    </body>
+    <body name="lab_sink" pos="-2.25 -0.95 0">
+      <geom class="lab_deco" type="box" size="0.2 0.24 0.001" pos="0.02 0 0.0005" material="lab_steel_material"/>
+      <geom class="lab_deco" type="box" size="0.17 0.21 0.001" pos="0.02 0 0.0012" material="lab_dark_metal_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.03 0.003" pos="0.02 0 0.0018" material="lab_steel_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.012" fromto="-0.22 0 0 -0.22 0 0.3" material="lab_steel_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.01" fromto="-0.22 0 0.3 -0.08 0 0.3" material="lab_steel_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.009" fromto="-0.08 0 0.3 -0.08 0 0.24" material="lab_steel_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.008" fromto="-0.22 -0.012 0.18 -0.22 -0.07 0.18" material="lab_steel_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.008" fromto="-0.22 0.012 0.18 -0.22 0.07 0.18" material="lab_steel_material"/>
+    </body>
+
+    <geom name="lab_towel_dispenser" class="lab_deco" type="box" size="0.05 0.12 0.16" pos="-2.5 -1.45 0.55" material="lab_white_plastic_material"/>
+    <body name="lab_whiteboard" pos="-2.54 -0.15 0.95">
+      <geom class="lab_deco" type="box" size="0.01 0.6 0.4" pos="0 0 0" material="lab_steel_material"/>
+      <geom class="lab_deco" type="box" size="0.006 0.58 0.38" pos="0.008 0 0" material="lab_whiteboard_material"/>
+      <geom class="lab_deco" type="box" size="0.001 0.1 0.004" pos="0.0125 -0.2 0.2" material="lab_blue_material"/>
+      <geom class="lab_deco" type="box" size="0.001 0.15 0.004" pos="0.0125 -0.1 0.1" material="lab_black_material"/>
+      <geom class="lab_deco" type="box" size="0.001 0.11 0.004" pos="0.0125 -0.17 0" material="lab_black_material"/>
+      <geom class="lab_deco" type="box" size="0.001 0.09 0.004" pos="0.0125 0.29 0.15" material="lab_red_material"/>
+      <geom class="lab_deco" type="box" size="0.001 0.125 0.004" pos="0.0125 0.375 0.05" material="lab_black_material"/>
+      <geom class="lab_deco" type="box" size="0.03 0.4 0.006" pos="0.03 0 -0.39" material="lab_steel_material"/>
+    </body>
+
+    <!-- ========================================================== -->
+    <!-- LEFT WALL: SAFETY SHOWER / EYEWASH STATION AND FIRE EXTINGUISHER -->
+    <!-- ========================================================== -->
+    <body name="lab_safety_shower" pos="-2.48 1.25 0">
+      <geom class="lab_deco" type="cylinder" size="0.022" fromto="0 0 -0.9 0 0 1.6" material="lab_green_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.12 0.012" pos="0 0 -0.888" material="lab_green_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.02" fromto="0 0 1.55 0.45 0 1.55" material="lab_green_material"/>
+      <geom name="lab_shower_head" class="lab_deco" type="cylinder" size="0.13 0.025" pos="0.45 0 1.5" material="lab_yellow_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.006" fromto="0.3 0 1.55 0.3 0 1.05" material="lab_steel_material"/>
+      <geom class="lab_deco" type="box" size="0.04 0.008 0.03" pos="0.3 0 1.03" material="lab_green_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.018" fromto="0 0 0.1 0.25 0 0.1" material="lab_green_material"/>
+      <geom name="lab_eyewash_bowl" class="lab_deco" type="cylinder" size="0.13 0.03" pos="0.32 0 0.12" material="lab_yellow_material"/>
+      <geom class="lab_deco" type="box" size="0.006 0.16 0.12" pos="-0.05 0 1.85" material="lab_safety_sign_material"/>
+      <geom class="lab_deco" type="box" size="0.002 0.06 0.018" pos="-0.044 0 1.85" material="lab_white_plastic_material"/>
+      <geom class="lab_deco" type="box" size="0.002 0.018 0.06" pos="-0.044 0 1.85" material="lab_white_plastic_material"/>
+    </body>
+
+    <body name="lab_fire_extinguisher" pos="-2.47 -1.75 0">
+      <geom class="lab_deco" type="box" size="0.02 0.06 0.04" pos="-0.05 0 -0.08" material="lab_dark_metal_material"/>
+      <geom name="lab_fire_extinguisher_body" class="lab_deco" type="cylinder" size="0.07 0.22" pos="0.03 0 -0.33" material="lab_red_material"/>
+      <geom class="lab_deco" type="sphere" size="0.07" pos="0.03 0 -0.11" material="lab_red_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.02 0.03" pos="0.03 0 -0.03" material="lab_black_material"/>
+      <geom class="lab_deco" type="box" size="0.06 0.012 0.008" pos="0.06 0 0.005" material="lab_black_material"/>
+      <geom class="lab_deco" type="capsule" size="0.009" fromto="0.03 0.02 -0.03 0.09 0.07 -0.45" material="lab_black_material"/>
+      <geom class="lab_deco" type="box" size="0.006 0.1 0.1" pos="-0.07 0 0.25" material="lab_red_material"/>
+    </body>
+
+    <!-- ========================================================== -->
+    <!-- WALL CLOCK (back wall)                                     -->
+    <!-- ========================================================== -->
+    <body name="lab_wall_clock" pos="0 2.54 1.6">
+      <geom class="lab_deco" type="cylinder" size="0.16" fromto="0 0 0 0 -0.03 0" material="lab_black_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.145" fromto="0 -0.03 0 0 -0.034 0" material="lab_white_plastic_material"/>
+      <geom class="lab_deco" type="box" size="0.005 0.002 0.012" pos="0 -0.035 0.125" quat="1 0 0 0" material="lab_black_material"/>
+      <geom class="lab_deco" type="box" size="0.005 0.002 0.012" pos="0.0625 -0.035 0.1083" quat="0.9659 0 -0.2588 0" material="lab_black_material"/>
+      <geom class="lab_deco" type="box" size="0.005 0.002 0.012" pos="0.1083 -0.035 0.0625" quat="0.866 0 -0.5 0" material="lab_black_material"/>
+      <geom class="lab_deco" type="box" size="0.005 0.002 0.012" pos="0.125 -0.035 0" quat="0.7071 0 -0.7071 0" material="lab_black_material"/>
+      <geom class="lab_deco" type="box" size="0.005 0.002 0.012" pos="0.1083 -0.035 -0.0625" quat="0.5 0 -0.866 0" material="lab_black_material"/>
+      <geom class="lab_deco" type="box" size="0.005 0.002 0.012" pos="0.0625 -0.035 -0.1083" quat="0.2588 0 -0.9659 0" material="lab_black_material"/>
+      <geom class="lab_deco" type="box" size="0.005 0.002 0.012" pos="0 -0.035 -0.125" quat="0 0 -1 0" material="lab_black_material"/>
+      <geom class="lab_deco" type="box" size="0.005 0.002 0.012" pos="-0.0625 -0.035 -0.1083" quat="-0.2588 0 -0.9659 0" material="lab_black_material"/>
+      <geom class="lab_deco" type="box" size="0.005 0.002 0.012" pos="-0.1083 -0.035 -0.0625" quat="-0.5 0 -0.866 0" material="lab_black_material"/>
+      <geom class="lab_deco" type="box" size="0.005 0.002 0.012" pos="-0.125 -0.035 0" quat="-0.7071 0 -0.7071 0" material="lab_black_material"/>
+      <geom class="lab_deco" type="box" size="0.005 0.002 0.012" pos="-0.1083 -0.035 0.0625" quat="-0.866 0 -0.5 0" material="lab_black_material"/>
+      <geom class="lab_deco" type="box" size="0.005 0.002 0.012" pos="-0.0625 -0.035 0.1083" quat="-0.9659 0 -0.2588 0" material="lab_black_material"/>
+      <geom class="lab_deco" type="box" size="0.004 0.002 0.045" pos="0.03 -0.037 0.03" quat="0.9249 0 -0.3802 0" material="lab_black_material"/>
+      <geom class="lab_deco" type="box" size="0.003 0.002 0.065" pos="-0.045 -0.038 0.045" quat="0.9249 0 0.3802 0" material="lab_black_material"/>
+    </body>
+
+    <!-- ========================================================== -->
+    <!-- LAB STOOLS                                                 -->
+    <!-- ========================================================== -->
+    <body name="lab_stool_1" pos="-1.75 -1 -0.9">
+      <geom class="lab_deco" type="cylinder" size="0.24 0.012" pos="0 0 0.012" material="lab_dark_metal_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.025 0.31" pos="0 0 0.33" material="lab_steel_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.17 0.006" pos="0 0 0.3" material="lab_steel_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.18 0.035" pos="0 0 0.67" material="lab_black_material"/>
+    </body>
+    <body name="lab_stool_2" pos="-1.75 -0.25 -0.9">
+      <geom class="lab_deco" type="cylinder" size="0.24 0.012" pos="0 0 0.012" material="lab_dark_metal_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.025 0.31" pos="0 0 0.33" material="lab_steel_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.17 0.006" pos="0 0 0.3" material="lab_steel_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.18 0.035" pos="0 0 0.67" material="lab_black_material"/>
+    </body>
+    <body name="lab_stool_3" pos="1.05 1.6 -0.9">
+      <geom class="lab_deco" type="cylinder" size="0.24 0.012" pos="0 0 0.012" material="lab_dark_metal_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.025 0.31" pos="0 0 0.33" material="lab_steel_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.17 0.006" pos="0 0 0.3" material="lab_steel_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.18 0.035" pos="0 0 0.67" material="lab_black_material"/>
+    </body>
+
+    <!-- ========================================================== -->
+    <!-- PEOPLE: LAB TECHNICIANS (visual only, outside the robot's reach) -->
+    <!-- ========================================================== -->
+    <!-- Technician at the microscope -->
+    <body name="lab_technician_microscope" pos="1.62 1.72 -0.9" quat="1 0 0 0">
+      <geom class="lab_deco" type="box" size="0.045 0.1 0.03" pos="-0.1 0.03 0.03" material="lab_black_material"/>
+      <geom class="lab_deco" type="capsule" size="0.06" fromto="-0.1 0 0.1 -0.1 0 0.82" material="lab_trousers_material"/>
+      <geom class="lab_deco" type="box" size="0.045 0.1 0.03" pos="0.1 0.03 0.03" material="lab_black_material"/>
+      <geom class="lab_deco" type="capsule" size="0.06" fromto="0.1 0 0.1 0.1 0 0.82" material="lab_trousers_material"/>
+      <geom class="lab_deco" type="box" size="0.185 0.11 0.21" pos="0 0 0.68" material="lab_coat_material"/>
+      <geom class="lab_deco" type="box" size="0.19 0.115 0.27" pos="0 0 1.13" material="lab_coat_material"/>
+      <geom class="lab_deco" type="capsule" size="0.07" fromto="-0.16 0 1.36 0.16 0 1.36" material="lab_coat_material"/>
+      <geom class="lab_deco" type="box" size="0.002 0.004 0.2" pos="0 0.117 0.68" material="lab_cabinet_material"/>
+      <geom class="lab_deco" type="box" size="0.002 0.004 0.2" pos="0 0.117 1.1" material="lab_cabinet_material"/>
+      <geom class="lab_deco" type="box" size="0.045 0.002 0.11" pos="-0.05 0.116 1.29" quat="0.9801 0 -0.1987 0" material="lab_cabinet_material"/>
+      <geom class="lab_deco" type="box" size="0.05 0.003 0.04" pos="-0.11 0.116 0.76" material="lab_cabinet_material"/>
+      <geom class="lab_deco" type="box" size="0.045 0.002 0.11" pos="0.05 0.116 1.29" quat="0.9801 0 0.1987 0" material="lab_cabinet_material"/>
+      <geom class="lab_deco" type="box" size="0.05 0.003 0.04" pos="0.11 0.116 0.76" material="lab_cabinet_material"/>
+      <geom class="lab_deco" type="box" size="0.022 0.002 0.03" pos="-0.1 0.118 1.2" material="lab_blue_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.045 0.06" pos="0 0 1.5" material="lab_skin_material"/>
+      <geom class="lab_deco" type="sphere" size="0.1" pos="0 0.01 1.64" material="lab_skin_material"/>
+      <geom class="lab_deco" type="ellipsoid" size="0.106 0.105 0.075" pos="0 -0.01 1.69" material="lab_hair_material"/>
+      <geom class="lab_deco" type="box" size="0.085 0.012 0.022" pos="0 0.105 1.655" material="lab_glass_material"/>
+      <geom class="lab_deco" type="box" size="0.087 0.004 0.024" pos="0 0.112 1.655" material="lab_liquid_clear_material"/>
+      <geom class="lab_deco" type="capsule" size="0.05" fromto="-0.215 0 1.35 -0.24 0.12 1.12" material="lab_coat_material"/>
+      <geom class="lab_deco" type="capsule" size="0.045" fromto="-0.24 0.12 1.12 -0.13 0.36 1.05" material="lab_coat_material"/>
+      <geom class="lab_deco" type="sphere" size="0.042" pos="-0.13 0.39 1.05" material="lab_glove_material"/>
+      <geom class="lab_deco" type="capsule" size="0.05" fromto="0.215 0 1.35 0.24 0.12 1.12" material="lab_coat_material"/>
+      <geom class="lab_deco" type="capsule" size="0.045" fromto="0.24 0.12 1.12 0.13 0.36 1.05" material="lab_coat_material"/>
+      <geom class="lab_deco" type="sphere" size="0.042" pos="0.13 0.39 1.05" material="lab_glove_material"/>
+    </body>
+
+    <!-- Technician working in the fume hood -->
+    <body name="lab_technician_fume_hood" pos="-1.1 1.5 -0.9" quat="1 0 0 0">
+      <geom class="lab_deco" type="box" size="0.045 0.1 0.03" pos="-0.1 0.03 0.03" material="lab_black_material"/>
+      <geom class="lab_deco" type="capsule" size="0.06" fromto="-0.1 0 0.1 -0.1 0 0.82" material="lab_trousers_material"/>
+      <geom class="lab_deco" type="box" size="0.045 0.1 0.03" pos="0.1 0.03 0.03" material="lab_black_material"/>
+      <geom class="lab_deco" type="capsule" size="0.06" fromto="0.1 0 0.1 0.1 0 0.82" material="lab_trousers_material"/>
+      <geom class="lab_deco" type="box" size="0.185 0.11 0.21" pos="0 0 0.68" material="lab_coat_material"/>
+      <geom class="lab_deco" type="box" size="0.19 0.115 0.27" pos="0 0 1.13" material="lab_coat_material"/>
+      <geom class="lab_deco" type="capsule" size="0.07" fromto="-0.16 0 1.36 0.16 0 1.36" material="lab_coat_material"/>
+      <geom class="lab_deco" type="box" size="0.002 0.004 0.2" pos="0 0.117 0.68" material="lab_cabinet_material"/>
+      <geom class="lab_deco" type="box" size="0.002 0.004 0.2" pos="0 0.117 1.1" material="lab_cabinet_material"/>
+      <geom class="lab_deco" type="box" size="0.045 0.002 0.11" pos="-0.05 0.116 1.29" quat="0.9801 0 -0.1987 0" material="lab_cabinet_material"/>
+      <geom class="lab_deco" type="box" size="0.05 0.003 0.04" pos="-0.11 0.116 0.76" material="lab_cabinet_material"/>
+      <geom class="lab_deco" type="box" size="0.045 0.002 0.11" pos="0.05 0.116 1.29" quat="0.9801 0 0.1987 0" material="lab_cabinet_material"/>
+      <geom class="lab_deco" type="box" size="0.05 0.003 0.04" pos="0.11 0.116 0.76" material="lab_cabinet_material"/>
+      <geom class="lab_deco" type="box" size="0.022 0.002 0.03" pos="-0.1 0.118 1.2" material="lab_blue_material"/>
+      <geom class="lab_deco" type="cylinder" size="0.045 0.06" pos="0 0 1.5" material="lab_skin_dark_material"/>
+      <geom class="lab_deco" type="sphere" size="0.1" pos="0 0.01 1.64" material="lab_skin_dark_material"/>
+      <geom class="lab_deco" type="ellipsoid" size="0.108 0.11 0.1" pos="0 -0.025 1.67" material="lab_hair_material"/>
+      <geom class="lab_deco" type="ellipsoid" size="0.06 0.05 0.09" pos="0 -0.09 1.55" material="lab_hair_material"/>
+      <geom class="lab_deco" type="box" size="0.085 0.012 0.022" pos="0 0.105 1.655" material="lab_glass_material"/>
+      <geom class="lab_deco" type="box" size="0.087 0.004 0.024" pos="0 0.112 1.655" material="lab_liquid_clear_material"/>
+      <geom class="lab_deco" type="capsule" size="0.05" fromto="-0.215 0 1.35 -0.24 0.12 1.12" material="lab_coat_material"/>
+      <geom class="lab_deco" type="capsule" size="0.045" fromto="-0.24 0.12 1.12 -0.13 0.42 1.08" material="lab_coat_material"/>
+      <geom class="lab_deco" type="sphere" size="0.042" pos="-0.13 0.45 1.08" material="lab_glove_material"/>
+      <geom class="lab_deco" type="capsule" size="0.05" fromto="0.215 0 1.35 0.24 0.12 1.12" material="lab_coat_material"/>
+      <geom class="lab_deco" type="capsule" size="0.045" fromto="0.24 0.12 1.12 0.13 0.42 1.08" material="lab_coat_material"/>
+      <geom class="lab_deco" type="sphere" size="0.042" pos="0.13 0.45 1.08" material="lab_glove_material"/>
     </body>
 
   </worldbody>
+
+  <!-- ========================================================== -->
+  <!-- KEYFRAME                                                   -->
+  <!-- ========================================================== -->
+  <!--
+    lite6.xml's 'home' key only lists the 6 arm joints, so loading it would move every
+    free body to the origin. 'lab_home' is the same arm pose with the labware at rest.
+  -->
+  <keyframe>
+    <key name="lab_home" qpos="0 0 1.57 0 1.57 0  0.3 0.02 0.034 1 0 0 0  0.36 0.02 0.034 1 0 0 0  0.3 0.08 0.034 1 0 0 0  0.36 0.08 0.034 1 0 0 0  -0.3 0.27 0.07 1 0 0 0  0.12 0.33 0.048 1 0 0 0  0.25 0.28 0.04 1 0 0 0" ctrl="0 0 1.57 0 1.57 0"/>
+  </keyframe>
 </mujoco>
