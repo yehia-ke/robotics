@@ -1,0 +1,15 @@
+[ 33%] [32mBuilding CXX object CMakeFiles/mujoco_node.dir/src/mujoco_ros.cpp.o[0m
+[01m[K/home/landau/Documents/projects/robotics/robotics/Milestone 03/Project Files/src/src/mujoco_ros.cpp:[m[K In function ‘[01m[Kint {anonymous}::[01;32m[Kget_actuator_joint_id[m[K(const mjModel*, int)[m[K’:
+[01m[K/home/landau/Documents/projects/robotics/robotics/Milestone 03/Project Files/src/src/mujoco_ros.cpp:44:77:[m[K [01;31m[Kerror: [m[Kinvalid conversion from ‘[01m[K[01;32m[Kint[m[K[m[K’ to ‘[01m[K[01;34m[KmjtTrn[m[K[m[K’ [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc-16.2.0/gcc/Warning-Options.html#index-fno-permissive-fpermissive]8;;[m[K]
+   44 |         const mjtTrn transmission_type = [01;32m[Kmodel->actuator_trntype[actuator_id][m[K;
+      |                                          [01;32m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^[m[K
+      |                                                                             [01;32m[K|[m[K
+      |                                                                             [01;32m[Kint[m[K
+[01m[K/home/landau/Documents/projects/robotics/robotics/Milestone 03/Project Files/src/src/mujoco_ros.cpp:61:61:[m[K [01;31m[Kerror: [m[Kinvalid conversion from ‘[01m[K[01;32m[Kint[m[K[m[K’ to ‘[01m[K[01;34m[KmjtJoint[m[K[m[K’ [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc-16.2.0/gcc/Warning-Options.html#index-fno-permissive-fpermissive]8;;[m[K]
+   61 |         const mjtJoint joint_type = [01;32m[Kmodel->jnt_type[joint_id][m[K;
+      |                                     [01;32m[K~~~~~~~~~~~~~~~~~~~~~~~~^[m[K
+      |                                                             [01;32m[K|[m[K
+      |                                                             [01;32m[Kint[m[K
+gmake[2]: *** [CMakeFiles/mujoco_node.dir/build.make:93: CMakeFiles/mujoco_node.dir/src/mujoco_ros.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:153: CMakeFiles/mujoco_node.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

@@ -1,0 +1,410 @@
+
+<mujoco model="lite6 robotics laboratory">
+  <include file="lite6.xml"/>
+
+  <!-- ===================================================== -->
+  <!-- VISUAL SETTINGS                                       -->
+  <!-- ===================================================== -->
+
+  <visual>
+    <headlight diffuse="0.65 0.65 0.65"
+               ambient="0.35 0.35 0.35"
+               specular="0.15 0.15 0.15"/>
+    <rgba haze="0.12 0.18 0.25 1"/>
+    <global azimuth="135" elevation="-25"/>
+  </visual>
+
+  <!-- ===================================================== -->
+  <!-- MATERIALS AND TEXTURES                                -->
+  <!-- ===================================================== -->
+
+  <asset>
+
+    <texture name="lab_skybox"
+             type="skybox"
+             builtin="gradient"
+             rgb1="0.35 0.48 0.62"
+             rgb2="0.04 0.06 0.09"
+             width="512"
+             height="3072"/>
+
+    <texture name="lab_floor_texture"
+             type="2d"
+             builtin="checker"
+             mark="edge"
+             rgb1="0.22 0.25 0.28"
+             rgb2="0.16 0.19 0.22"
+             markrgb="0.35 0.38 0.4"
+             width="300"
+             height="300"/>
+
+    <material name="lab_floor_material"
+              texture="lab_floor_texture"
+              texuniform="true"
+              texrepeat="8 8"
+              reflectance="0.12"/>
+
+    <material name="lab_wall_material"
+              rgba="0.72 0.77 0.80 1"/>
+
+    <material name="lab_wall_dark_material"
+              rgba="0.16 0.20 0.24 1"/>
+
+    <material name="lab_ceiling_material"
+              rgba="0.35 0.40 0.44 1"/>
+
+    <material name="lab_table_material"
+              rgba="0.30 0.34 0.37 1"/>
+
+    <material name="lab_metal_material"
+              rgba="0.45 0.49 0.52 1"/>
+
+    <material name="lab_cabinet_material"
+              rgba="0.20 0.28 0.34 1"/>
+
+    <material name="lab_panel_material"
+              rgba="0.08 0.12 0.16 1"/>
+
+    <material name="lab_screen_material"
+              rgba="0.08 0.35 0.42 1"
+              emission="0.15"/>
+
+    <material name="lab_yellow_material"
+              rgba="0.95 0.68 0.12 1"/>
+
+    <material name="lab_red_material"
+              rgba="0.85 0.20 0.17 1"/>
+
+    <material name="lab_blue_material"
+              rgba="0.15 0.40 0.85 1"/>
+
+    <material name="lab_green_material"
+              rgba="0.15 0.65 0.32 1"/>
+
+    <material name="lab_orange_material"
+              rgba="0.95 0.40 0.10 1"/>
+
+    <material name="lab_purple_material"
+              rgba="0.52 0.28 0.75 1"/>
+
+    <material name="lab_white_material"
+              rgba="0.85 0.88 0.90 1"/>
+
+  </asset>
+
+  <!-- ===================================================== -->
+  <!-- WORLD                                                  -->
+  <!-- ===================================================== -->
+
+  <worldbody>
+
+    <!-- Lighting -->
+
+    <light name="lab_main_light"
+           pos="0 0 3.5"
+           dir="0 0 -1"
+           directional="true"
+           diffuse="0.9 0.9 0.9"/>
+
+    <light name="lab_left_light"
+           pos="-2 0 3"
+           dir="0 0 -1"
+           diffuse="0.45 0.45 0.45"/>
+
+    <light name="lab_right_light"
+           pos="2 0 3"
+           dir="0 0 -1"
+           diffuse="0.45 0.45 0.45"/>
+
+    <light name="lab_back_light"
+           pos="0 2 3"
+           dir="0 -1 -1"
+           diffuse="0.35 0.35 0.35"/>
+
+    <!-- Floor -->
+
+    <geom name="lab_floor"
+          type="plane"
+          size="5 5 0.1"
+          material="lab_floor_material"/>
+
+    <!-- ================================================= -->
+    <!-- LABORATORY WALLS                                  -->
+    <!-- ================================================= -->
+
+    <geom name="lab_wall_back"
+          type="box"
+          size="5 0.05 2"
+          pos="0 2.5 2"
+          material="lab_wall_material"/>
+
+    <geom name="lab_wall_left"
+          type="box"
+          size="0.05 5 2"
+          pos="-2.5 0 2"
+          material="lab_wall_material"/>
+
+    <geom name="lab_wall_right"
+          type="box"
+          size="0.05 5 2"
+          pos="2.5 0 2"
+          material="lab_wall_material"/>
+
+    <!-- Ceiling -->
+
+    <geom name="lab_ceiling"
+          type="box"
+          size="2.5 2.5 0.05"
+          pos="0 0 4.05"
+          material="lab_ceiling_material"/>
+
+    <!-- Back wall lower accent panel -->
+
+    <geom name="lab_back_wall_panel"
+          type="box"
+          size="4.8 0.025 0.35"
+          pos="0 2.43 0.45"
+          material="lab_wall_dark_material"/>
+
+    <!-- ================================================= -->
+    <!-- ROBOTICS LAB WORKBENCH                            -->
+    <!-- ================================================= -->
+
+    <body name="lab_workbench" pos="0 0 -0.05">
+
+      <!-- Main tabletop -->
+
+      <geom name="lab_table_top"
+            type="box"
+            size="0.6 0.8 0.02"
+            pos="0 0 0"
+            material="lab_table_material"/>
+
+      <!-- Table legs -->
+
+      <geom name="lab_table_leg1"
+            type="cylinder"
+            size="0.03 0.4"
+            pos="-0.5 -0.7 -0.2"
+            material="lab_metal_material"/>
+
+      <geom name="lab_table_leg2"
+            type="cylinder"
+            size="0.03 0.4"
+            pos="0.5 -0.7 -0.2"
+            material="lab_metal_material"/>
+
+      <geom name="lab_table_leg3"
+            type="cylinder"
+            size="0.03 0.4"
+            pos="-0.5 0.7 -0.2"
+            material="lab_metal_material"/>
+
+      <geom name="lab_table_leg4"
+            type="cylinder"
+            size="0.03 0.4"
+            pos="0.5 0.7 -0.2"
+            material="lab_metal_material"/>
+
+      <!-- Front table trim -->
+
+      <geom name="lab_table_front_trim"
+            type="box"
+            size="0.58 0.015 0.025"
+            pos="0 -0.805 -0.045"
+            material="lab_yellow_material"/>
+
+    </body>
+
+    <!-- ================================================= -->
+    <!-- LABORATORY STORAGE CABINET                         -->
+    <!-- ================================================= -->
+
+    <body name="lab_storage_cabinet" pos="-1.8 1.8 0">
+
+      <geom name="lab_cabinet_body"
+            type="box"
+            size="0.35 0.25 0.85"
+            pos="0 0 0.85"
+            material="lab_cabinet_material"/>
+
+      <geom name="lab_cabinet_door1"
+            type="box"
+            size="0.16 0.012 0.38"
+            pos="-0.17 -0.255 0.85"
+            material="lab_metal_material"/>
+
+      <geom name="lab_cabinet_door2"
+            type="box"
+            size="0.16 0.012 0.38"
+            pos="0.17 -0.255 0.85"
+            material="lab_metal_material"/>
+
+      <geom name="lab_cabinet_handle1"
+            type="box"
+            size="0.012 0.015 0.06"
+            pos="-0.05 -0.28 0.85"
+            material="lab_yellow_material"/>
+
+      <geom name="lab_cabinet_handle2"
+            type="box"
+            size="0.012 0.015 0.06"
+            pos="0.05 -0.28 0.85"
+            material="lab_yellow_material"/>
+
+    </body>
+
+    <!-- ================================================= -->
+    <!-- WALL-MOUNTED CONTROL PANEL                         -->
+    <!-- ================================================= -->
+
+    <body name="lab_control_panel" pos="0 2.38 1.65">
+
+      <geom name="lab_panel_body"
+            type="box"
+            size="0.55 0.035 0.35"
+            pos="0 0 0"
+            material="lab_panel_material"/>
+
+      <geom name="lab_panel_screen"
+            type="box"
+            size="0.20 0.012 0.13"
+            pos="-0.20 -0.04 0.03"
+            material="lab_screen_material"/>
+
+      <geom name="lab_panel_indicator_red"
+            type="sphere"
+            size="0.035"
+            pos="0.28 -0.045 0.12"
+            material="lab_red_material"/>
+
+      <geom name="lab_panel_indicator_green"
+            type="sphere"
+            size="0.035"
+            pos="0.28 -0.045 0"
+            material="lab_green_material"/>
+
+      <geom name="lab_panel_indicator_yellow"
+            type="sphere"
+            size="0.035"
+            pos="0.28 -0.045 -0.12"
+            material="lab_yellow_material"/>
+
+    </body>
+
+    <!-- ================================================= -->
+    <!-- WALL SHELVES                                       -->
+    <!-- ================================================= -->
+
+    <body name="lab_wall_shelves" pos="1.8 2.25 0">
+
+      <geom name="lab_shelf_upper"
+            type="box"
+            size="0.45 0.22 0.025"
+            pos="0 0 1.65"
+            material="lab_metal_material"/>
+
+      <geom name="lab_shelf_lower"
+            type="box"
+            size="0.45 0.22 0.025"
+            pos="0 0 1.15"
+            material="lab_metal_material"/>
+
+      <geom name="lab_shelf_support1"
+            type="box"
+            size="0.025 0.025 0.35"
+            pos="-0.4 0 1.4"
+            material="lab_wall_dark_material"/>
+
+      <geom name="lab_shelf_support2"
+            type="box"
+            size="0.025 0.025 0.35"
+            pos="0.4 0 1.4"
+            material="lab_wall_dark_material"/>
+
+    </body>
+
+    <!-- ================================================= -->
+    <!-- MOVABLE OBSTACLE BOXES                             -->
+    <!-- ================================================= -->
+
+    <!-- Box 1: Red -->
+
+    <body name="lab_box_obstacle_1" pos="0.4 0.2 0.05">
+      <freejoint name="lab_box_joint_1"/>
+
+      <geom name="lab_geom_box1"
+            type="box"
+            size="0.04 0.04 0.04"
+            material="lab_red_material"
+            mass="0.2"
+            friction="1.0 0.005 0.0001"/>
+    </body>
+
+    <!-- Box 2: Blue -->
+
+    <body name="lab_box_obstacle_2" pos="-0.3 0.3 0.06">
+      <freejoint name="lab_box_joint_2"/>
+
+      <geom name="lab_geom_box2"
+            type="box"
+            size="0.04 0.05 0.05"
+            material="lab_blue_material"
+            mass="0.3"
+            friction="1.0 0.005 0.0001"/>
+    </body>
+
+    <!-- Box 3: Green -->
+
+    <body name="lab_box_obstacle_3" pos="0.3 -0.3 0.04">
+      <freejoint name="lab_box_joint_3"/>
+
+      <geom name="lab_geom_box3"
+            type="box"
+            size="0.04 0.04 0.04"
+            material="lab_green_material"
+            mass="0.2"
+            friction="1.0 0.005 0.0001"/>
+    </body>
+
+    <!-- Box 4: Orange -->
+
+    <body name="lab_box_obstacle_4" pos="0.55 0.45 0.07">
+      <freejoint name="lab_box_joint_4"/>
+
+      <geom name="lab_geom_box4"
+            type="box"
+            size="0.05 0.05 0.05"
+            material="lab_orange_material"
+            mass="0.35"
+            friction="1.0 0.005 0.0001"/>
+    </body>
+
+    <!-- Box 5: Purple -->
+
+    <body name="lab_box_obstacle_5" pos="-0.55 -0.35 0.06">
+      <freejoint name="lab_box_joint_5"/>
+
+      <geom name="lab_geom_box5"
+            type="box"
+            size="0.045 0.045 0.045"
+            material="lab_purple_material"
+            mass="0.25"
+            friction="1.0 0.005 0.0001"/>
+    </body>
+
+    <!-- Box 6: White -->
+
+    <body name="lab_box_obstacle_6" pos="0.0 0.55 0.06">
+      <freejoint name="lab_box_joint_6"/>
+
+      <geom name="lab_geom_box6"
+            type="box"
+            size="0.035 0.06 0.035"
+            material="lab_white_material"
+            mass="0.2"
+            friction="1.0 0.005 0.0001"/>
+    </body>
+
+  </worldbody>
+</mujoco>

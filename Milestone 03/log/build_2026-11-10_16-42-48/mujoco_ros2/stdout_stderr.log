@@ -1,0 +1,63 @@
+[0mCMake Deprecation Warning at CMakeLists.txt:4 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+[0m
+-- The C compiler identification is GNU 16.2.1
+-- The CXX compiler identification is GNU 16.2.1
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 2.5.6 (/usr/lib64/ros2-jazzy/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.14.8") found components: Interpreter
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE
+-- Found rclcpp: 28.1.22 (/usr/lib64/ros2-jazzy/share/rclcpp/cmake)
+-- Found rosidl_generator_c: 4.6.9 (/usr/lib64/ros2-jazzy/share/rosidl_generator_c/cmake)
+-- Found rosidl_generator_cpp: 4.6.9 (/usr/lib64/ros2-jazzy/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 7.3.4 (/usr/lib64/ros2-jazzy/share/rmw_implementation_cmake/cmake)
+-- Found rmw_fastrtps_cpp: 8.4.4 (/usr/lib64/ros2-jazzy/share/rmw_fastrtps_cpp/cmake)
+-- Found OpenSSL: /usr/lib64/libcrypto.so (found version "3.5.9")
+-- Found FastRTPS: /usr/lib64/ros2-jazzy/include (Required is at least version "2.13")
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Found sensor_msgs: 5.3.8 (/usr/lib64/ros2-jazzy/share/sensor_msgs/cmake)
+-- Configuring done (1.6s)
+-- Generating done (0.0s)
+[33mCMake Warning:
+  Manually-specified variables were not used by the project:
+
+    MUJOCO_DIR
+
+[0m
+-- Build files have been written to: /home/landau/Documents/projects/robotics/robotics/Milestone 03/build/mujoco_ros2
+[ 66%] [32mBuilding CXX object CMakeFiles/mujoco_node.dir/src/mujoco_ros.cpp.o[0m
+[ 66%] [32mBuilding CXX object CMakeFiles/mujoco_node.dir/src/nodes/mujoco_node.cpp.o[0m
+In file included from [01m[K/home/landau/Documents/projects/robotics/robotics/Milestone 03/Project Files/src/src/nodes/mujoco_node.cpp:19[m[K:
+[01m[K/home/landau/Documents/projects/robotics/robotics/Milestone 03/Project Files/src/include/mujoco_ros2/mujoco_ros.hpp:24:10:[m[K [01;31m[Kfatal error: [m[Kmujoco/mujoco.h: No such file or directory
+   24 | #include [01;31m[K<mujoco/mujoco.h>[m[K                                                                          // Dynamic simulation library
+      |          [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+gmake[2]: *** [CMakeFiles/mujoco_node.dir/build.make:79: CMakeFiles/mujoco_node.dir/src/nodes/mujoco_node.cpp.o] Error 1
+gmake[2]: *** Waiting for unfinished jobs....
+In file included from [01m[K/home/landau/Documents/projects/robotics/robotics/Milestone 03/Project Files/src/src/mujoco_ros.cpp:19[m[K:
+[01m[K/home/landau/Documents/projects/robotics/robotics/Milestone 03/Project Files/src/include/mujoco_ros2/mujoco_ros.hpp:24:10:[m[K [01;31m[Kfatal error: [m[Kmujoco/mujoco.h: No such file or directory
+   24 | #include [01;31m[K<mujoco/mujoco.h>[m[K                                                                          // Dynamic simulation library
+      |          [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+gmake[2]: *** [CMakeFiles/mujoco_node.dir/build.make:93: CMakeFiles/mujoco_node.dir/src/mujoco_ros.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:153: CMakeFiles/mujoco_node.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

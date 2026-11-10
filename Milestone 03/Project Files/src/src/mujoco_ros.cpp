@@ -1,3 +1,4 @@
+
 /**
  * @file   mujoco_ros.cpp
  * @author Jon Woolfrey
@@ -5,228 +6,573 @@
  * @date   April 2025
  * @version 1.1
  * @brief  A class for connecting a MuJoCo simulation with ROS2 communication.
- * 
- * @details This class launches a MuJoCo simulation and provides communication channels in ROS2 for controlling it.
- * 
+ *
+ * @details This class launches a MuJoCo simulation and provides communication
+ * channels in ROS2 for controlling it.
+ *
  * @copyright Copyright (c) 2025 Jon Woolfrey
- * 
  * @license GNU General Public License V3
- * 
- * @see https://mujoco.org/ for more information about MuJoCo
- * @see https://docs.ros.org/en/humble/index.html for ROS 2 documentation
  */
- 
+
 #include <mujoco_ros2/mujoco_ros.hpp>
 
-  ////////////////////////////////////////////////////////////////////////////////////////////////////
- //                                         Constructor                                            //
-////////////////////////////////////////////////////////////////////////////////////////////////////
-MuJoCoROS::MuJoCoROS(const std::string &xmlLocation) : Node("mujoco_node")
+#include <stdexcept>
+#include <string>
+#include <vector>
+#include <chrono>
+
+namespace
 {
-    // Declare & get parameters for this node
-    std::string jointStateTopicName   = this->declare_parameter<std::string>("joint_state_topic_name", "joint_state");
-    std::string jointCommandTopicName = this->declare_parameter<std::string>("joint_command_topic_name", "joint_commands");
-    std::string controlMode           = this->declare_parameter<std::string>("control_mode", "TORQUE");
-    _simFrequency                     = this->declare_parameter<int>("simulation_frequency", 1000);
-    int visualisationFrequency        = this->declare_parameter<int>("visualisation_frequency", 20);
+    /**
+     * Returns the joint ID associated with an actuator.
+     *
+     * This implementation supports actuators transmitted through scalar
+     * joints, such as the Lite6 hinge joints.
+     */
+    int get_actuator_joint_id(const mjModel* model, int actuator_id)
+    {
+        if (model == nullptr)
+        {
+            throw std::runtime_error("MuJoCo model is null.");
+        }
 
-    // Load the robot model     
-    char errorMessage[1000] = "Could not load model.";                                              // We need this as an input argument.   
-    _model = mj_loadXML(xmlLocation.c_str(), nullptr, errorMessage, 1000);                          // Try to load the model  
-    if (not _model) throw std::runtime_error("[ERROR] [MuJoCo NODE] Problem loading model: " + std::string(errorMessage)); 
-    _model->opt.timestep = 1/((double)_simFrequency);                                               // Match MuJoCo to node frequency
-    
-     // Resize arrays based on the number of joints in the model
-    _jointState = mj_makeData(_model);                                                              // Initialize joint state
-    _jointStateMessage.name.resize(_model->nq);
-    _jointStateMessage.position.resize(_model->nq);
-    _jointStateMessage.velocity.resize(_model->nq);
-    _jointStateMessage.effort.resize(_model->nq);    
-    _torqueInput.resize(_model->nq, 0.0);
+        if (actuator_id < 0 || actuator_id >= model->nu)
+        {
+            throw std::out_of_range("Invalid actuator ID.");
+        }
 
-    // Record joint names
-    for (int i = 0; i < _model->nq; ++i) _jointStateMessage.name[i] = mj_id2name(_model, mjOBJ_JOINT, i);
-       
-    // Set the control mode  
-         if (controlMode == "POSITION") _controlMode = POSITION;
-    else if (controlMode == "VELOCITY") _controlMode = VELOCITY;
-    else if (controlMode == "TORQUE"  ) _controlMode = TORQUE;
-    else
-    {   
-        throw std::invalid_argument("[ERROR] [MuJoCo NODE] Unknown control mode. "
-                                    "Argument was '" + controlMode + "', but expected 'POSITION', 'VELOCITY', or 'TORQUE'.");
+        const int transmission_type = model->actuator_trntype[actuator_id];
+
+        if (transmission_type != mjTRN_JOINT &&
+            transmission_type != mjTRN_JOINTINPARENT)
+        {
+            throw std::runtime_error(
+                "Unsupported actuator transmission. Expected a joint transmission.");
+        }
+
+        const int joint_id = model->actuator_trnid[2 * actuator_id];
+
+        if (joint_id < 0 || joint_id >= model->njnt)
+        {
+            throw std::runtime_error(
+                "Actuator is associated with an invalid joint.");
+        }
+
+        const int joint_type = model->jnt_type[joint_id];
+
+        if (joint_type != mjJNT_HINGE && joint_type != mjJNT_SLIDE)
+        {
+            throw std::runtime_error(
+                "Actuator must be associated with a scalar hinge or slide joint.");
+        }
+
+        return joint_id;
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                         Constructor                                            //
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+MuJoCoROS::MuJoCoROS(const std::string &xmlLocation)
+    : Node("mujoco_node")
+{
+    // Declare and get ROS parameters.
+
+    const std::string jointStateTopicName =
+        this->declare_parameter<std::string>(
+            "joint_state_topic_name", "joint_state");
+
+    const std::string jointCommandTopicName =
+        this->declare_parameter<std::string>(
+            "joint_command_topic_name", "joint_commands");
+
+    const std::string controlMode =
+        this->declare_parameter<std::string>(
+            "control_mode", "TORQUE");
+
+    _simFrequency =
+        this->declare_parameter<int>("simulation_frequency", 1000);
+
+    const int visualisationFrequency =
+        this->declare_parameter<int>("visualisation_frequency", 20);
+
+    if (_simFrequency <= 0)
+    {
+        throw std::invalid_argument(
+            "Simulation frequency must be greater than zero.");
     }
 
-    // Create timers
-    _simTimer = this->create_wall_timer(std::chrono::milliseconds(static_cast<int>(1000/_simFrequency)),
-                                        std::bind(&MuJoCoROS::update_simulation, this));
-                                        
-    _visTimer = this->create_wall_timer(std::chrono::milliseconds(static_cast<int>(1000/visualisationFrequency)),
-                                        std::bind(&MuJoCoROS::update_visualization, this));
+    if (visualisationFrequency <= 0)
+    {
+        throw std::invalid_argument(
+            "Visualisation frequency must be greater than zero.");
+    }
 
-   // Create joint state publisher and joint command subscriber
-    _jointCommandSubscriber = this->create_subscription<std_msgs::msg::Float64MultiArray>(jointCommandTopicName, 1,  std::bind(&MuJoCoROS::joint_command_callback, this, std::placeholders::_1));
-    
-    _jointStatePublisher = this->create_publisher<sensor_msgs::msg::JointState>(jointStateTopicName, 1);
-                      
-             
-    // Initialize Graphics Library FrameWork (GLFW)
-    if (not glfwInit()) throw std::runtime_error("Failed to initialise Graphics Library Framework (GLFW).");
+    // Load the MuJoCo model.
 
-    _window = glfwCreateWindow(1200, 900, "MuJoCo Visualization", nullptr, nullptr);
-    
-    if (not _window) throw std::runtime_error("Failed to create Graphics Library Framework (GLFW) window.");
-    
-    // Make the OpenGL context current
+    char errorMessage[1000] = "Could not load model.";
+
+    _model = mj_loadXML(
+        xmlLocation.c_str(),
+        nullptr,
+        errorMessage,
+        sizeof(errorMessage));
+
+    if (_model == nullptr)
+    {
+        throw std::runtime_error(
+            "[MuJoCo NODE] Problem loading model: " +
+            std::string(errorMessage));
+    }
+
+    _model->opt.timestep = 1.0 / static_cast<double>(_simFrequency);
+
+    // Initialize simulation data.
+
+    _jointState = mj_makeData(_model);
+
+    if (_jointState == nullptr)
+    {
+        mj_deleteModel(_model);
+        _model = nullptr;
+
+        throw std::runtime_error(
+            "[MuJoCo NODE] Failed to allocate MuJoCo simulation data.");
+    }
+
+    /*
+     * IMPORTANT:
+     *
+     * nq = number of position coordinates.
+     * nv = number of velocity coordinates.
+     * njnt = number of joints.
+     * nu = number of actuators.
+     *
+     * The six free-joint boxes increase nq and nv, but do not add actuators.
+     *
+     * The ROS interface therefore publishes and accepts one value per
+     * actuator, using the joint associated with each actuator.
+     */
+
+    const int actuatorCount = _model->nu;
+
+    if (actuatorCount <= 0)
+    {
+        throw std::runtime_error(
+            "[MuJoCo NODE] The model does not contain any actuators.");
+    }
+
+    _jointStateMessage.name.resize(actuatorCount);
+    _jointStateMessage.position.resize(actuatorCount);
+    _jointStateMessage.velocity.resize(actuatorCount);
+    _jointStateMessage.effort.resize(actuatorCount);
+
+    _torqueInput.assign(actuatorCount, 0.0);
+
+    // Record the joint name associated with each actuator.
+
+    for (int i = 0; i < actuatorCount; ++i)
+    {
+        const int joint_id = get_actuator_joint_id(_model, i);
+
+        const char* jointName =
+            mj_id2name(_model, mjOBJ_JOINT, joint_id);
+
+        if (jointName == nullptr)
+        {
+            throw std::runtime_error(
+                "[MuJoCo NODE] An actuator's joint does not have a name.");
+        }
+
+        _jointStateMessage.name[i] = jointName;
+    }
+
+    // Set the control mode.
+
+    if (controlMode == "POSITION")
+    {
+        _controlMode = POSITION;
+    }
+    else if (controlMode == "VELOCITY")
+    {
+        _controlMode = VELOCITY;
+    }
+    else if (controlMode == "TORQUE")
+    {
+        _controlMode = TORQUE;
+    }
+    else
+    {
+        throw std::invalid_argument(
+            "[MuJoCo NODE] Unknown control mode. "
+            "Expected POSITION, VELOCITY, or TORQUE. Received: " +
+            controlMode);
+    }
+
+    // Create simulation and visualization timers.
+
+    _simTimer = this->create_wall_timer(
+        std::chrono::duration<double>(
+            1.0 / static_cast<double>(_simFrequency)),
+        std::bind(&MuJoCoROS::update_simulation, this));
+
+    _visTimer = this->create_wall_timer(
+        std::chrono::duration<double>(
+            1.0 / static_cast<double>(visualisationFrequency)),
+        std::bind(&MuJoCoROS::update_visualization, this));
+
+    // Create joint state publisher and command subscriber.
+
+    _jointCommandSubscriber =
+        this->create_subscription<std_msgs::msg::Float64MultiArray>(
+            jointCommandTopicName,
+            1,
+            std::bind(
+                &MuJoCoROS::joint_command_callback,
+                this,
+                std::placeholders::_1));
+
+    _jointStatePublisher =
+        this->create_publisher<sensor_msgs::msg::JointState>(
+            jointStateTopicName, 1);
+
+    // Initialize GLFW.
+
+    if (!glfwInit())
+    {
+        throw std::runtime_error(
+            "[MuJoCo NODE] Failed to initialize GLFW.");
+    }
+
+    _window = glfwCreateWindow(
+        1200,
+        900,
+        "MuJoCo Visualization",
+        nullptr,
+        nullptr);
+
+    if (_window == nullptr)
+    {
+        glfwTerminate();
+
+        throw std::runtime_error(
+            "[MuJoCo NODE] Failed to create GLFW window.");
+    }
+
+    // Make the OpenGL context current.
+
     glfwMakeContextCurrent(_window);
-    glfwSwapInterval(1);                    // NOTE TO SELF: CHECK THIS ARGUMENT
+    glfwSwapInterval(1);
 
-    // Initialize MuJoCo rendering context
+    // Initialize MuJoCo rendering structures.
+
     mjv_defaultCamera(&_camera);
     mjv_defaultOption(&_renderingOptions);
     mjv_defaultPerturb(&_perturbation);
     mjr_defaultContext(&_context);
+
     mjv_makeScene(_model, &_scene, 1000);
-    
-    // Declare & get parameters for camera, visualisation
-    _camera.azimuth      = this->declare_parameter<double>("camera_azimuth", 135);    
-    _camera.distance     = this->declare_parameter<double>("camera_distance", 2.5);
-    _camera.elevation    = this->declare_parameter<double>("camera_elevation", -35);
-    _camera.orthographic = this->declare_parameter<bool>("camera_orthographic", true);
-    
-    auto focalPoint = this->declare_parameter<std::vector<double>>("camera_focal_point", {0.0, 0.0, 0.5});
-    
-    for(int i = 0; i < 3; ++i) _camera.lookat[i] = focalPoint[i]; 
 
-    // Create MuJoCo rendering context
+    // Declare and retrieve camera parameters.
+
+    _camera.azimuth =
+        this->declare_parameter<double>("camera_azimuth", 135);
+
+    _camera.distance =
+        this->declare_parameter<double>("camera_distance", 2.5);
+
+    _camera.elevation =
+        this->declare_parameter<double>("camera_elevation", -35);
+
+    _camera.orthographic =
+        this->declare_parameter<bool>("camera_orthographic", true);
+
+    const auto focalPoint =
+        this->declare_parameter<std::vector<double>>(
+            "camera_focal_point",
+            {0.0, 0.0, 0.5});
+
+    if (focalPoint.size() != 3)
+    {
+        throw std::invalid_argument(
+            "[MuJoCo NODE] camera_focal_point must contain exactly 3 values.");
+    }
+
+    for (int i = 0; i < 3; ++i)
+    {
+        _camera.lookat[i] = focalPoint[i];
+    }
+
+    // Create the MuJoCo rendering context.
+
     glfwMakeContextCurrent(_window);
-    mjr_makeContext(_model, &_context, mjFONTSCALE_100);
-    
-    RCLCPP_INFO(this->get_logger(), "MuJoCo simulation initiated. "
-                                    "Publishing the joint state to '%s' topic. "
-                                    "Subscribing to joint %s commands via '%s' topic.",
-                                    jointStateTopicName.c_str(), controlMode.c_str(), jointCommandTopicName.c_str());
 
+    mjr_makeContext(
+        _model,
+        &_context,
+        mjFONTSCALE_100);
+
+    RCLCPP_INFO(
+        this->get_logger(),
+        "MuJoCo simulation initiated. "
+        "Publishing joint states to '%s'. "
+        "Subscribing to %s commands via '%s'. "
+        "Model dimensions: nq=%d, nv=%d, njnt=%d, nu=%d.",
+        jointStateTopicName.c_str(),
+        controlMode.c_str(),
+        jointCommandTopicName.c_str(),
+        _model->nq,
+        _model->nv,
+        _model->njnt,
+        _model->nu);
 }
 
-  ////////////////////////////////////////////////////////////////////////////////////////////////////
- //                                    Update the simulation                                       //
 ////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                    Update the simulation                                       //
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void MuJoCoROS::update_simulation()
 {
-    if (not _model and not _jointState)
+    if (_model == nullptr || _jointState == nullptr)
     {
-        RCLCPP_ERROR(this->get_logger(), "MuJoCo model or data is not initialized. How did that happen?");
+        RCLCPP_ERROR(
+            this->get_logger(),
+            "MuJoCo model or simulation data is not initialized.");
+
         return;
     }
+
+    // Apply torque commands.
 
     if (_controlMode == TORQUE)
     {
-        for (int i = 0; i < _model->nq; ++i)
+        for (int i = 0; i < _model->nu; ++i)
         {
-            _jointState->ctrl[i] = _torqueInput[i]                                                  // Transfer torque input
-                                 + _jointState->qfrc_bias[i]                                        // Compensate for gravity
-                                 - 0.01*_jointState->qvel[i];                                       // Add some damping
-                                 
-            _torqueInput[i] = 0.0;                                                                  // Clear value
+            const int joint_id = get_actuator_joint_id(_model, i);
+
+            const int dofAddress =
+                _model->jnt_dofadr[joint_id];
+
+            /*
+             * ctrl is indexed by actuator, not by joint DOF.
+             *
+             * qfrc_bias and qvel are indexed by generalized velocity DOF.
+             *
+             * This mapping is essential when free joints are present.
+             */
+
+            _jointState->ctrl[i] =
+                _torqueInput[i]
+                + _jointState->qfrc_bias[dofAddress]
+                - 0.01 * _jointState->qvel[dofAddress];
+
+            _torqueInput[i] = 0.0;
         }
     }
 
-    mj_step(_model, _jointState);                                                                   // Take a step in the simulation
+    // Advance the MuJoCo simulation.
 
-    // Add joint state data to ROS2 message
-    for (int i = 0; i < _model->nq; ++i)
+    mj_step(_model, _jointState);
+
+    // Publish state for actuated joints only.
+
+    for (int i = 0; i < _model->nu; ++i)
     {
-        _jointStateMessage.position[i] = _jointState->qpos[i];
-        _jointStateMessage.velocity[i] = _jointState->qvel[i];
-        _jointStateMessage.effort[i]   = _jointState->actuator_force[i];
+        const int joint_id = get_actuator_joint_id(_model, i);
+
+        const int qposAddress =
+            _model->jnt_qposadr[joint_id];
+
+        const int dofAddress =
+            _model->jnt_dofadr[joint_id];
+
+        _jointStateMessage.position[i] =
+            _jointState->qpos[qposAddress];
+
+        _jointStateMessage.velocity[i] =
+            _jointState->qvel[dofAddress];
+
+        _jointStateMessage.effort[i] =
+            _jointState->actuator_force[i];
     }
 
-    _jointStateMessage.header.stamp = this->get_clock()->now();                                     // Add current time stamp (for rqt)
-    
-    _jointStatePublisher->publish(_jointStateMessage);                                              // Publish the joint state message
+    _jointStateMessage.header.stamp =
+        this->get_clock()->now();
+
+    _jointStatePublisher->publish(_jointStateMessage);
 }
 
-  ////////////////////////////////////////////////////////////////////////////////////////////////////
- //                                    Handle joint commands                                       //
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-void
-MuJoCoROS::joint_command_callback(const std_msgs::msg::Float64MultiArray::SharedPtr msg)
+//                                    Handle joint commands                                       //
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void MuJoCoROS::joint_command_callback(
+    const std_msgs::msg::Float64MultiArray::SharedPtr msg)
 {
-    if (msg->data.size() != _model->nq)
+    if (_model == nullptr || _jointState == nullptr)
     {
-        RCLCPP_WARN_THROTTLE(this->get_logger(), *this->get_clock(), 5000,
-                             "Received joint command with incorrect size.");
+        RCLCPP_ERROR(
+            this->get_logger(),
+            "Cannot process commands: MuJoCo is not initialized.");
+
         return;
     }
-    else
+
+    // Expect exactly one command per actuator.
+
+    if (msg->data.size() != static_cast<size_t>(_model->nu))
     {
-        switch(_controlMode)
+        RCLCPP_WARN_THROTTLE(
+            this->get_logger(),
+            *this->get_clock(),
+            5000,
+            "Received %zu commands, but the model expects %d actuator commands.",
+            msg->data.size(),
+            _model->nu);
+
+        return;
+    }
+
+    switch (_controlMode)
+    {
+        case POSITION:
         {
-            case POSITION:
+            // Position actuator targets.
+
+            for (int i = 0; i < _model->nu; ++i)
             {
-                for(int i = 0; i < _model->nq; ++i)
-                {
-                    _jointState->ctrl[i] = msg->data[i];                                            // Assign control input directly
-                }
-                break;
+                _jointState->ctrl[i] = msg->data[i];
             }
-            case VELOCITY:
+
+            break;
+        }
+
+        case VELOCITY:
+        {
+            /*
+             * Preserve the original velocity-control behavior:
+             * integrate velocity commands into position actuator targets.
+             */
+
+            for (int i = 0; i < _model->nu; ++i)
             {
-                for(int i = 0; i < _model->nq; ++i)
-                {
-                    _jointState->ctrl[i] += msg->data[i] / (double)_simFrequency;                   // Integrate velocity to position level
-                }
-                break;
+                _jointState->ctrl[i] +=
+                    msg->data[i] / static_cast<double>(_simFrequency);
             }
-            case TORQUE:
+
+            break;
+        }
+
+        case TORQUE:
+        {
+            // Store one torque command per actuator.
+
+            for (int i = 0; i < _model->nu; ++i)
             {
-                for(int i = 0; i < _model->nq; ++i)
-                {
-                    _torqueInput[i] = msg->data[i];
-                }
-                break;
+                _torqueInput[i] = msg->data[i];
             }
-            default:
-            {
-                RCLCPP_WARN_THROTTLE(this->get_logger(), *this->get_clock(), 5000,
-                                     "Unknown control mode. Unable to set joint commands.");
-                break;
-            }
+
+            break;
+        }
+
+        default:
+        {
+            RCLCPP_WARN_THROTTLE(
+                this->get_logger(),
+                *this->get_clock(),
+                5000,
+                "Unknown control mode. Unable to set joint commands.");
+
+            break;
         }
     }
 }
 
-  ////////////////////////////////////////////////////////////////////////////////////////////////////
- //                                    Update the 3D simulation                                    //
 ////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                    Update the 3D simulation                                    //
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void MuJoCoROS::update_visualization()
 {
-    glfwMakeContextCurrent(_window);                                                                // Ensure OpenGL context is current
-    
-    mjv_updateScene(_model, _jointState, &_renderingOptions, NULL, &_camera, mjCAT_ALL, &_scene);   // Update 3D rendering
+    if (_model == nullptr ||
+        _jointState == nullptr ||
+        _window == nullptr)
+    {
+        return;
+    }
 
-    // Get framebuffer size
-    int width, height;
+    glfwMakeContextCurrent(_window);
+
+    mjv_updateScene(
+        _model,
+        _jointState,
+        &_renderingOptions,
+        nullptr,
+        &_camera,
+        mjCAT_ALL,
+        &_scene);
+
+    // Get framebuffer dimensions.
+
+    int width = 0;
+    int height = 0;
+
     glfwGetFramebufferSize(_window, &width, &height);
-    mjrRect viewport = {0, 0, width, height};
 
-    mjr_render(viewport, &_scene, &_context); // Render scene
-    
-    // Swap buffers and process events
+    if (width <= 0 || height <= 0)
+    {
+        glfwPollEvents();
+        return;
+    }
+
+    const mjrRect viewport = {0, 0, width, height};
+
+    // Render the scene.
+
+    mjr_render(
+        viewport,
+        &_scene,
+        &_context);
+
+    // Swap buffers and process events.
+
     glfwSwapBuffers(_window);
     glfwPollEvents();
 }
 
-  ////////////////////////////////////////////////////////////////////////////////////////////////////
- //                                           Destructor                                           //
 ////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                           Destructor                                           //
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 MuJoCoROS::~MuJoCoROS()
 {
-    mj_deleteData(_jointState);
-    mj_deleteModel(_model);
+    // Release MuJoCo simulation data.
+
+    if (_jointState != nullptr)
+    {
+        mj_deleteData(_jointState);
+        _jointState = nullptr;
+    }
+
+    if (_model != nullptr)
+    {
+        mj_deleteModel(_model);
+        _model = nullptr;
+    }
+
+    // Release rendering resources.
+
     mjv_freeScene(&_scene);
     mjr_freeContext(&_context);
-    glfwDestroyWindow(_window);
+
+    // Release GLFW resources.
+
+    if (_window != nullptr)
+    {
+        glfwDestroyWindow(_window);
+        _window = nullptr;
+    }
+
     glfwTerminate();
-}     
+}

@@ -1,0 +1,97 @@
+[0.013s] Invoking command in '/home/landau/Documents/projects/robotics/robotics/Milestone 03/build/mujoco_ros2': DEBUGINFOD_URLS=ima:enforcing https://debuginfod.fedoraproject.org/ ima:ignore _=/usr/bin/env /usr/bin/cmake /home/landau/Documents/projects/robotics/robotics/Milestone 03/Project Files/src -DCMAKE_INSTALL_PREFIX=/home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2
+[0.024s] [0mCMake Deprecation Warning at CMakeLists.txt:4 (cmake_minimum_required):
+[0.024s]   Compatibility with CMake < 3.10 will be removed from a future version of
+[0.024s]   CMake.
+[0.024s] 
+[0.024s]   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+[0.024s]   to tell CMake that the project requires at least <min> but has been updated
+[0.024s]   to work with policies introduced by <max> or earlier.
+[0.024s] 
+[0.024s] [0m
+[0.029s] -- Found ament_cmake: 2.5.6 (/usr/lib64/ros2-jazzy/share/ament_cmake/cmake)
+[0.218s] -- Found rclcpp: 28.1.22 (/usr/lib64/ros2-jazzy/share/rclcpp/cmake)
+[0.244s] -- Found rosidl_generator_c: 4.6.9 (/usr/lib64/ros2-jazzy/share/rosidl_generator_c/cmake)
+[0.253s] -- Found rosidl_generator_cpp: 4.6.9 (/usr/lib64/ros2-jazzy/share/rosidl_generator_cpp/cmake)
+[0.263s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.276s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.322s] -- Found rmw_implementation_cmake: 7.3.4 (/usr/lib64/ros2-jazzy/share/rmw_implementation_cmake/cmake)
+[0.323s] -- Found rmw_fastrtps_cpp: 8.4.4 (/usr/lib64/ros2-jazzy/share/rmw_fastrtps_cpp/cmake)
+[0.430s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.480s] -- Found sensor_msgs: 5.3.8 (/usr/lib64/ros2-jazzy/share/sensor_msgs/cmake)
+[0.598s] -- Configuring done (0.6s)
+[0.613s] -- Generating done (0.0s)
+[0.636s] -- Build files have been written to: /home/landau/Documents/projects/robotics/robotics/Milestone 03/build/mujoco_ros2
+[0.644s] Invoked command in '/home/landau/Documents/projects/robotics/robotics/Milestone 03/build/mujoco_ros2' returned '0': DEBUGINFOD_URLS=ima:enforcing https://debuginfod.fedoraproject.org/ ima:ignore _=/usr/bin/env /usr/bin/cmake /home/landau/Documents/projects/robotics/robotics/Milestone 03/Project Files/src -DCMAKE_INSTALL_PREFIX=/home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2
+[0.645s] Invoking command in '/home/landau/Documents/projects/robotics/robotics/Milestone 03/build/mujoco_ros2': DEBUGINFOD_URLS=ima:enforcing https://debuginfod.fedoraproject.org/ ima:ignore _=/usr/bin/env /usr/bin/cmake --build /home/landau/Documents/projects/robotics/robotics/Milestone 03/build/mujoco_ros2 -- -j16 -l16
+[0.699s] [ 33%] [32mBuilding CXX object CMakeFiles/mujoco_node.dir/src/nodes/mujoco_node.cpp.o[0m
+[0.699s] [ 66%] [32mBuilding CXX object CMakeFiles/mujoco_node.dir/src/mujoco_ros.cpp.o[0m
+[6.183s] [100%] [1m[32mLinking CXX executable mujoco_node[0m
+[6.444s] [100%] Built target mujoco_node
+[6.456s] Invoked command in '/home/landau/Documents/projects/robotics/robotics/Milestone 03/build/mujoco_ros2' returned '0': DEBUGINFOD_URLS=ima:enforcing https://debuginfod.fedoraproject.org/ ima:ignore _=/usr/bin/env /usr/bin/cmake --build /home/landau/Documents/projects/robotics/robotics/Milestone 03/build/mujoco_ros2 -- -j16 -l16
+[6.465s] Invoking command in '/home/landau/Documents/projects/robotics/robotics/Milestone 03/build/mujoco_ros2': DEBUGINFOD_URLS=ima:enforcing https://debuginfod.fedoraproject.org/ ima:ignore _=/usr/bin/env /usr/bin/cmake --install /home/landau/Documents/projects/robotics/robotics/Milestone 03/build/mujoco_ros2
+[6.473s] -- Install configuration: ""
+[6.473s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/lib/mujoco_ros2/mujoco_node
+[6.480s] -- Set non-toolchain portion of runtime path of "/home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/lib/mujoco_ros2/mujoco_node" to ""
+[6.480s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/launch
+[6.480s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/launch/example.py
+[6.481s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/model
+[6.481s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/model/scene.xml
+[6.481s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/model/two_link_planar.xml
+[6.481s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6
+[6.481s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/CHANGELOG.md
+[6.481s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/LICENSE
+[6.481s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/README.md
+[6.482s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets
+[6.482s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/collision
+[6.482s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/collision/gripper_lite_body.stl
+[6.482s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/collision/gripper_lite_left_finger_wide_base.stl
+[6.482s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/collision/gripper_lite_left_finger_wide_tip.stl
+[6.482s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/collision/gripper_lite_right_finger_wide_base.stl
+[6.482s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/collision/gripper_lite_right_finger_wide_tip.stl
+[6.482s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/collision/link1.stl
+[6.482s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/collision/link2.stl
+[6.482s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/collision/link3.stl
+[6.482s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/collision/link4.stl
+[6.482s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/collision/link5.stl
+[6.482s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/collision/link6.stl
+[6.483s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/collision/link_base.stl
+[6.483s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/collision/vacuum_gripper_lite.stl
+[6.483s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/visual
+[6.483s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/visual/gripper_lite_body.stl
+[6.483s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/visual/gripper_lite_left_finger_narrow.stl
+[6.483s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/visual/gripper_lite_left_finger_wide.stl
+[6.483s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/visual/gripper_lite_right_finger_narrow.stl
+[6.483s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/visual/gripper_lite_right_finger_wide.stl
+[6.483s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/visual/link1.stl
+[6.483s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/visual/link2.stl
+[6.483s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/visual/link3.stl
+[6.483s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/visual/link4.stl
+[6.483s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/visual/link5.stl
+[6.483s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/visual/link6.stl
+[6.483s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/visual/link_base.stl
+[6.484s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/assets/visual/vacuum_gripper_lite.stl
+[6.484s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/lite6.png
+[6.484s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/lite6.xml
+[6.484s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/lite6_gripper_narrow.xml
+[6.484s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/lite6_gripper_narrow_closed.png
+[6.484s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/lite6_gripper_narrow_open.png
+[6.484s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/lite6_gripper_wide.xml
+[6.484s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/lite6_gripper_wide_closed.png
+[6.484s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/lite6_gripper_wide_open.png
+[6.484s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/model/ufactory_lite6/scene.xml
+[6.484s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/ament_index/resource_index/package_run_dependencies/mujoco_ros2
+[6.484s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/ament_index/resource_index/parent_prefix_path/mujoco_ros2
+[6.484s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/environment/ament_prefix_path.sh
+[6.484s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/environment/ament_prefix_path.dsv
+[6.484s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/environment/path.sh
+[6.485s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/environment/path.dsv
+[6.485s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/local_setup.bash
+[6.485s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/local_setup.sh
+[6.485s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/local_setup.zsh
+[6.485s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/local_setup.dsv
+[6.485s] -- Up-to-date: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/package.dsv
+[6.485s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/ament_index/resource_index/packages/mujoco_ros2
+[6.485s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/cmake/mujoco_ros2Config.cmake
+[6.485s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/cmake/mujoco_ros2Config-version.cmake
+[6.485s] -- Installing: /home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2/share/mujoco_ros2/package.xml
+[6.487s] Invoked command in '/home/landau/Documents/projects/robotics/robotics/Milestone 03/build/mujoco_ros2' returned '0': DEBUGINFOD_URLS=ima:enforcing https://debuginfod.fedoraproject.org/ ima:ignore _=/usr/bin/env /usr/bin/cmake --install /home/landau/Documents/projects/robotics/robotics/Milestone 03/build/mujoco_ros2

@@ -1,0 +1,1 @@
+ament_cmake_symlink_install_targets("TARGET_FILES" "/home/landau/Documents/projects/robotics/robotics/Milestone 03/Project Files/build/mujoco_ros2/mujoco_node" "TARGETS" "mujoco_node" "DESTINATION" "lib/mujoco_ros2")

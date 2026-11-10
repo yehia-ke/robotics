@@ -1,0 +1,67 @@
+[0.012s] Invoking command in '/home/landau/Documents/projects/robotics/robotics/Milestone 03/build/mujoco_ros2': DEBUGINFOD_URLS=ima:enforcing https://debuginfod.fedoraproject.org/ ima:ignore _=/usr/bin/env /usr/bin/cmake /home/landau/Documents/projects/robotics/robotics/Milestone 03/Project Files/src -DMUJOCO_DIR=/home/landau/.mujoco/mujoco-4.0.0 -DCMAKE_INSTALL_PREFIX=/home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2
+[0.022s] [0mCMake Deprecation Warning at CMakeLists.txt:4 (cmake_minimum_required):
+[0.023s]   Compatibility with CMake < 3.10 will be removed from a future version of
+[0.023s]   CMake.
+[0.023s] 
+[0.023s]   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+[0.023s]   to tell CMake that the project requires at least <min> but has been updated
+[0.023s]   to work with policies introduced by <max> or earlier.
+[0.023s] 
+[0.023s] [0m
+[0.066s] -- The C compiler identification is GNU 16.2.1
+[0.147s] -- The CXX compiler identification is GNU 16.2.1
+[0.154s] -- Detecting C compiler ABI info
+[0.233s] -- Detecting C compiler ABI info - done
+[0.244s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.244s] -- Detecting C compile features
+[0.245s] -- Detecting C compile features - done
+[0.257s] -- Detecting CXX compiler ABI info
+[0.366s] -- Detecting CXX compiler ABI info - done
+[0.379s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.379s] -- Detecting CXX compile features
+[0.379s] -- Detecting CXX compile features - done
+[0.389s] -- Found ament_cmake: 2.5.6 (/usr/lib64/ros2-jazzy/share/ament_cmake/cmake)
+[0.608s] -- Found Python3: /usr/bin/python3 (found version "3.14.8") found components: Interpreter
+[0.738s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[0.822s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[0.823s] -- Found Threads: TRUE
+[0.827s] -- Found rclcpp: 28.1.22 (/usr/lib64/ros2-jazzy/share/rclcpp/cmake)
+[0.869s] -- Found rosidl_generator_c: 4.6.9 (/usr/lib64/ros2-jazzy/share/rosidl_generator_c/cmake)
+[0.884s] -- Found rosidl_generator_cpp: 4.6.9 (/usr/lib64/ros2-jazzy/share/rosidl_generator_cpp/cmake)
+[0.902s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.921s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.992s] -- Found rmw_implementation_cmake: 7.3.4 (/usr/lib64/ros2-jazzy/share/rmw_implementation_cmake/cmake)
+[0.995s] -- Found rmw_fastrtps_cpp: 8.4.4 (/usr/lib64/ros2-jazzy/share/rmw_fastrtps_cpp/cmake)
+[1.321s] -- Found OpenSSL: /usr/lib64/libcrypto.so (found version "3.5.9")
+[1.356s] -- Found FastRTPS: /usr/lib64/ros2-jazzy/include (Required is at least version "2.13")
+[1.402s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.471s] -- Found sensor_msgs: 5.3.8 (/usr/lib64/ros2-jazzy/share/sensor_msgs/cmake)
+[1.586s] -- Configuring done (1.6s)
+[1.597s] -- Generating done (0.0s)
+[1.597s] [33mCMake Warning:
+[1.597s]   Manually-specified variables were not used by the project:
+[1.598s] 
+[1.598s]     MUJOCO_DIR
+[1.598s] 
+[1.598s] [0m
+[1.622s] -- Build files have been written to: /home/landau/Documents/projects/robotics/robotics/Milestone 03/build/mujoco_ros2
+[1.632s] Invoked command in '/home/landau/Documents/projects/robotics/robotics/Milestone 03/build/mujoco_ros2' returned '0': DEBUGINFOD_URLS=ima:enforcing https://debuginfod.fedoraproject.org/ ima:ignore _=/usr/bin/env /usr/bin/cmake /home/landau/Documents/projects/robotics/robotics/Milestone 03/Project Files/src -DMUJOCO_DIR=/home/landau/.mujoco/mujoco-4.0.0 -DCMAKE_INSTALL_PREFIX=/home/landau/Documents/projects/robotics/robotics/Milestone 03/install/mujoco_ros2
+[1.633s] Invoking command in '/home/landau/Documents/projects/robotics/robotics/Milestone 03/build/mujoco_ros2': DEBUGINFOD_URLS=ima:enforcing https://debuginfod.fedoraproject.org/ ima:ignore _=/usr/bin/env /usr/bin/cmake --build /home/landau/Documents/projects/robotics/robotics/Milestone 03/build/mujoco_ros2 -- -j16 -l16
+[1.690s] [ 66%] [32mBuilding CXX object CMakeFiles/mujoco_node.dir/src/mujoco_ros.cpp.o[0m
+[1.690s] [ 66%] [32mBuilding CXX object CMakeFiles/mujoco_node.dir/src/nodes/mujoco_node.cpp.o[0m
+[1.788s] In file included from [01m[K/home/landau/Documents/projects/robotics/robotics/Milestone 03/Project Files/src/src/nodes/mujoco_node.cpp:19[m[K:
+[1.788s] [01m[K/home/landau/Documents/projects/robotics/robotics/Milestone 03/Project Files/src/include/mujoco_ros2/mujoco_ros.hpp:24:10:[m[K [01;31m[Kfatal error: [m[Kmujoco/mujoco.h: No such file or directory
+[1.788s]    24 | #include [01;31m[K<mujoco/mujoco.h>[m[K                                                                          // Dynamic simulation library
+[1.788s]       |          [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+[1.788s] compilation terminated.
+[1.789s] gmake[2]: *** [CMakeFiles/mujoco_node.dir/build.make:79: CMakeFiles/mujoco_node.dir/src/nodes/mujoco_node.cpp.o] Error 1
+[1.789s] gmake[2]: *** Waiting for unfinished jobs....
+[1.791s] In file included from [01m[K/home/landau/Documents/projects/robotics/robotics/Milestone 03/Project Files/src/src/mujoco_ros.cpp:19[m[K:
+[1.791s] [01m[K/home/landau/Documents/projects/robotics/robotics/Milestone 03/Project Files/src/include/mujoco_ros2/mujoco_ros.hpp:24:10:[m[K [01;31m[Kfatal error: [m[Kmujoco/mujoco.h: No such file or directory
+[1.791s]    24 | #include [01;31m[K<mujoco/mujoco.h>[m[K                                                                          // Dynamic simulation library
+[1.791s]       |          [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+[1.792s] compilation terminated.
+[1.792s] gmake[2]: *** [CMakeFiles/mujoco_node.dir/build.make:93: CMakeFiles/mujoco_node.dir/src/mujoco_ros.cpp.o] Error 1
+[1.793s] gmake[1]: *** [CMakeFiles/Makefile2:153: CMakeFiles/mujoco_node.dir/all] Error 2
+[1.793s] gmake: *** [Makefile:146: all] Error 2
+[1.795s] Invoked command in '/home/landau/Documents/projects/robotics/robotics/Milestone 03/build/mujoco_ros2' returned '2': DEBUGINFOD_URLS=ima:enforcing https://debuginfod.fedoraproject.org/ ima:ignore _=/usr/bin/env /usr/bin/cmake --build /home/landau/Documents/projects/robotics/robotics/Milestone 03/build/mujoco_ros2 -- -j16 -l16
