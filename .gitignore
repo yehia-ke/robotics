@@ -2,3 +2,12 @@
 .vscode/*.db*
 
 /src/CMakeLists.txt
+# colcon / CMake build outputs and Python caches (anywhere in the repo)
+build/
+install/
+log/
+__pycache__/
+*.pyc
+MUJOCO_LOG.TXT
+# Milestone 4 raw controller logs (regenerate with run_task.py; figures + summary.md are kept)
+Milestone 04/Project Files/validation/runs/
